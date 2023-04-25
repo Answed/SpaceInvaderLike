@@ -203,6 +203,54 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Player Controls
       m_Flags: 8
+    - m_Name: ArrowKeys
+      m_Id: 50f8ac55-096c-4e56-880d-1dbeed31417a
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 6f2f8c48-7f7b-4c5f-898c-0026039f93a7
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: down
+      m_Id: cb699fe2-9f04-47e6-83b0-cff0c87696ba
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 341e033e-2907-4477-bfc9-d26c2ea82afc
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 78da4a02-1ee0-4439-8014-c81391f4687d
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: 
+      m_Id: 5febaa4b-4863-4dad-bc23-1a9d3aa18715
+      m_Path: <Gamepad>/leftStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 0
     m_Flags: 0
 --- !u!50 &502713241
 Rigidbody2D:

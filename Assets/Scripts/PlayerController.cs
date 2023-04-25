@@ -8,7 +8,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
-    private InputAction playerControls;
+    private InputAction playerMovement;
+    [SerializeField]
+    private InputAction playerAttack;
+
 
     private Rigidbody2D rb2D;
 
@@ -16,11 +19,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        playerControls.Enable();
+        playerMovement.Enable();
+        playerAttack.Enable();
+        playerAttack.performed += Fire;
     }
     private void OnDisable()
     {
-        playerControls.Disable();
+        playerMovement.Disable();
+        playerAttack.Disable();
     }
 
     // Start is called before the first frame update
@@ -32,11 +38,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirection = playerControls.ReadValue<Vector2>();
+        moveDirection = playerMovement.ReadValue<Vector2>();
     }
 
     private void FixedUpdate()
     {
         rb2D.AddForce(moveDirection * speed);
+    }
+
+    private void Fire(InputAction.CallbackContext context)
+    {
+        Debug.Log("Fired");
     }
 }

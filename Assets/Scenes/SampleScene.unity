@@ -155,101 +155,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  playerControls:
-    m_Name: Player Controls
+  playerMovement:
+    m_Name: Player Movement
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 3ec4d9ba-055e-4adf-965b-29036b500447
+    m_Id: ec70484e-a3b9-4391-bc12-cdd48dc76a0a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  playerAttack:
+    m_Name: Player Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e97661fe-d4c0-4885-bcfd-f438ca287869
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: WASD
-      m_Id: 942cdd86-00f0-45b5-acb7-1e65abd5ca5f
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 4
-    - m_Name: up
-      m_Id: ce463a18-7db1-4dc1-82bc-0e754945687a
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: down
-      m_Id: af586a86-1b01-4b21-ac91-25d6476f7af5
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: left
-      m_Id: e37644ec-7a73-4339-b6a4-6a7d2e415456
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 8ee18831-e795-4a34-9304-191b76969f19
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: ArrowKeys
-      m_Id: 50f8ac55-096c-4e56-880d-1dbeed31417a
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 6f2f8c48-7f7b-4c5f-898c-0026039f93a7
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: down
-      m_Id: cb699fe2-9f04-47e6-83b0-cff0c87696ba
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 341e033e-2907-4477-bfc9-d26c2ea82afc
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 78da4a02-1ee0-4439-8014-c81391f4687d
-      m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Controls
-      m_Flags: 8
     - m_Name: 
-      m_Id: 5febaa4b-4863-4dad-bc23-1a9d3aa18715
-      m_Path: <Gamepad>/leftStick
+      m_Id: f6f4e20f-195e-4c40-9328-d133ceb21435
+      m_Path: <Keyboard>/space
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
+      m_Action: Player Attack
+      m_Flags: 0
+    - m_Name: 
+      m_Id: cee58dd5-9a61-48fc-8f5c-d4ea6979bd00
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Attack
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 08f9f4f5-c7a7-43d6-97d3-806ff7c10ff3
+      m_Path: <Gamepad>/rightShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Attack
       m_Flags: 0
     m_Flags: 0
 --- !u!50 &502713241
@@ -424,3 +369,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7348110149056511478
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7348110148538499606, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348110148538499606, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.027662901
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348110148538499606, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348110148538499606, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348110148538499606, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348110148538499606, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348110148538499606, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348110148538499606, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348110148538499606, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348110148538499606, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348110148538499606, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7348110148538499626, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+      propertyPath: m_Name
+      value: Bullet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}

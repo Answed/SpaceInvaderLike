@@ -5,17 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float speed;
-    [SerializeField]
-    private InputAction playerMovement;
-    [SerializeField]
-    private InputAction playerAttack;
-
+    [SerializeField] private float speed;
+    [SerializeField] private float timeBtwAttack;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private InputAction playerMovement;
+    [SerializeField] private InputAction playerAttack;
 
     private Rigidbody2D rb2D;
 
     private Vector2 moveDirection;
+    private float nextAttack;
 
     private void OnEnable()
     {
@@ -48,6 +47,10 @@ public class PlayerController : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
-        Debug.Log("Fired");
+        if(nextAttack < Time.time)
+        {
+            nextAttack = Time.time + timeBtwAttack;
+            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        }
     }
 }

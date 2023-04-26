@@ -10,20 +10,23 @@ public class GameManager : MonoBehaviour
 
     private WaveSpawner waveSpawner;
 
+    private float nextWave;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        waveSpawner = GetComponent<WaveSpawner>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (nextWave <= Time.time)
+        {
+            wave++;
+            nextWave = Time.time + timeBtwWave;
+            waveSpawner.SpawnWave(wave);
+        }
     }
 
-    private void SpawnWave()
-    {
-
-    }
 }

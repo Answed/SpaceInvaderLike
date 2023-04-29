@@ -8,8 +8,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private GameObject bulletPrefab;
 
-
-
     private int currentHealth;
 
     // Start is called before the first frame update
@@ -24,5 +22,12 @@ public class EnemyController : MonoBehaviour
         transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
+    }
 }

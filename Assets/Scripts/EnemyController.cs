@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] private float speed;
+    [SerializeField] private int maxHealth;
+    [SerializeField] private GameObject bulletPrefab;
+
+
+
+    private int currentHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +21,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
+
+
 }

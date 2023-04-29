@@ -823,9 +823,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2edac451927b4349859bc6fda4b22fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   maxHealth: 10
-  bulletPrefab: {fileID: 7348110148538499626, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+  timeBtwShots: 1.5
+  bulletPrefab: {fileID: 6559975636858161924, guid: 326eb840e6d84d545bc79d30107f280d, type: 3}
 --- !u!61 &1509102102
 BoxCollider2D:
   m_ObjectHideFlags: 0

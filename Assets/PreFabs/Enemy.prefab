@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4323080205752519717}
   - component: {fileID: 4323080205752519712}
   - component: {fileID: 4323080205752519715}
+  - component: {fileID: -2611521367726065913}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -128,3 +129,24 @@ MonoBehaviour:
   maxHealth: 10
   timeBtwShots: 1.5
   bulletPrefab: {fileID: 6559975636858161924, guid: 326eb840e6d84d545bc79d30107f280d, type: 3}
+--- !u!50 &-2611521367726065913
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323080205752519716}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

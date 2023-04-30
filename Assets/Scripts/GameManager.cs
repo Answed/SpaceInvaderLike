@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (nextWave <= Time.time)
+        GameObject[] enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (enemiesLeft.Length == 0 && nextWave <= Time.time)
         {
             wave++;
             nextWave = Time.time + timeBtwWave;

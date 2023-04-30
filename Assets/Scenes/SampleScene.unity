@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave: 0
-  timeBtwWave: 10
+  timeBtwWave: 5
 --- !u!4 &394153708
 Transform:
   m_ObjectHideFlags: 0

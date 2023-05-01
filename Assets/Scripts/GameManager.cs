@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private WaveSpawner waveSpawner;
 
     private float nextWave;
+    private bool nextWaveSpawned;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +24,18 @@ public class GameManager : MonoBehaviour
     {
         GameObject[] enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy");
 
-        if (enemiesLeft.Length == 0 && nextWave <= Time.time)
+        if (enemiesLeft.Length == 0 && !nextWaveSpawned)
         {
-            wave++;
-            nextWave = Time.time + timeBtwWave;
-            waveSpawner.SpawnWave(wave);
+            nextWaveSpawned = true;
+            StartCoroutine(SpawnWaveAfterTime());
         }
     }
 
+    IEnumerator SpawnWaveAfterTime()
+    {
+        yield return new WaitForSeconds(nextWave);
+        wave++;
+        waveSpawner.SpawnWave(wave);
+        nextWaveSpawned = false;
+    }
 }

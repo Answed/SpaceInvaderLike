@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private WaveSpawner waveSpawner;
 
     private float nextWave;
-    private bool nextWaveSpawned;
+    public bool nextWaveSpawned;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +36,5 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(timeBtwWave);
         wave++;
         waveSpawner.SpawnWave(wave);
-        nextWaveSpawned = false;
     }
 }

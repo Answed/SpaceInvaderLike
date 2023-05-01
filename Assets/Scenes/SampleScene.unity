@@ -156,6 +156,7 @@ MonoBehaviour:
   enemies: {fileID: 4323080205752519716, guid: 87a54dde64302dc4397d02766d061686, type: 3}
   obstacles: {fileID: 3010185066025315523, guid: fc7e47b8093fcba47ae31925489aa4b6, type: 3}
   spawnHeight: 13
+  timeBtwSpawns: 0.5
   spawnWidth: {x: -13, y: 13}
 --- !u!114 &394153707
 MonoBehaviour:
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave: 0
   timeBtwWave: 5
+  nextWaveSpawned: 0
 --- !u!4 &394153708
 Transform:
   m_ObjectHideFlags: 0

@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnWaveAfterTime()
     {
-        yield return new WaitForSeconds(nextWave);
+        yield return new WaitForSeconds(timeBtwWave);
         wave++;
         waveSpawner.SpawnWave(wave);
         nextWaveSpawned = false;

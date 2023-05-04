@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float timeBtwAttack;
+    [SerializeField] private int maxHealth;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private InputAction playerMovement;
     [SerializeField] private InputAction playerAttack;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveDirection;
     private float nextAttack;
+    private int currentHealth;
 
     private void OnEnable()
     {
@@ -51,6 +53,14 @@ public class PlayerController : MonoBehaviour
         {
             nextAttack = Time.time + timeBtwAttack;
             Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        }
+    }
+
+    private oid OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("EBullet")
+        {
+            currentHealth--;
         }
     }
 }

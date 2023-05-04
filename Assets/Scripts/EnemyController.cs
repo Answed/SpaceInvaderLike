@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -31,6 +32,9 @@ public class EnemyController : MonoBehaviour
             nextAttack = Time.time + timeBtwShots;
             Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
         }
+
+        if(currentHealth == 0)
+            Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,8 +42,8 @@ public class EnemyController : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             gameManager.UpDateScore(scoreValue);
-            Destroy(gameObject);
             Destroy(collision.gameObject);
+            currentHealth--;
         }
     }
 }

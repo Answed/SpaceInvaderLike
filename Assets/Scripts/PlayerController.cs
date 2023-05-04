@@ -57,11 +57,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private oid OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("EBullet")
-        {
+        if (collision.CompareTag("EBullet"))
             currentHealth--;
-        }
+        
     }
 }

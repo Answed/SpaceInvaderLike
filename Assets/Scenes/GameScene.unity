@@ -173,7 +173,25 @@ MonoBehaviour:
   wave: 0
   timeBtwWave: 5
   scoreText: {fileID: 405898162}
+  startGame:
+    m_Name: Start Game
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 0ffe1296-ffa3-4d7a-8582-13cb78de0827
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 408c268f-6a70-452b-8323-093f04a3cdb8
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Start Game
+      m_Flags: 0
+    m_Flags: 1
   nextWaveSpawned: 0
+  gameStarted: 0
 --- !u!4 &394153708
 Transform:
   m_ObjectHideFlags: 0
@@ -358,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   timeBtwAttack: 0.25
+  maxHealth: 0
   bulletPrefab: {fileID: 7348110148538499626, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
   playerMovement:
     m_Name: Player Movement

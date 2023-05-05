@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 1
   speed: 3
-  maxHealth: 10
+  maxHealth: 2
   timeBtwShots: 1.5
   bulletPrefab: {fileID: 6559975636858161924, guid: 326eb840e6d84d545bc79d30107f280d, type: 3}
 --- !u!50 &-2611521367726065913

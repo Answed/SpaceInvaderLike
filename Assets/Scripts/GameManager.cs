@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -9,29 +10,34 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float timeBtwWave;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private InputAction startGame;
 
     private WaveSpawner waveSpawner;
 
     private float nextWave;
     private int score;
     public bool nextWaveSpawned;
+    public bool gameStarted;
 
+    private void OnEnable()
+    {
+        startGame.Enable();
+        startGame.performed += StartGame;
+    }
     // Start is called before the first frame update
     void Start()
     {
         waveSpawner = GetComponent<WaveSpawner>();
         scoreText.text = "Score: 0";
+        gameStarted = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject[] enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy");
-
-        if (enemiesLeft.Length == 0 && !nextWaveSpawned)
+        if(gameStarted)
         {
-            nextWaveSpawned = true;
-            StartCoroutine(SpawnWaveAfterTime());
+            WaveManager();
         }
     }
     
@@ -41,6 +47,25 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
+    //Checks if all enemies on screen have died and then spawns the next wave after some time.
+    private void WaveManager()
+    {
+        GameObject[] enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemiesLeft.Length == 0 && !nextWaveSpawned)
+        {
+            nextWaveSpawned = true;
+            StartCoroutine(SpawnWaveAfterTime());
+        }
+    }
+    
+    private void StartGame(InputAction.CallbackContext context)
+    {
+        gameStarted = true;
+        Debug.Log("Game Started");
+        startGame.Disable();
+    }
+
+    // Gives the player a moment to breath before the next wave starts
     IEnumerator SpawnWaveAfterTime()
     {
         yield return new WaitForSeconds(timeBtwWave);

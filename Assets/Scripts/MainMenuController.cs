@@ -36,6 +36,13 @@ public class MainMenuController : MonoBehaviour
         currentWindow = Window.Credits;
     }
 
+    public void Settings()
+    {
+        DisableGameObjects(mainMenuButtons);
+        titleText.text = "Settings";
+        currentWindow = Window.Settings;
+    }
+
     public void Back()
     {
         switch(currentWindow)

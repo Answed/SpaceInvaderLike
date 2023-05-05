@@ -54,6 +54,7 @@ public class MainMenuController : MonoBehaviour
                 SwitchWindow(settingsObjects, mainMenuButtons);
                 break;
         }
+        titleText.text = "Space Invader Like";
     }
 
     public void CloseGame()

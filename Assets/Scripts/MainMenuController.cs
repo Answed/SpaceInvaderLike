@@ -58,6 +58,11 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
+
     private void DisableGameObjects(GameObject[] objects)
     {
         foreach (GameObject _object in objects) _object.SetActive(false);  //_object because in C# object can't be the name of a variable

@@ -31,14 +31,14 @@ public class MainMenuController : MonoBehaviour
 
     public void Credits()
     {
-        DisableGameObjects(mainMenuButtons);
+        SwitchWindow(mainMenuButtons, creditsObjects);
         titleText.text = "Credits";
         currentWindow = Window.Credits;
     }
 
     public void Settings()
     {
-        DisableGameObjects(mainMenuButtons);
+        SwitchWindow(mainMenuButtons, settingsObjects);
         titleText.text = "Settings";
         currentWindow = Window.Settings;
     }
@@ -48,12 +48,10 @@ public class MainMenuController : MonoBehaviour
         switch(currentWindow)
         {
             case Window.Credits:
-                DisableGameObjects(creditsObjects);
-                EnableGameObjects(mainMenuButtons);
+                SwitchWindow(creditsObjects, mainMenuButtons);
                 break;
             case Window.Settings:
-                DisableGameObjects(settingsObjects);
-                EnableGameObjects(mainMenuButtons);
+                SwitchWindow(settingsObjects, mainMenuButtons);
                 break;
         }
     }
@@ -61,6 +59,12 @@ public class MainMenuController : MonoBehaviour
     public void CloseGame()
     {
         Application.Quit();
+    }
+
+    private void SwitchWindow(GameObject[] disableWindowObjects, GameObject[] enableWindowObjects)
+    {
+        DisableGameObjects(disableWindowObjects);
+        EnableGameObjects(enableWindowObjects);
     }
 
     private void DisableGameObjects(GameObject[] objects)

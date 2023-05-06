@@ -183,7 +183,15 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 408c268f-6a70-452b-8323-093f04a3cdb8
-      m_Path: <Keyboard>/space
+      m_Path: <Keyboard>/anyKey
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Start Game
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 6021cb08-ce6e-4af3-8f6f-b5b3af9e2a46
+      m_Path: 
       m_Interactions: 
       m_Processors: 
       m_Groups: 

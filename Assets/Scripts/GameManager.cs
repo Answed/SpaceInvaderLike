@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float timeBtwWave;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameObject startGameText;
     [SerializeField] private InputAction startGame;
 
     private WaveSpawner waveSpawner;
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
         waveSpawner = GetComponent<WaveSpawner>();
         scoreText.text = "Score: 0";
         gameStarted = false;
+        startGameText.SetActive(true);
     }
 
     // Update is called once per frame
@@ -60,6 +62,7 @@ public class GameManager : MonoBehaviour
     
     private void StartGame(InputAction.CallbackContext context)
     {
+        startGameText.SetActive (false);
         gameStarted = true;
         Debug.Log("Game Started");
         startGame.Disable();

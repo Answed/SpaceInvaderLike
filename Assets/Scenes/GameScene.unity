@@ -173,6 +173,7 @@ MonoBehaviour:
   wave: 0
   timeBtwWave: 5
   scoreText: {fileID: 405898162}
+  startGameText: {fileID: 1833899042}
   startGame:
     m_Name: Start Game
     m_Type: 1
@@ -182,7 +183,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 408c268f-6a70-452b-8323-093f04a3cdb8
+      m_Id: a183251c-6a93-43f1-a292-325ee528b030
       m_Path: <Keyboard>/anyKey
       m_Interactions: 
       m_Processors: 
@@ -190,8 +191,16 @@ MonoBehaviour:
       m_Action: Start Game
       m_Flags: 0
     - m_Name: 
-      m_Id: 6021cb08-ce6e-4af3-8f6f-b5b3af9e2a46
-      m_Path: 
+      m_Id: 4c61d643-9eaa-4145-ab77-1f967c8e59c9
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Start Game
+      m_Flags: 0
+    - m_Name: 
+      m_Id: da374925-76fa-4489-be90-6df075ff7b4e
+      m_Path: <Mouse>/rightButton
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1090,7 +1099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1833899043
 RectTransform:
   m_ObjectHideFlags: 0

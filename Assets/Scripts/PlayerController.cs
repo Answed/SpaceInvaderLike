@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private float nextAttack;
     private int currentHealth;
 
+    private GameManager gameManager;
+
     private void OnEnable()
     {
         playerMovement.Enable();
@@ -34,13 +36,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveDirection = playerMovement.ReadValue<Vector2>();
+        if(gameManager.gameStarted)
+            moveDirection = playerMovement.ReadValue<Vector2>();
     }
 
     private void FixedUpdate()
@@ -50,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
-        if(nextAttack < Time.time)
+        if(nextAttack < Time.time && gameManager.gameStarted)
         {
             nextAttack = Time.time + timeBtwAttack;
             Instantiate(bulletPrefab, transform.position, Quaternion.identity);

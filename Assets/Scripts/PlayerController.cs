@@ -43,10 +43,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameManager.gameStarted)
+        if(gameManager.gameIsActive)
             moveDirection = playerMovement.ReadValue<Vector2>();
         if(currentHealth == 0)
         {
+            gameManager.GameOver();
             Destroy(gameObject);
         }
     }
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
-        if(nextAttack < Time.time && gameManager.gameStarted)
+        if(nextAttack < Time.time && gameManager.gameIsActive)
         {
             nextAttack = Time.time + timeBtwAttack;
             Instantiate(bulletPrefab, transform.position, Quaternion.identity);

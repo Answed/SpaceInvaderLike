@@ -207,6 +207,23 @@ MonoBehaviour:
       m_Action: Start Game
       m_Flags: 0
     m_Flags: 1
+  endGame:
+    m_Name: End Game
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 442cf187-685d-4736-84c7-1b0b91c3a1d2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 5c7a7c03-f7c6-46e8-93ce-3846e70dd6dd
+      m_Path: <Keyboard>/r
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: End Game
+      m_Flags: 0
+    m_Flags: 1
   nextWaveSpawned: 0
   gameStarted: 0
 --- !u!4 &394153708

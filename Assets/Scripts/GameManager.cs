@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -12,13 +13,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject startGameText;
     [SerializeField] private InputAction startGame;
+    [SerializeField] private InputAction endGame;
 
     private WaveSpawner waveSpawner;
 
     private float nextWave;
     private int score;
     public bool nextWaveSpawned;
-    public bool gameStarted;
+    public bool gameIsActive;
 
     private void OnEnable()
     {
@@ -30,14 +32,14 @@ public class GameManager : MonoBehaviour
     {
         waveSpawner = GetComponent<WaveSpawner>();
         scoreText.text = "Score: 0";
-        gameStarted = false;
+        gameIsActive = false;
         startGameText.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameStarted)
+        if(gameIsActive)
         {
             WaveManager();
         }
@@ -63,9 +65,22 @@ public class GameManager : MonoBehaviour
     private void StartGame(InputAction.CallbackContext context)
     {
         startGameText.SetActive (false);
-        gameStarted = true;
+        gameIsActive = true;
         Debug.Log("Game Started");
         startGame.Disable();
+    }
+
+    public void GameOver()
+    {
+        endGame.Enable();
+        endGame.performed += ReloadScene;
+        gameIsActive = false;
+    }
+
+    private void ReloadScene(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene("GameScene");
+        endGame.Disable();
     }
 
     // Gives the player a moment to breath before the next wave starts

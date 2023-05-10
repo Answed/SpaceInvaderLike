@@ -175,12 +175,13 @@ MonoBehaviour:
   scoreText: {fileID: 405898162}
   startGameText: {fileID: 1833899042}
   blackScreen: {fileID: 422511638}
+  pauseMenuTitle: {fileID: 1630812317}
   pauseMenuObjects:
   - {fileID: 1591905239}
   - {fileID: 430620192}
   - {fileID: 1592607712}
-  - {fileID: 1630812315}
-  settingsMenuObjects: []
+  settingsMenuObjects:
+  - {fileID: 1897844168}
   gameOverScreenObjects:
   - {fileID: 580258692}
   - {fileID: 484187212}
@@ -579,7 +580,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 430620195}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 394153707}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Settings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &430620195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1907,7 +1920,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1591905242}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 394153707}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1591905242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2029,7 +2054,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1592607715}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 394153707}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1592607715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2080,7 +2117,7 @@ GameObject:
   - component: {fileID: 1630812318}
   - component: {fileID: 1630812317}
   m_Layer: 5
-  m_Name: GamePaused
+  m_Name: PauseMenuTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2797,7 +2834,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1897844171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 394153707}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Back
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1897844171
 MonoBehaviour:
   m_ObjectHideFlags: 0

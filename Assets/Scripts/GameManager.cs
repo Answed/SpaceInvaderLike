@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject startGameText;
     [SerializeField] private GameObject blackScreen; // In Unity it is GameIsInActiveBG -> So i can toggle it indipendet from the other stuff
+    [SerializeField] private TextMeshProUGUI pauseMenuTitle;
     [SerializeField] private GameObject[] pauseMenuObjects;
     [SerializeField] private GameObject[] settingsMenuObjects;
     [SerializeField] private GameObject[] gameOverScreenObjects;
@@ -104,13 +105,38 @@ public class GameManager : MonoBehaviour
             gameIsActive = false;
             menuController.EnableGameObjects(pauseMenuObjects);
             blackScreen.SetActive(true);
+            pauseMenuTitle.gameObject.SetActive(true);
+            Time.timeScale = 0;
         }
         else
         {
-            gameIsActive = true;
-            menuController.DisableGameObjects(pauseMenuObjects);
-            blackScreen.SetActive(false);
+            Resume();
         }
+    }
+
+    public void Resume()
+    {
+        gameIsActive = true;
+        menuController.DisableGameObjects(pauseMenuObjects);
+        blackScreen.SetActive(false);
+        pauseMenuTitle.gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+    public void Settings()
+    {
+        menuController.SwitchWindow(pauseMenuObjects, settingsMenuObjects);
+        pauseMenuTitle.text = "Settings";
+    }
+    public void Back()
+    {
+        menuController.SwitchWindow(settingsMenuObjects, pauseMenuObjects);
+        pauseMenuTitle.text = "Paused";
+    }
+
+    public void Quit()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     // Gives the player a moment to breath before the next wave starts

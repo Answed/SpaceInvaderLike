@@ -12,10 +12,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timeBtwWave;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject startGameText;
+    [SerializeField] private GameObject blackScreen; // In Unity it is GameIsInActiveBG -> So i can toggle it indipendet from the other stuff
+    [SerializeField] private GameObject[] pauseMenuObjects;
+    [SerializeField] private GameObject[] settingsMenuObjects;
+    [SerializeField] private GameObject[] gameOverScreenObjects;
     [SerializeField] private InputAction startGame;
     [SerializeField] private InputAction endGame;
 
     private WaveSpawner waveSpawner;
+    private MenuController menuController;
 
     private float nextWave;
     private int score;
@@ -34,6 +39,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: 0";
         gameIsActive = false;
         startGameText.SetActive(true);
+        menuController = new MenuController();
     }
 
     // Update is called once per frame
@@ -75,6 +81,7 @@ public class GameManager : MonoBehaviour
         endGame.Enable();
         endGame.performed += ReloadScene;
         gameIsActive = false;
+        menuController.EnableGameObjects(gameOverScreenObjects);
     }
 
     private void ReloadScene(InputAction.CallbackContext context)

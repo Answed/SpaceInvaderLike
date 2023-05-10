@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuController : MenuController
 {
     [SerializeField] private TextMeshProUGUI titleText; //Title gets changed based on the selected Window
     [SerializeField] private GameObject[] mainMenuButtons; // Saves all Buttons on the Main Menu -> Because there are only Buttons the name is Buttons and not Objects
@@ -60,21 +60,5 @@ public class MainMenuController : MonoBehaviour
     public void CloseGame()
     {
         Application.Quit();
-    }
-
-    private void SwitchWindow(GameObject[] disableWindowObjects, GameObject[] enableWindowObjects)
-    {
-        DisableGameObjects(disableWindowObjects);
-        EnableGameObjects(enableWindowObjects);
-    }
-
-    private void DisableGameObjects(GameObject[] objects)
-    {
-        foreach (GameObject _object in objects) _object.SetActive(false);  //_object because in C# object can't be the name of a variable
-    }
-
-    private void EnableGameObjects(GameObject[] objects)
-    {
-        foreach(GameObject _object in objects) _object.SetActive(true);
     }
 }

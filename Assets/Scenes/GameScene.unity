@@ -174,8 +174,12 @@ MonoBehaviour:
   timeBtwWave: 5
   scoreText: {fileID: 405898162}
   startGameText: {fileID: 1833899042}
-  blackScreen: {fileID: 0}
-  pauseMenuObjects: []
+  blackScreen: {fileID: 422511638}
+  pauseMenuObjects:
+  - {fileID: 1591905239}
+  - {fileID: 430620192}
+  - {fileID: 1592607712}
+  - {fileID: 1630812315}
   settingsMenuObjects: []
   gameOverScreenObjects:
   - {fileID: 580258692}
@@ -239,6 +243,23 @@ MonoBehaviour:
       m_Action: End Game
       m_Flags: 0
     m_Flags: 1
+  pauseGame:
+    m_Name: Pause Game
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 092c807e-e91a-47e5-af27-d42449ffeaa7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: d083d906-5ccd-426c-9d92-7d78f4e527e9
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pause Game
+      m_Flags: 0
+    m_Flags: 0
   nextWaveSpawned: 0
   gameIsActive: 0
 --- !u!4 &394153708
@@ -508,7 +529,7 @@ RectTransform:
   m_Children:
   - {fileID: 1494922617}
   m_Father: {fileID: 999510315}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1537,10 +1558,10 @@ RectTransform:
   - {fileID: 1833899043}
   - {fileID: 580258693}
   - {fileID: 484187213}
+  - {fileID: 1630812316}
   - {fileID: 1591905240}
   - {fileID: 430620193}
   - {fileID: 1592607713}
-  - {fileID: 1630812316}
   - {fileID: 1897844169}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1836,7 +1857,7 @@ RectTransform:
   m_Children:
   - {fileID: 1780758321}
   m_Father: {fileID: 999510315}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1958,7 +1979,7 @@ RectTransform:
   m_Children:
   - {fileID: 1824782275}
   m_Father: {fileID: 999510315}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2059,7 +2080,7 @@ GameObject:
   - component: {fileID: 1630812318}
   - component: {fileID: 1630812317}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GamePaused
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2078,7 +2099,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 999510315}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2267,7 +2288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1780758321
 RectTransform:
   m_ObjectHideFlags: 0

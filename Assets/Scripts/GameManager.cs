@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] gameOverScreenObjects;
     [SerializeField] private InputAction startGame;
     [SerializeField] private InputAction endGame;
+    [SerializeField] private InputAction pauseGame;
 
     private WaveSpawner waveSpawner;
     private MenuController menuController;
@@ -30,6 +31,13 @@ public class GameManager : MonoBehaviour
     {
         startGame.Enable();
         startGame.performed += StartGame;
+        pauseGame.Enable();
+        pauseGame.performed += PauseGame;
+    }
+
+    private void OnDisable()
+    {
+        pauseGame.Disable();
     }
     // Start is called before the first frame update
     void Start()
@@ -87,6 +95,22 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
         endGame.Disable();
+    }
+
+    private void PauseGame(InputAction.CallbackContext context)
+    {
+        if(gameIsActive)
+        {
+            gameIsActive = false;
+            menuController.EnableGameObjects(pauseMenuObjects);
+            blackScreen.SetActive(true);
+        }
+        else
+        {
+            gameIsActive = true;
+            menuController.DisableGameObjects(pauseMenuObjects);
+            blackScreen.SetActive(false);
+        }
     }
 
     // Gives the player a moment to breath before the next wave starts

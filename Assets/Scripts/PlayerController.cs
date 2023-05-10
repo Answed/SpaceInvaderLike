@@ -45,6 +45,10 @@ public class PlayerController : MonoBehaviour
     {
         if(gameManager.gameStarted)
             moveDirection = playerMovement.ReadValue<Vector2>();
+        if(currentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -65,6 +69,5 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("EBullet"))
             currentHealth--;
-        
     }
 }

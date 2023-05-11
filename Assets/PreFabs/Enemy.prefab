@@ -126,9 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 1
-  speed: 3
+  speed: 1.5
   maxHealth: 2
-  timeBtwShots: 1.5
+  timeBtwShots: 2
   bulletPrefab: {fileID: 6559975636858161924, guid: 326eb840e6d84d545bc79d30107f280d, type: 3}
 --- !u!50 &-2611521367726065913
 Rigidbody2D:
@@ -150,4 +150,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

@@ -802,6 +802,7 @@ MonoBehaviour:
   timeBtwAttack: 0.25
   maxHealth: 5
   bulletPrefab: {fileID: 7348110148538499626, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
+  healthBar: {fileID: 1810162614}
   playerMovement:
     m_Name: Player Movement
     m_Type: 0
@@ -1736,8 +1737,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_AnchoredPosition: {x: -2.0999756, y: 0}
+  m_SizeDelta: {x: 0.1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1405307456
 MonoBehaviour:
@@ -2624,7 +2625,7 @@ RectTransform:
   m_GameObject: {fileID: 1810162612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.98, y: 3.5, z: 1}
+  m_LocalScale: {x: 2, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1453904396}
@@ -2634,7 +2635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246, y: -59}
+  m_AnchoredPosition: {x: 180, y: -59}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1810162614
@@ -2994,8 +2995,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.49996185, y: 0}
-  m_SizeDelta: {x: -8.999931, y: 0}
+  m_AnchoredPosition: {x: 2.0999212, y: 0}
+  m_SizeDelta: {x: -0.19984245, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1896596859
 GameObject:

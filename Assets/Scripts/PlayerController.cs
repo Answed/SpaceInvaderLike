@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float timeBtwAttack;
     [SerializeField] private int maxHealth;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Slider healthBar;
     [SerializeField] private InputAction playerMovement;
     [SerializeField] private InputAction playerAttack;
 
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentHealth = maxHealth;
+        healthBar.maxValue = maxHealth;
+        healthBar.value = maxHealth;
     }
 
     // Update is called once per frame
@@ -69,6 +73,12 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("EBullet"))
-            currentHealth--;
+            UpdateHealth();
+    }
+
+    private void UpdateHealth()
+    {
+        currentHealth--;
+        healthBar.value = currentHealth;
     }
 }

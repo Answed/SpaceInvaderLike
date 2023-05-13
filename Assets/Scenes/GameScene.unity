@@ -798,9 +798,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b225c9465cbe09f46bdee9c6108dc7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  timeBtwAttack: 0.25
   maxHealth: 5
+  speed: 10
+  bulletDm: 1
+  timeBtwAttack: 0.25
   bulletPrefab: {fileID: 7348110148538499626, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
   healthBar: {fileID: 1810162614}
   playerMovement:

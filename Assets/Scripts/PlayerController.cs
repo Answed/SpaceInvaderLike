@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -12,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public float timeBtwAttack;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Slider healthBar; // For every 0.5 x scale move the healthbar 40 Units to the right 
+    [SerializeField] private TextMeshProUGUI healthStatsText;
+    [SerializeField] private TextMeshProUGUI speedStatsText;
+    [SerializeField] private TextMeshProUGUI damageStatsText;
+    [SerializeField] private TextMeshProUGUI fireRateStatsText;
     [SerializeField] private InputAction playerMovement;
     [SerializeField] private InputAction playerAttack;
 
@@ -43,6 +48,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.maxValue = maxHealth;
         healthBar.value = maxHealth;
+        UpdatePlayerStats();
     }
 
     // Update is called once per frame
@@ -81,5 +87,13 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth--;
         healthBar.value = currentHealth;
+    }
+
+    public void UpdatePlayerStats()
+    {
+        healthStatsText.text = "Health: " + maxHealth;
+        speedStatsText.text = "Speed: " + speed;
+        damageStatsText.text = "Damage: " + bulletDm;
+        fireRateStatsText.text = "Fire Rate: " + 0.6f / (timeBtwAttack * 0.6f);
     }
 }

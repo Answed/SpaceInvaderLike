@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PlayerController : PlayerStats
+public class PlayerController : MonoBehaviour
 {
+    public int maxHealth;
+    public float speed;
+    public int bulletDm;
+    public float timeBtwAttack;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Slider healthBar; // For every 0.5 x scale move the healthbar 40 Units to the right 
     [SerializeField] private InputAction playerMovement;

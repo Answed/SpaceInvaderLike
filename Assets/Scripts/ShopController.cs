@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ShopController : MenuController
 {
+    [SerializeField] private int maxSpeedLevel;
     [SerializeField] private GameObject[] shopItems;
 
     private PlayerController player;
+
+    private int speedLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +38,12 @@ public class ShopController : MenuController
 
     public void UpgradeSpeed()
     {
-        player.speed++;
+        if (speedLevel < maxSpeedLevel)
+        {
+            speedLevel++;
+            player.speed++;
+        }
+        else Debug.Log("MaxLevel");
         CloseShop();
     }
 

@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private float timeBtwShots;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject hitParticles;
 
     private int currentHealth;
     private float nextAttack;
@@ -44,6 +45,7 @@ public class EnemyController : MonoBehaviour
             gameManager.UpDateScore(scoreValue);
             Destroy(collision.gameObject);
             currentHealth--;
+            Instantiate(hitParticles, transform.position, Quaternion.identity); 
         }
     }
 }

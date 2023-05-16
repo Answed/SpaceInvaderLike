@@ -130,6 +130,7 @@ MonoBehaviour:
   maxHealth: 2
   timeBtwShots: 4
   bulletPrefab: {fileID: 6559975636858161924, guid: 326eb840e6d84d545bc79d30107f280d, type: 3}
+  hitParticles: {fileID: 119033374282713987, guid: 13d3129ca28da4d4b90eeebd554f9bec, type: 3}
 --- !u!50 &-2611521367726065913
 Rigidbody2D:
   serializedVersion: 4

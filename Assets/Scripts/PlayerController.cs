@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public int bulletDm;
     public float timeBtwAttack;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject hitParticles;
     [SerializeField] private Slider healthBar; // For every 0.5 x scale move the healthbar 40 Units to the right 
     [SerializeField] private TextMeshProUGUI healthStatsText;
     [SerializeField] private TextMeshProUGUI speedStatsText;
@@ -80,7 +81,10 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("EBullet"))
+        {
             UpdateHealth();
+            Instantiate(hitParticles, transform.position, Quaternion.identity);
+        }
     }
 
     private void UpdateHealth()

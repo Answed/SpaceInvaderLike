@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5225398050077935495}
   - component: {fileID: 7988162598915079236}
   - component: {fileID: 7977064544653204894}
+  - component: {fileID: 4073535949648268783}
   m_Layer: 0
   m_Name: PlayerHit
   m_TagString: Untagged
@@ -4870,3 +4871,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4073535949648268783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119033374282713987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d637b1fcafea147a5c94c66cc8fb01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeDestroyed: 0

@@ -24,7 +24,7 @@ public class SaveData : MonoBehaviour
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode .Open);
 
-            int score = formatter.Deserialize(stream) as ?Int32;
+            int score = (int)(formatter.Deserialize(stream) as int?);
             stream.Close();
 
             return score;

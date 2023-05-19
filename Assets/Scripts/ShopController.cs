@@ -33,6 +33,7 @@ public class ShopController : MenuController
     public void UpgradeHealth()
     {
         player.maxHealth += 2;
+
         CloseShop();
     }
 

@@ -100,4 +100,10 @@ public class PlayerController : MonoBehaviour
         damageStatsText.text = "Damage: " + bulletDm;
         fireRateStatsText.text = "Fire Rate: " + 0.6f / (timeBtwAttack * 0.6f);
     }
+
+    public void UpdateHealthBar()
+    {
+        healthBar.transform.position = transform.position + new Vector3(40, 0 , 0);
+        healthBar.transform.localScale = healthBar.transform.localScale + new Vector3(0.5f, 0, 0);
+    }
 }

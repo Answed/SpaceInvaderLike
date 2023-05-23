@@ -12,6 +12,8 @@ public class MainMenuController : MenuController
     [SerializeField] private GameObject[] settingsObjects;
     [SerializeField] private GameObject[] upgradeObjects;
 
+    private UpgradeShop upgradeShop;
+
     enum Window
     {
         Upgrade,
@@ -23,7 +25,7 @@ public class MainMenuController : MenuController
     // Start is called before the first frame update
     void Start()
     {
-        
+        upgradeShop = GetComponent<UpgradeShop>();
     }
 
     public void StartGame()
@@ -35,6 +37,7 @@ public class MainMenuController : MenuController
     {
         SwitchWindow(mainMenuButtons, upgradeObjects);
         titleText.text = "Upgrades";
+        upgradeShop.LoadPoints();
         currentWindow = Window.Upgrade;
     }
     public void Settings()
@@ -57,6 +60,7 @@ public class MainMenuController : MenuController
         {
             case Window.Upgrade:
                 SwitchWindow(upgradeObjects, mainMenuButtons);
+                upgradeShop.SavePoints();
                 break;
             case Window.Settings:
                 SwitchWindow(settingsObjects, mainMenuButtons);

@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UpgradeShop : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI pointText;
+
+    private int points;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +19,16 @@ public class UpgradeShop : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void LoadPoints()
+    {
+        points = SaveData.LoadScore("score");
+        pointText.text = "Points: " + points;
+    }
+
+    public void SavePoints()
+    {
+        SaveData.SaveScore(points, "score");
     }
 }

@@ -103,7 +103,8 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        healthBar.transform.position = transform.position + new Vector3(40, 0 , 0);
+        healthBar.maxValue = maxHealth;
+        healthBar.transform.position = healthBar.transform.position + new Vector3(40, 0 , 0);
         healthBar.transform.localScale = healthBar.transform.localScale + new Vector3(0.5f, 0, 0);
     }
 }

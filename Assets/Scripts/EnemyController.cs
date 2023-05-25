@@ -15,11 +15,13 @@ public class EnemyController : MonoBehaviour
     private float nextAttack;
 
     private GameManager gameManager;
+    private PlayerController player;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
         currentHealth = maxHealth;
     }
 
@@ -44,7 +46,7 @@ public class EnemyController : MonoBehaviour
         {
             gameManager.UpDateScore(scoreValue);
             Destroy(collision.gameObject);
-            currentHealth--;
+            currentHealth -= player.bulletDm;
             Instantiate(hitParticles, transform.position, Quaternion.identity); 
         }
     }

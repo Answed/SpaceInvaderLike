@@ -31,4 +31,9 @@ public class UpgradeShop : MonoBehaviour
     {
         SaveData.SaveScore(points, "score");
     }
+
+    public void UpgradeHealth()
+    {
+
+    }
 }

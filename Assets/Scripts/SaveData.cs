@@ -34,4 +34,32 @@ public class SaveData : MonoBehaviour
             return 0;
         }
     }
+    public static void SavePlayerUpgrades(PlayerUpgrades playerUpgrades)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "PlayerUpgrades";
+
+        FileStream stream = new FileStream (path, FileMode .Create);
+        formatter.Serialize(stream, playerUpgrades);
+        stream.Close();
+    }
+
+    public static PlayerUpgrades LoadPlayerUpgrades()
+    {
+        string path = Application.persistentDataPath + "PlayerUpgrades";
+
+        if(File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            PlayerUpgrades playerUpgrades = formatter.Deserialize(stream) as PlayerUpgrades;
+            stream.Close();
+            return playerUpgrades;
+        }
+        else
+        {
+            return null;
+        }
+    }
 }

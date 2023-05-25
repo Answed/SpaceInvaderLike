@@ -5,19 +5,19 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveData : MonoBehaviour
 {
-    public  static void SaveScore(int  score, string dataPath)
+    public  static void SaveScore(int  score)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + dataPath;
+        string path = Application.persistentDataPath + "Score";
 
         FileStream stream = new FileStream(path, FileMode.Create);
         formatter.Serialize(stream, score);
         stream.Close();
     }
 
-    public static int LoadScore(string dataPath)
+    public static int LoadScore()
     {
-        string path = Application.persistentDataPath + dataPath;
+        string path = Application.persistentDataPath + "Score";
 
         if(File.Exists(path))
         {
@@ -31,6 +31,7 @@ public class SaveData : MonoBehaviour
         }
         else
         {
+            CreateSaveFile("Score");
             return 0;
         }
     }
@@ -59,7 +60,16 @@ public class SaveData : MonoBehaviour
         }
         else
         {
+            CreateSaveFile("PlayerUpgrades");
             return null;
         }
+    }
+    public static void CreateSaveFile(string filePath)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + filePath;
+
+        FileStream stream = new FileStream(path, FileMode.Create);
+        stream.Close();
     }
 }

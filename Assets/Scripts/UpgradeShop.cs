@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UpgradeShop : MonoBehaviour
+public class UpgradeShop<T> : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI pointText;
 
     private int points;
+    private Dictionary<string, T> playerUpgrades = new Dictionary<string, T>();
+    private Dictionary<string, T> UpgradeLevels = new Dictionary<string, T>();
 
     // Start is called before the first frame update
     void Start()

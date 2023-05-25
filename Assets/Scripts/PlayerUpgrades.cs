@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerUpgrades : MonoBehaviour
+public class PlayerUpgrades<T> : MonoBehaviour
 {
-    public int healthUpgrade;
-    public float speedUpgrade;
-    public int bulletDMUpgrade;
+    public Dictionary<string,T> playerUpgrades;
+    public Dictionary<string, T> UpgradeLevels;;   
 }

@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
         endGame.performed += ReloadScene;
         gameIsActive = false;
         menuController.EnableGameObjects(gameOverScreenObjects);
+        SaveLoadSystem.SaveSystemManager.SaveScore(score + SaveLoadSystem.SaveSystemManager.LoadScore());
     }
 
     private void ReloadScene(InputAction.CallbackContext context)
@@ -140,6 +141,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
 
     // Gives the player a moment to breath before the next wave starts
     IEnumerator SpawnWaveAfterTime()

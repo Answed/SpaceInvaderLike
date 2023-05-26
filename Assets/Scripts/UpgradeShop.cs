@@ -23,11 +23,13 @@ public class UpgradeShop : MonoBehaviour
 
     public void LoadPoints()
     {
+        points = SaveLoadSystem.SaveSystemManager.LoadScore();
         pointText.text = "Points: " + points;
     }
 
     public void SavePoints()
     {
+        SaveLoadSystem.SaveSystemManager.SaveScore(points);
     }
 
     public void UpgradeHealth()

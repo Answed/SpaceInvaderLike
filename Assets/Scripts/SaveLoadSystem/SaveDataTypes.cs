@@ -14,4 +14,9 @@ namespace SaveLoadSystem
         public int[] ShopUpgradeLevels { get; set; }
     }
 
+    [System.Serializable]
+    public class Score
+    {
+        public int score;
+    }
 }

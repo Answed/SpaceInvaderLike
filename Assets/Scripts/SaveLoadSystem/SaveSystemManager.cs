@@ -15,8 +15,7 @@ namespace SaveLoadSystem
             Score currentScore = new Score();
             currentScore.score = score;
 
-            string json = JsonUtility.ToJson(currentScore, true);
-            File.WriteAllText(dir + "Score.txt", json); //Filename can be hard coded bc i always refer to that file
+            CreateJsonFile(dir + "Score.txt", currentScore);
         }
 
         public static int LoadScore()
@@ -36,10 +35,35 @@ namespace SaveLoadSystem
             }
         }
 
+        public static void SavePlayerUpgrades(PlayerUpgrades upgrades)
+        {
+            var dir = Application.persistentDataPath + SaveDirectory;
+
+            CreateJsonFile(dir + "PlayerUpgrades.txt", upgrades);
+        }
+
+        public static PlayerUpgrades LoadPlayerUpgrades()
+        {
+            var fullPath = Application.persistentDataPath + SaveDirectory + "PlayerUpgrades.txt";
+            if (File.Exists(fullPath))
+            {
+                string json = File.ReadAllText(fullPath);
+                PlayerUpgrades playerUpgrades = JsonUtility.FromJson<PlayerUpgrades>(json);
+                return playerUpgrades;
+            }
+            else { return null; }
+        }
+
         public static void CheckIfDirectoryExist(string DirectoryPath)
         {
             if (!Directory.Exists(DirectoryPath))
                 Directory.CreateDirectory(DirectoryPath);
+        }
+
+        private static void CreateJsonFile<T>(string Fullpath,T data)
+        {
+            string json = JsonUtility.ToJson(data, true);
+            File.WriteAllText(Fullpath, json);
         }
     }
 }

@@ -92,8 +92,6 @@ public class GameManager : MonoBehaviour
         endGame.performed += ReloadScene;
         gameIsActive = false;
         menuController.EnableGameObjects(gameOverScreenObjects);
-        int realscore = SaveData.LoadScore("score");
-        SaveData.SaveScore(realscore + score, "score");
     }
 
     private void ReloadScene(InputAction.CallbackContext context)

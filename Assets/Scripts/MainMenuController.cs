@@ -12,8 +12,6 @@ public class MainMenuController : MenuController
     [SerializeField] private GameObject[] settingsObjects;
     [SerializeField] private GameObject[] upgradeObjects;
 
-    private UpgradeShop upgradeShop;
-
     enum Window
     {
         Upgrade,
@@ -22,6 +20,8 @@ public class MainMenuController : MenuController
     }
 
     private Window currentWindow;
+    private UpgradeShop upgradeShop;
+
     // Start is called before the first frame update
     void Start()
     {

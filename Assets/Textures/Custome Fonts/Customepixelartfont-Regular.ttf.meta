@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f134763f961a8a94eaa3d2c433ac5ea5
+guid: 70163dc2390d5c14b9227b05650dd4b4
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Myfont
+  - Customepixelartfont
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

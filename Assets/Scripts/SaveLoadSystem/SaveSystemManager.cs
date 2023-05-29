@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -64,14 +65,19 @@ namespace SaveLoadSystem
             CreateJsonFile(dir + upgradeShop.Name, upgradeShop);
         }
 
-        public static UpgradeShop LoadUpgradeShop(string nameOfShop)
+        public static UpgradeShop[] LoadUpgradeShop()
         {
-            var fullPath = Application.persistentDataPath + UpgradeDirectory + nameOfShop;
-            if (File.Exists(fullPath))
+            var fullPath = Application.persistentDataPath + UpgradeDirectory;
+            var upgradeFiles = Directory.GetFiles(fullPath);
+            List<UpgradeShop> data = new List<UpgradeShop>();
+            if (upgradeFiles.Length > 0)
             {
-                string json = File.ReadAllText(fullPath);
-                UpgradeShop upgradeShop = JsonUtility.FromJson<UpgradeShop>(json);
-                return upgradeShop;
+                foreach (var file in upgradeFiles)
+                {
+                    string json = File.ReadAllText(file);
+                    data.Add(JsonUtility.FromJson<UpgradeShop>(json));
+                }
+                return data.ToArray();
             }
             else { return null; }
         }

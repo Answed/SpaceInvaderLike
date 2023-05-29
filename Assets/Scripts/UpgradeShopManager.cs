@@ -24,15 +24,9 @@ public class UpgradeShopManager : MonoBehaviour
 
     private Upgrades currentUpgrade;
 
-    // Start is called before the first frame update
-    void Start()
+    public void LoadShop()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        LoadPoints();
 
     }
 
@@ -53,6 +47,26 @@ public class UpgradeShopManager : MonoBehaviour
         {
             EnoughPoints(upgradeShops[0].currentPrice, 0);
             currentUpgrade = Upgrades.Health;
+        }
+        else Debug.Log("Max Level");
+    }
+
+    public void UpgradeSpeed()
+    {
+        if (CheckLevel(1))
+        {
+            EnoughPoints(upgradeShops[1].currentPrice, 1);
+            currentUpgrade = Upgrades.Speed;
+        }
+        else Debug.Log("Max Level");
+    }
+
+    public void UpgradeDamage()
+    {
+        if (CheckLevel(2))
+        {
+            EnoughPoints(upgradeShops[2].currentPrice, 2);
+            currentUpgrade = Upgrades.Damage;
         }
         else Debug.Log("Max Level");
     }
@@ -103,5 +117,7 @@ public class UpgradeShopManager : MonoBehaviour
     {
         upgradeShops[index].currentLevel = index;
         upgradeShops[index].currentPrice = upgradeShops[index].Prices[index];
+
+        SaveLoadSystem.SaveSystemManager.SaveUpgradeShop(upgradeShops[index]);
     }
 }

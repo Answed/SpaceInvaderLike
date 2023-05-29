@@ -27,18 +27,28 @@ public class UpgradeShopManager : MonoBehaviour
     public void LoadShop()
     {
         LoadPoints();
-
+        LoadUpgradeShops();
     }
 
-    public void LoadPoints()
+    public void CloseShop()
+    {
+        SaveLoadSystem.SaveSystemManager.SaveScore(points);
+    }
+
+    private void LoadPoints()
     {
         points = SaveLoadSystem.SaveSystemManager.LoadScore();
         pointText.text = "Points: " + points;
     }
 
-    public void SavePoints()
+    private void LoadUpgradeShops()
     {
-        SaveLoadSystem.SaveSystemManager.SaveScore(points);
+        upgradeShops = SaveLoadSystem.SaveSystemManager.LoadUpgradeShop();
+
+        for(int i = 0; i < upgradeShops.Length; i++)
+        {
+            UpdateShop(i, 0);
+        }
     }
 
     public void UpgradeHealth()
@@ -87,7 +97,7 @@ public class UpgradeShopManager : MonoBehaviour
         {
             points -= neededPoints;
             UpgradeStats();
-            UpdateShop(shopIndex);
+            UpdateShop(shopIndex, 1);
             return true;
         }
         else
@@ -113,10 +123,11 @@ public class UpgradeShopManager : MonoBehaviour
         }
     }
 
-    private void UpdateShop(int index)
+    private void UpdateShop(int index, int newLevel)
     {
         upgradeShops[index].currentLevel = index;
         upgradeShops[index].currentPrice = upgradeShops[index].Prices[index];
+        upgradeShops[index].priceText.text = upgradeShops[index].currentPrice.ToString();
 
         SaveLoadSystem.SaveSystemManager.SaveUpgradeShop(upgradeShops[index]);
     }

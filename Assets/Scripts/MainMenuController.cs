@@ -37,7 +37,7 @@ public class MainMenuController : MenuController
     {
         SwitchWindow(mainMenuButtons, upgradeObjects);
         titleText.text = "Upgrades";
-        upgradeShopManager.LoadPoints();
+        upgradeShopManager.LoadShop();
         currentWindow = Window.Upgrade;
     }
     public void Settings()
@@ -54,13 +54,14 @@ public class MainMenuController : MenuController
         currentWindow = Window.Credits;
     }
 
+    // Changes back to MainMenu
     public void Back()
     {
         switch(currentWindow)
         {
             case Window.Upgrade:
                 SwitchWindow(upgradeObjects, mainMenuButtons);
-                upgradeShopManager.SavePoints();
+                upgradeShopManager.CloseShop();
                 break;
             case Window.Settings:
                 SwitchWindow(settingsObjects, mainMenuButtons);

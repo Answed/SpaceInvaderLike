@@ -5,13 +5,7 @@ using UnityEngine;
 public class ObstacleController : MonoBehaviour
 {
     [SerializeField] private float speed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+   
     // Update is called once per frame
     void Update()
     {
@@ -22,10 +16,5 @@ public class ObstacleController : MonoBehaviour
     {
         Destroy(collision.gameObject);
         Destroy(gameObject);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
     }
 }

@@ -37,7 +37,6 @@ public class WaveSpawner : MonoBehaviour
             case 1:
                 Instantiate(obstacles, new Vector2(xSpawnValue, spawnHeight), obstacles.transform.rotation); 
                 break; 
-
         }
     }
 

@@ -56,9 +56,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if(gameIsActive)
-        {
             WaveManager();
-        }
     }
     
     public void UpDateScore(int scorePoints)
@@ -111,10 +109,7 @@ public class GameManager : MonoBehaviour
             pauseMenuTitle.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
-        else
-        {
-            Resume();
-        }
+        else Resume();
     }
 
     public void Resume()
@@ -131,6 +126,7 @@ public class GameManager : MonoBehaviour
         menuController.SwitchWindow(pauseMenuObjects, settingsMenuObjects);
         pauseMenuTitle.text = "Settings";
     }
+    // Goes back to the MainPauseMenu
     public void Back()
     {
         menuController.SwitchWindow(settingsMenuObjects, pauseMenuObjects);

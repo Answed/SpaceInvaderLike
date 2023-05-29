@@ -9,7 +9,7 @@ namespace SaveLoadSystem
         public const string SaveDirectory =  "/SaveData/";
         public const string UpgradeDirectory = SaveDirectory + "/Upgrades/";
 
-
+        #region Score
         public static void SaveScore(int score)
         {
             var dir = Application.persistentDataPath + SaveDirectory;
@@ -37,14 +37,14 @@ namespace SaveLoadSystem
                 return 0;
             }
         }
-
+        #endregion
         public static void SavePlayerUpgrades(PlayerUpgrades upgrades)
         {
             var dir = Application.persistentDataPath + SaveDirectory;
 
             CreateJsonFile(dir + "PlayerUpgrades.txt", upgrades);
         }
-
+        #region PlayerUpgrades
         public static PlayerUpgrades LoadPlayerUpgrades()
         {
             var fullPath = Application.persistentDataPath + SaveDirectory + "PlayerUpgrades.txt";
@@ -56,7 +56,8 @@ namespace SaveLoadSystem
             }
             else { return null; }
         }
-
+        #endregion
+        #region UpgradeShops
         public static void SaveUpgradeShop(UpgradeShop upgradeShop)
         {
             var dir = Application.persistentDataPath + UpgradeDirectory;
@@ -64,7 +65,6 @@ namespace SaveLoadSystem
 
             CreateJsonFile(dir + upgradeShop.Name, upgradeShop);
         }
-
         public static UpgradeShop[] LoadUpgradeShop()
         {
             var fullPath = Application.persistentDataPath + UpgradeDirectory;
@@ -81,7 +81,7 @@ namespace SaveLoadSystem
             }
             else { return null; }
         }
-
+        #endregion
         public static void CheckIfDirectoryExist(string DirectoryPath)
         {
             if (!Directory.Exists(DirectoryPath))

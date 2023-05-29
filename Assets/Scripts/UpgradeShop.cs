@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using SaveLoadSystem;
 
 public class UpgradeShop : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI pointText;
 
     private int points;
+
+    private PlayerUpgrades playerUpgrades;
 
     // Start is called before the first frame update
     void Start()
@@ -35,5 +38,19 @@ public class UpgradeShop : MonoBehaviour
     public void UpgradeHealth()
     {
 
+    }
+
+    private bool CheckPointsAmount(int neededPoints)
+    {
+        if(points >= neededPoints)
+        {
+            points -= neededPoints;
+            return true;
+        }
+        else
+        {
+            Debug.Log("Not Enough Points");
+            return false;
+        }
     }
 }

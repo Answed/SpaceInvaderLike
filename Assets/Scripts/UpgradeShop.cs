@@ -37,7 +37,7 @@ public class UpgradeShop : MonoBehaviour
 
     public void UpgradeHealth()
     {
-
+        
     }
 
     private bool CheckPointsAmount(int neededPoints)

@@ -6,7 +6,9 @@ namespace SaveLoadSystem
     public static class SaveSystemManager
     {
         public const string SaveDirectory =  "/SaveData/";
-        
+        public const string UpgradeDirectory = SaveDirectory + "/Upgrades/";
+
+
         public static void SaveScore(int score)
         {
             var dir = Application.persistentDataPath + SaveDirectory;
@@ -50,6 +52,26 @@ namespace SaveLoadSystem
                 string json = File.ReadAllText(fullPath);
                 PlayerUpgrades playerUpgrades = JsonUtility.FromJson<PlayerUpgrades>(json);
                 return playerUpgrades;
+            }
+            else { return null; }
+        }
+
+        public static void SaveUpgradeShop(UpgradeShop upgradeShop)
+        {
+            var dir = Application.persistentDataPath + UpgradeDirectory;
+            CheckIfDirectoryExist(dir);
+
+            CreateJsonFile(dir + upgradeShop.Name, upgradeShop);
+        }
+
+        public static UpgradeShop LoadUpgradeShop(string nameOfShop)
+        {
+            var fullPath = Application.persistentDataPath + UpgradeDirectory + nameOfShop;
+            if (File.Exists(fullPath))
+            {
+                string json = File.ReadAllText(fullPath);
+                UpgradeShop upgradeShop = JsonUtility.FromJson<UpgradeShop>(json);
+                return upgradeShop;
             }
             else { return null; }
         }

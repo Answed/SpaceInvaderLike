@@ -20,7 +20,7 @@ namespace SaveLoadSystem
     }
 
     [System.Serializable]
-    public class Upgrade : MonoBehaviour
+    public class UpgradeShop : MonoBehaviour
     {
         public string Name;
         public int currentLevel;

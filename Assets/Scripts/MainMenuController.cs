@@ -20,12 +20,12 @@ public class MainMenuController : MenuController
     }
 
     private Window currentWindow;
-    private UpgradeShop upgradeShop;
+    private UpgradeShopManager upgradeShopManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        upgradeShop = GetComponent<UpgradeShop>();
+        upgradeShopManager = GetComponent<UpgradeShopManager>();
     }
 
     public void StartGame()
@@ -37,7 +37,7 @@ public class MainMenuController : MenuController
     {
         SwitchWindow(mainMenuButtons, upgradeObjects);
         titleText.text = "Upgrades";
-        upgradeShop.LoadPoints();
+        upgradeShopManager.LoadPoints();
         currentWindow = Window.Upgrade;
     }
     public void Settings()
@@ -60,7 +60,7 @@ public class MainMenuController : MenuController
         {
             case Window.Upgrade:
                 SwitchWindow(upgradeObjects, mainMenuButtons);
-                upgradeShop.SavePoints();
+                upgradeShopManager.SavePoints();
                 break;
             case Window.Settings:
                 SwitchWindow(settingsObjects, mainMenuButtons);

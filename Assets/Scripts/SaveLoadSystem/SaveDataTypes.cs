@@ -8,9 +8,10 @@ namespace SaveLoadSystem
     [System.Serializable]
     public class PlayerUpgrades
     {
-        public int HealthUpgrade { get; set; }
-        public float SpeedUpgrade { get; set; }
-        public int DamageUpgrade { get; set; }
+        public int HealthUpgrade;
+        public float SpeedUpgrade;
+        public int DamageUpgrade;
+        public int ArmorUpgrades;
     }
 
     [System.Serializable]

@@ -8,9 +8,11 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public int maxHealth;
+    public int armor;
     public float speed;
     public int bulletDm;
     public float timeBtwAttack;
+    [SerializeField] private AnimationCurve DamageReduction; // Based on the current armor value
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject hitParticles;
     [SerializeField] private Slider healthBar; // For every 0.5 x scale move the healthbar 40 Units to the right 
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveDirection;
     private float nextAttack;
-    private int currentHealth;
+    private float currentHealth;
 
     private GameManager gameManager;
 
@@ -82,14 +84,15 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("EBullet"))
         {
-            UpdateHealth();
+            UpdateHealth(1);
             Instantiate(hitParticles, transform.position, Quaternion.identity);
         }
     }
 
-    private void UpdateHealth()
+    private void UpdateHealth(int damage)
     {
-        currentHealth--;
+        var actualDamage = damage - (damage * DamageReduction.Evaluate(armor));
+        currentHealth -= actualDamage;
         healthBar.value = currentHealth;
     }
 

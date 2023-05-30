@@ -1359,9 +1359,115 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  armor: 0
   speed: 10
   bulletDm: 1
   timeBtwAttack: 0.5
+  DamageReduction:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.043827664
+      outSlope: 0.043827664
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.37894803
+    - serializedVersion: 3
+      time: 1.007721
+      value: 0.05
+      inSlope: 0.05271145
+      outSlope: 0.05271145
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.46644264
+    - serializedVersion: 3
+      time: 2
+      value: 0.1
+      inSlope: 0.050129015
+      outSlope: 0.050129015
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 4
+      value: 0.2
+      inSlope: 0.05
+      outSlope: 0.05
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 0.25
+      inSlope: 0.050000004
+      outSlope: 0.050000004
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 6
+      value: 0.3
+      inSlope: 0.049999997
+      outSlope: 0.049999997
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 7
+      value: 0.35
+      inSlope: 0.049999997
+      outSlope: 0.049999997
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 8
+      value: 0.4
+      inSlope: 0.049999997
+      outSlope: 0.049999997
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 9
+      value: 0.45
+      inSlope: 0.0162352
+      outSlope: 0.0162352
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.39774227
+      outWeight: 0.029248584
+    - serializedVersion: 3
+      time: 20
+      value: 0.5
+      inSlope: 0.0019916068
+      outSlope: 0.0019916068
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.04674027
+      outWeight: 0.07603188
+    - serializedVersion: 3
+      time: 30
+      value: 0.51
+      inSlope: 0.005570309
+      outSlope: 0.005570309
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.23148593
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   bulletPrefab: {fileID: 7348110148538499626, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
   hitParticles: {fileID: 119033374282713987, guid: 13d3129ca28da4d4b90eeebd554f9bec, type: 3}
   healthBar: {fileID: 1810162614}

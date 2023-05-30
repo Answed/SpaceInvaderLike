@@ -21,12 +21,12 @@ namespace SaveLoadSystem
     }
 
     [System.Serializable]
-    public class UpgradeShop : MonoBehaviour
+    public struct UpgradeShop
     {
         public string Name;
         public int currentLevel;
         public int currentPrice;
-        public int[] Level;
+        public int maxLevel;
         public int[] Prices;
         public TextMeshProUGUI priceText;
 

@@ -93,7 +93,7 @@ public class UpgradeShopManager : MonoBehaviour
 
     private bool CheckLevel(int shopIndex)
     {
-        if (upgradeShops[shopIndex].currentLevel == upgradeShops[shopIndex].Level.Last())
+        if (upgradeShops[shopIndex].currentLevel == upgradeShops[shopIndex].maxLevel)
         {
             upgradeShops[shopIndex].priceText.text = "Max Level";
             return false;

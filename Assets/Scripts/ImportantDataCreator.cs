@@ -6,6 +6,7 @@ using UnityEngine;
 // This class will be used to ensure that all Important files are created to ensure a smooth use of the game.
 public class ImportantDataCreator : MonoBehaviour
 {
+    [SerializeField] private PlayerUpgrades playerUpgrades;
     [SerializeField] private UpgradeShop[] upgradeShopData; // Based on the settings made heere gets the data created for the actual shops.
 
     // Start is called before the first frame update
@@ -20,5 +21,10 @@ public class ImportantDataCreator : MonoBehaviour
         {
             SaveLoadSystem.SaveSystemManager.CreateUpgradeShop(upgradeShop);
         }
+    }
+
+    private void CreatePlayerUpgrade()
+    {
+        SaveLoadSystem.SaveSystemManager.CreatePlayerUpgrades(playerUpgrades);
     }
 }

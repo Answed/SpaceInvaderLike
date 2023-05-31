@@ -41,13 +41,21 @@ namespace SaveLoadSystem
             }
         }
         #endregion
+        #region PlayerUpgrades
+        public static void CreatePlayerUpgrades(PlayerUpgrades playerUpgrades)
+        {
+            var dir = Application.persistentDataPath + SaveDirectory;
+            CheckIfDirectoryExist(dir);
+
+            if (!File.Exists(dir + "PlayerUpgrades.txt"))
+                CreateJsonFile(dir + "PlayerUpgrades.txt", playerUpgrades);
+        }
         public static void SavePlayerUpgrades(PlayerUpgrades upgrades)
         {
             var dir = Application.persistentDataPath + SaveDirectory;
 
             CreateJsonFile(dir + "PlayerUpgrades.txt", upgrades);
         }
-        #region PlayerUpgrades
         public static PlayerUpgrades LoadPlayerUpgrades()
         {
             var fullPath = Application.persistentDataPath + SaveDirectory + "PlayerUpgrades.txt";

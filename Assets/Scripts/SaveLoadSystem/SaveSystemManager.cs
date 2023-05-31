@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -24,6 +25,8 @@ namespace SaveLoadSystem
         public static int LoadScore()
         {
             var fullPath = Application.persistentDataPath + SaveDirectory + "Score.txt";
+
+            GUIUtility.systemCopyBuffer = Application.persistentDataPath + SaveDirectory;
 
             if (File.Exists(fullPath))
             {
@@ -66,12 +69,12 @@ namespace SaveLoadSystem
 
             if(!File.Exists(dir + upgradeShop.Name))
                 CreateJsonFile(dir + upgradeShop.Name, upgradeShop);
+
+            GUIUtility.systemCopyBuffer = dir;
         }
         public static void SaveUpgradeShop(UpgradeShop upgradeShop)
         {
             var dir = Application.persistentDataPath + UpgradeDirectory;
-            CheckIfDirectoryExist(dir);
-
             CreateJsonFile(dir + upgradeShop.Name, upgradeShop);
         }
         public static UpgradeShop[] LoadUpgradeShop()

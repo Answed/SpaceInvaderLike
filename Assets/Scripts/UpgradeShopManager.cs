@@ -9,11 +9,11 @@ using UnityEngine;
 public class UpgradeShopManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI pointText;
-    [SerializeField] private UpgradeShop[] upgradeShops;
 
     private int points;
 
     private PlayerUpgrades playerUpgrades;
+    [SerializeField] private UpgradeShop[] upgradeShops;
 
     enum Upgrades
     {
@@ -135,7 +135,7 @@ public class UpgradeShopManager : MonoBehaviour
 
     private void UpdateShop(int index, int newLevel)
     {
-        upgradeShops[index].currentLevel = index;
+        upgradeShops[index].currentLevel += newLevel;
         upgradeShops[index].priceText.text = upgradeShops[index].Prices[upgradeShops[index].currentLevel].ToString();
 
         SaveLoadSystem.SaveSystemManager.SaveUpgradeShop(upgradeShops[index]);

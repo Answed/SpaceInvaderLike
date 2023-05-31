@@ -1886,12 +1886,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeShopData:
-  - Name: 
+  - Name: Health_Upgrade_Shop
     currentLevel: 0
-    currentPrice: 0
-    maxLevel: 0
-    Prices: 
-    priceText: {fileID: 0}
+    maxLevel: 5
+    Prices: 050000000a0000000f0000001400000019000000
+    priceText: {fileID: 1045054327}
 --- !u!4 &1431494058
 Transform:
   m_ObjectHideFlags: 0
@@ -2630,7 +2629,6 @@ MonoBehaviour:
   upgradeShops:
   - Name: HealthUpgrade
     currentLevel: 0
-    currentPrice: 5
     maxLevel: 5
     Prices: 050000000a0000000f0000001400000019000000
     priceText: {fileID: 1045054327}

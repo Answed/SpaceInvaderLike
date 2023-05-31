@@ -26,7 +26,7 @@ public class ShopController : MenuController
     public void CloseShop()
     {
         DisableGameObjects(shopItems);
-        player.UpdatePlayerStats();
+        player.UpdatePlayerStatsText();
         Time.timeScale = 1;
     }
 

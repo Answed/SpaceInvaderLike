@@ -26,6 +26,7 @@ public class UpgradeShopManager : MonoBehaviour
 
     public void LoadShop()
     {
+        playerUpgrades = SaveLoadSystem.SaveSystemManager.LoadPlayerUpgrades();
         LoadPoints();
         LoadUpgradeShops();
     }
@@ -33,6 +34,7 @@ public class UpgradeShopManager : MonoBehaviour
     public void CloseShop()
     {
         SaveLoadSystem.SaveSystemManager.SaveScore(points);
+        SaveLoadSystem.SaveSystemManager.SavePlayerUpgrades(playerUpgrades);
     }
 
     private void LoadPoints()

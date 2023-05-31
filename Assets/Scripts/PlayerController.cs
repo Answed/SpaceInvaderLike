@@ -1,3 +1,4 @@
+using SaveLoadSystem;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -48,10 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        currentHealth = maxHealth;
-        healthBar.maxValue = maxHealth;
-        healthBar.value = maxHealth;
-        UpdatePlayerStats();
+        ApplyPlayerUpgrades();
     }
 
     // Update is called once per frame
@@ -96,13 +94,26 @@ public class PlayerController : MonoBehaviour
         healthBar.value = currentHealth;
     }
 
-    public void UpdatePlayerStats()
+    private void ApplyPlayerUpgrades()
+    {
+        PlayerUpgrades playerUpgrades = SaveLoadSystem.SaveSystemManager.LoadPlayerUpgrades();
+        maxHealth += playerUpgrades.HealthUpgrade;
+        armor += playerUpgrades.ArmorUpgrades;
+        speed += playerUpgrades.SpeedUpgrade;
+        bulletDm += playerUpgrades.DamageUpgrade;
+        UpdatePlayerStatsText();
+        UpdateHealthBar();
+    }
+
+    public void UpdatePlayerStatsText()
     {
         healthStatsText.text = "Health: " + maxHealth;
         speedStatsText.text = "Speed: " + speed;
         damageStatsText.text = "Damage: " + bulletDm;
         fireRateStatsText.text = "Fire Rate: " + 0.6f / (timeBtwAttack * 0.6f);
     }
+
+
 
     public void UpdateHealthBar()
     {

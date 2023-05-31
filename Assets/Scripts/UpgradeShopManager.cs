@@ -55,7 +55,7 @@ public class UpgradeShopManager : MonoBehaviour
     {
         if (CheckLevel(0))
         {
-            EnoughPoints(upgradeShops[0].currentPrice, 0);
+            EnoughPoints(upgradeShops[0].Prices[upgradeShops[0].currentLevel], 0);
             currentUpgrade = Upgrades.Health;
         }
         else Debug.Log("Max Level");
@@ -65,7 +65,7 @@ public class UpgradeShopManager : MonoBehaviour
     {
         if (CheckLevel(1))
         {
-            EnoughPoints(upgradeShops[1].currentPrice, 1);
+            EnoughPoints(upgradeShops[1].Prices[upgradeShops[1].currentLevel], 1);
             currentUpgrade = Upgrades.Health;
         }
         else Debug.Log("Max Level");
@@ -75,7 +75,7 @@ public class UpgradeShopManager : MonoBehaviour
     {
         if (CheckLevel(2))
         {
-            EnoughPoints(upgradeShops[2].currentPrice, 2);
+            EnoughPoints(upgradeShops[2].Prices[upgradeShops[2].currentLevel], 2);
             currentUpgrade = Upgrades.Speed;
         }
         else Debug.Log("Max Level");
@@ -85,7 +85,7 @@ public class UpgradeShopManager : MonoBehaviour
     {
         if (CheckLevel(3))
         {
-            EnoughPoints(upgradeShops[3].currentPrice, 3);
+            EnoughPoints(upgradeShops[3].Prices[upgradeShops[3].currentLevel], 3);
             currentUpgrade = Upgrades.Damage;
         }
         else Debug.Log("Max Level");
@@ -136,8 +136,7 @@ public class UpgradeShopManager : MonoBehaviour
     private void UpdateShop(int index, int newLevel)
     {
         upgradeShops[index].currentLevel = index;
-        upgradeShops[index].currentPrice = upgradeShops[index].Prices[index];
-        upgradeShops[index].priceText.text = upgradeShops[index].currentPrice.ToString();
+        upgradeShops[index].priceText.text = upgradeShops[index].Prices[upgradeShops[index].currentLevel].ToString();
 
         SaveLoadSystem.SaveSystemManager.SaveUpgradeShop(upgradeShops[index]);
     }

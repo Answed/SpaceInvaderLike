@@ -58,6 +58,15 @@ namespace SaveLoadSystem
         }
         #endregion
         #region UpgradeShops
+
+        public static void CreateUpgradeShop(UpgradeShop upgradeShop) //Creates all missing shops after first start up, when a shop gets deleted or a new one is added to the game.
+        {
+            var dir = Application.persistentDataPath + UpgradeDirectory;
+            CheckIfDirectoryExist(dir);
+
+            if(!File.Exists(dir + upgradeShop.Name))
+                CreateJsonFile(dir + upgradeShop.Name, upgradeShop);
+        }
         public static void SaveUpgradeShop(UpgradeShop upgradeShop)
         {
             var dir = Application.persistentDataPath + UpgradeDirectory;

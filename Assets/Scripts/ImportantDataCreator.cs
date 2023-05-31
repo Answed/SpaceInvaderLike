@@ -18,7 +18,7 @@ public class ImportantDataCreator : MonoBehaviour
     {
         foreach(UpgradeShop upgradeShop in upgradeShopData)
         {
-            SaveLoadSystem.SaveSystemManager.SaveUpgradeShop(upgradeShop);
+            SaveLoadSystem.SaveSystemManager.CreateUpgradeShop(upgradeShop);
         }
     }
 }

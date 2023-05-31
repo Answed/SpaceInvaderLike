@@ -80,7 +80,6 @@ public class GameManager : MonoBehaviour
     {
         startGameText.SetActive (false);
         gameIsActive = true;
-        Debug.Log("Game Started");
         startGame.Disable();
     }
 

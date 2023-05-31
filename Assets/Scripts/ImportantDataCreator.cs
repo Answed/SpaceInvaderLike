@@ -13,6 +13,7 @@ public class ImportantDataCreator : MonoBehaviour
     void Start()
     {
         CreateUpgradeShopFiles();
+        CreatePlayerUpgradeFile();
     }
 
     private void CreateUpgradeShopFiles()
@@ -23,7 +24,7 @@ public class ImportantDataCreator : MonoBehaviour
         }
     }
 
-    private void CreatePlayerUpgrade()
+    private void CreatePlayerUpgradeFile()
     {
         SaveLoadSystem.SaveSystemManager.CreatePlayerUpgrades(playerUpgrades);
     }

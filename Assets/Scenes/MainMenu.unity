@@ -971,7 +971,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435182140}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -979,11 +979,11 @@ RectTransform:
   - {fileID: 1509105737}
   - {fileID: 1000686650}
   m_Father: {fileID: 762979273}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 203, y: 0}
+  m_AnchoredPosition: {x: 203.00006, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &435182142
@@ -1098,7 +1098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &466594501
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1232,7 +1232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &702732195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1363,7 +1363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &762979273
 Transform:
   m_ObjectHideFlags: 0
@@ -1377,10 +1377,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 328195594}
-  - {fileID: 789448799}
   - {fileID: 1080344286}
-  - {fileID: 1683080168}
   - {fileID: 435182141}
+  - {fileID: 789448799}
+  - {fileID: 1683080168}
   m_Father: {fileID: 1738354836}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1418,7 +1418,7 @@ RectTransform:
   - {fileID: 30551701}
   - {fileID: 1045054329}
   m_Father: {fileID: 762979273}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2032,7 +2032,7 @@ RectTransform:
   - {fileID: 1965958196}
   - {fileID: 1631008278}
   m_Father: {fileID: 762979273}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2151,7 +2151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1193187280
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2422,7 +2422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1220645944
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2577,22 +2577,18 @@ MonoBehaviour:
     currentLevel: 0
     maxLevel: 5
     Prices: 050000000a0000000f0000001400000019000000
-    priceText: {fileID: 1045054327}
   - Name: SpeedUpgradeShop.txt
     currentLevel: 0
     maxLevel: 5
     Prices: 0a000000140000001e0000002800000032000000
-    priceText: {fileID: 1548631498}
   - Name: ArmorUpgradeShop.txt
     currentLevel: 0
     maxLevel: 4
     Prices: 0f0000001e0000002d0000003c000000
-    priceText: {fileID: 1631008279}
   - Name: DamageUpgradeShop.txt
     currentLevel: 0
     maxLevel: 4
     Prices: 0f0000001e0000002d0000003c000000
-    priceText: {fileID: 1000686651}
 --- !u!4 &1431494058
 Transform:
   m_ObjectHideFlags: 0
@@ -3037,7 +3033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1592977637
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3324,7 +3320,7 @@ RectTransform:
   - {fileID: 1526483626}
   - {fileID: 1548631500}
   m_Father: {fileID: 762979273}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3687,7 +3683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1961276808
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4148,6 +4144,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointText: {fileID: 328195595}
+  upgradeCostTexts:
+  - {fileID: 1631008279}
+  - {fileID: 1000686651}
+  - {fileID: 1045054327}
+  - {fileID: 1548631498}
   upgradeShops: []
 --- !u!1 &2125769459
 GameObject:

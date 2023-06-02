@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            gameManager.UpDateScore(scoreValue);
+            gameManager.UpDateScore(player.bulletDm);
             Destroy(collision.gameObject);
             currentHealth -= player.bulletDm;
             Instantiate(hitParticles, transform.position, Quaternion.identity); 

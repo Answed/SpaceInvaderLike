@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7714393ed6dca94b9e9016beadec076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeedLevel: 0
+  maxSpeedLevel: 15
   shopItems:
   - {fileID: 456141377}
   - {fileID: 270962881}

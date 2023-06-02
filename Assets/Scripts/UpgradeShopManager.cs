@@ -52,8 +52,8 @@ public class UpgradeShopManager : MonoBehaviour
             UpdateShop(i, 0);
         }
     }
-
-    public void UpgradeHealth()
+    //Sorted in the way they are in the list
+    public void UpgradeArmor()
     {
         if (CheckLevel(0))
         {
@@ -62,33 +62,30 @@ public class UpgradeShopManager : MonoBehaviour
         }
         else Debug.Log("Max Level");
     }
-
-    public void UpgradeArmor()
+    public void UpgradeDamage()
     {
         if (CheckLevel(1))
         {
             EnoughPoints(upgradeShops[1].Prices[upgradeShops[1].currentLevel], 1);
-            currentUpgrade = Upgrades.Health;
+            currentUpgrade = Upgrades.Damage;
         }
         else Debug.Log("Max Level");
     }
-
-    public void UpgradeSpeed()
+    public void UpgradeHealth()
     {
         if (CheckLevel(2))
         {
             EnoughPoints(upgradeShops[2].Prices[upgradeShops[2].currentLevel], 2);
-            currentUpgrade = Upgrades.Speed;
+            currentUpgrade = Upgrades.Health;
         }
         else Debug.Log("Max Level");
     }
-
-    public void UpgradeDamage()
+    public void UpgradeSpeed()
     {
         if (CheckLevel(3))
         {
             EnoughPoints(upgradeShops[3].Prices[upgradeShops[3].currentLevel], 3);
-            currentUpgrade = Upgrades.Damage;
+            currentUpgrade = Upgrades.Speed;
         }
         else Debug.Log("Max Level");
     }
@@ -110,6 +107,7 @@ public class UpgradeShopManager : MonoBehaviour
             points -= neededPoints;
             UpgradeStats();
             UpdateShop(shopIndex, 1);
+            pointText.text = "Points: " + points;
             return true;
         }
         else

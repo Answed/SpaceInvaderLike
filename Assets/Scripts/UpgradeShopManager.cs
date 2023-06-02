@@ -9,11 +9,13 @@ using UnityEngine;
 public class UpgradeShopManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI pointText;
+    [SerializeField] private TextMeshProUGUI[] upgradeCostTexts;
 
     private int points;
 
     private PlayerUpgrades playerUpgrades;
     [SerializeField] private UpgradeShop[] upgradeShops;
+
 
     enum Upgrades
     {
@@ -94,7 +96,7 @@ public class UpgradeShopManager : MonoBehaviour
     {
         if (upgradeShops[shopIndex].currentLevel == upgradeShops[shopIndex].maxLevel)
         {
-            upgradeShops[shopIndex].priceText.text = "Max Level";
+            upgradeCostTexts[shopIndex].text = "Max Level";
             return false;
         }
         else return true;
@@ -136,7 +138,7 @@ public class UpgradeShopManager : MonoBehaviour
     private void UpdateShop(int index, int newLevel)
     {
         upgradeShops[index].currentLevel += newLevel;
-        upgradeShops[index].priceText.text = upgradeShops[index].Prices[upgradeShops[index].currentLevel].ToString();
+        upgradeCostTexts[index].text = upgradeShops[index].Prices[upgradeShops[index].currentLevel].ToString();
 
         SaveLoadSystem.SaveSystemManager.SaveUpgradeShop(upgradeShops[index]);
     }

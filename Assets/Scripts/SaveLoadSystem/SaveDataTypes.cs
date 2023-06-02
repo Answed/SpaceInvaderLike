@@ -27,7 +27,5 @@ namespace SaveLoadSystem
         public int currentLevel;
         public int maxLevel;
         public int[] Prices;
-        public TextMeshProUGUI priceText;
-
     }
 }

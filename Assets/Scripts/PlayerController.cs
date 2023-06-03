@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public int bulletDm;
     public float timeBtwAttack;
+    public float upgradeTime;
     [SerializeField] private Transform[] bulletPositions;
     [SerializeField] private AnimationCurve DamageReduction; // Based on the current armor value
     [SerializeField] private GameObject bulletPrefab;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speedStatsText;
     [SerializeField] private TextMeshProUGUI damageStatsText;
     [SerializeField] private TextMeshProUGUI fireRateStatsText;
+    [SerializeField] private TextMeshProUGUI upgradeTimeText;
     [SerializeField] private InputAction playerMovement;
     [SerializeField] private InputAction playerAttack;
 
@@ -68,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
                 if(nextAttack < Time.time && playerAttack.ReadValue<float>() == 1)
                 {
-                    nextAttack += Time.time + timeBtwAttack;
+                    nextAttack = Time.time + timeBtwAttack;
                     Shoot();
                 }
                 break;
@@ -124,7 +126,7 @@ public class PlayerController : MonoBehaviour
     {
         timeBtwAttack /= 2;
         UpdatePlayerStatsText();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(upgradeTime);
         timeBtwAttack *= 2;
         UpdatePlayerStatsText();
     }
@@ -132,7 +134,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator BulletUpgrade()
     {
         amountOfBullets++;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(upgradeTime);
         amountOfBullets--;
     }
 
@@ -162,6 +164,7 @@ public class PlayerController : MonoBehaviour
         speedStatsText.text = "Speed: " + speed;
         damageStatsText.text = "Damage: " + bulletDm;
         fireRateStatsText.text = "Fire Rate: " + 0.6f / (timeBtwAttack * 0.6f);
+        upgradeTimeText.text = "Duration: " + upgradeTime;
     }
 
     public void UpdateHealthBar()

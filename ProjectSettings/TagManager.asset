@@ -8,6 +8,8 @@ TagManager:
   - Obstacle
   - Bullet
   - EBullet
+  - FireRateUpgrade
+  - BulletUpgrade
   layers:
   - Default
   - TransparentFX

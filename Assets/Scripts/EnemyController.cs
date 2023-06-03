@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private int maxHealth;
     [SerializeField] private float timeBtwShots;
+    [SerializeField] private GameObject[] powerUps;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject hitParticles;
 
@@ -36,8 +37,8 @@ public class EnemyController : MonoBehaviour
             Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
         }
 
-        if(currentHealth == 0)
-            Destroy(gameObject);
+        if (currentHealth == 0)
+            Death();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,5 +50,20 @@ public class EnemyController : MonoBehaviour
             currentHealth -= player.bulletDm;
             Instantiate(hitParticles, transform.position, Quaternion.identity); 
         }
+    }
+
+    private void Death()
+    {
+        var random = Random.Range(0f, 1f);
+
+        if(random <= 0.3f)
+        {
+            var powerUpSelector = Random.Range(0f, 1f);
+            if(powerUpSelector <= 0.5f)
+                Instantiate(powerUps[0], transform.position, powerUps[0].transform.rotation);
+            else Instantiate(powerUps[1], transform.position, powerUps[0].transform.rotation);
+        }
+
+        Destroy(gameObject);
     }
 }

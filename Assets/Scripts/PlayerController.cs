@@ -95,9 +95,10 @@ public class PlayerController : MonoBehaviour
         }
 
         if (collision.CompareTag("FireRateUpgrade"))
-        {
             StartCoroutine(FireRateUpgrade());
-        }
+
+        if (collision.CompareTag("BulletUpgrade"))
+            StartCoroutine(BulletUpgrade());
     }
 
     private void Shoot()
@@ -126,6 +127,13 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(2);
         timeBtwAttack *= 2;
         UpdatePlayerStatsText();
+    }
+
+    IEnumerator BulletUpgrade()
+    {
+        amountOfBullets++;
+        yield return new WaitForSeconds(2);
+        amountOfBullets--;
     }
 
     #region Stats&Visuals

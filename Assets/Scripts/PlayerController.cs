@@ -90,7 +90,23 @@ public class PlayerController : MonoBehaviour
             UpdateHealth(1);
             Instantiate(hitParticles, transform.position, Quaternion.identity);
         }
+
+        if (collision.CompareTag("FireRateUpgrade"))
+        {
+            StartCoroutine(FireRateUpgrade());
+        }
     }
+
+    IEnumerator FireRateUpgrade()
+    {
+        timeBtwAttack /= 2;
+        UpdatePlayerStatsText();
+        yield return new WaitForSeconds(2);
+        timeBtwAttack *= 2;
+        UpdatePlayerStatsText();
+    }
+
+    #region Stats&Visuals
 
     private void UpdateHealth(int damage)
     {
@@ -118,12 +134,11 @@ public class PlayerController : MonoBehaviour
         fireRateStatsText.text = "Fire Rate: " + 0.6f / (timeBtwAttack * 0.6f);
     }
 
-
-
     public void UpdateHealthBar()
     {
         healthBar.maxValue = maxHealth;
         healthBar.transform.position = healthBar.transform.position + new Vector3(40, 0 , 0);
         healthBar.transform.localScale = healthBar.transform.localScale + new Vector3(0.5f, 0, 0);
     }
+    #endregion
 }

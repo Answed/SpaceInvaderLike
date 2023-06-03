@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public int bulletDm;
     public float timeBtwAttack;
+    [SerializeField] private Transform[] bulletPositions;
     [SerializeField] private AnimationCurve DamageReduction; // Based on the current armor value
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject hitParticles;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDirection;
     private float nextAttack;
     private float currentHealth;
+    private int amountOfBullets;
 
     private GameManager gameManager;
 
@@ -50,7 +52,8 @@ public class PlayerController : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         ApplyPlayerUpgrades();
         currentHealth = maxHealth;
-        healthBar.value = currentHealth;    
+        healthBar.value = currentHealth;
+        amountOfBullets = 0;
     }
 
     // Update is called once per frame
@@ -65,8 +68,8 @@ public class PlayerController : MonoBehaviour
 
                 if(nextAttack < Time.time && playerAttack.ReadValue<float>() == 1)
                 {
-                    nextAttack = Time.time + timeBtwAttack;
-                    Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                    nextAttack += Time.time + timeBtwAttack;
+                    Shoot();
                 }
                 break;
         }
@@ -94,6 +97,25 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("FireRateUpgrade"))
         {
             StartCoroutine(FireRateUpgrade());
+        }
+    }
+
+    private void Shoot()
+    {
+        switch(amountOfBullets)
+        {
+            case 0:
+                Instantiate(bulletPrefab, bulletPositions[0].position, transform.rotation);
+                break;
+            case 1:
+                Instantiate(bulletPrefab, bulletPositions[1].position, transform.rotation);
+                Instantiate(bulletPrefab, bulletPositions[2].position, transform.rotation);
+                break;
+            case 2:
+                Instantiate(bulletPrefab, bulletPositions[0].position, transform.rotation);
+                Instantiate(bulletPrefab, bulletPositions[1].position, transform.rotation);
+                Instantiate(bulletPrefab, bulletPositions[2].position, transform.rotation);
+                break;
         }
     }
 

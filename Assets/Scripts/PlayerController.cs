@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement.Enable();
         playerAttack.Enable();
-        playerAttack.performed += Fire;
     }
     private void OnDisable()
     {
@@ -57,8 +56,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameManager.gameIsActive)
-            moveDirection = playerMovement.ReadValue<Vector2>();
+        Debug.Log(playerAttack.ReadValue<float>());
+
+        switch (gameManager.gameIsActive)
+        {
+            case true:
+                moveDirection = playerMovement.ReadValue<Vector2>();
+
+                if(nextAttack < Time.time && playerAttack.ReadValue<float>() == 1)
+                {
+                    nextAttack = Time.time + timeBtwAttack;
+                    Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                }
+                break;
+        }
+        
         if(currentHealth == 0)
         {
             gameManager.GameOver();
@@ -69,16 +81,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb2D.AddForce(moveDirection * speed);
-    }
-
-    private void Fire(InputAction.CallbackContext context)
-    {
-        if(nextAttack < Time.time && gameManager.gameIsActive)
-        {
-            nextAttack = Time.time + timeBtwAttack;
-            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        }
-    }
+    } 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

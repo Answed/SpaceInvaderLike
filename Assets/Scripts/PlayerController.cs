@@ -97,10 +97,16 @@ public class PlayerController : MonoBehaviour
         }
 
         if (collision.CompareTag("FireRateUpgrade"))
+        {
             StartCoroutine(FireRateUpgrade());
+            Destroy(collision.gameObject);
+        }
 
         if (collision.CompareTag("BulletUpgrade"))
+        {
             StartCoroutine(BulletUpgrade());
+            Destroy(collision.gameObject);
+        }
     }
 
     private void Shoot()

@@ -2575,19 +2575,19 @@ MonoBehaviour:
   upgradeShopData:
   - Name: HealthUpgradeShop.txt
     currentLevel: 0
-    maxLevel: 5
+    maxLevel: 4
     Prices: 050000000a0000000f0000001400000019000000
   - Name: SpeedUpgradeShop.txt
     currentLevel: 0
-    maxLevel: 5
+    maxLevel: 4
     Prices: 0a000000140000001e0000002800000032000000
   - Name: ArmorUpgradeShop.txt
     currentLevel: 0
-    maxLevel: 4
+    maxLevel: 3
     Prices: 0f0000001e0000002d0000003c000000
   - Name: DamageUpgradeShop.txt
     currentLevel: 0
-    maxLevel: 4
+    maxLevel: 3
     Prices: 0f0000001e0000002d0000003c000000
 --- !u!4 &1431494058
 Transform:

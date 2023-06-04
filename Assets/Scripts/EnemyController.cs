@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private int scoreValue;
-    [SerializeField] private float speed;
-    [SerializeField] private int maxHealth;
-    [SerializeField] private float timeBtwShots;
-    [SerializeField] private GameObject[] powerUps;
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private GameObject hitParticles;
+    [SerializeField] private EnemyScriptableObject enemyStats;
 
     private int currentHealth;
     private float nextAttack;
@@ -23,18 +17,18 @@ public class EnemyController : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         player = GameObject.Find("Player").GetComponent<PlayerController>();
-        currentHealth = maxHealth;
+        currentHealth = enemyStats.MaxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        transform.Translate(Vector2.down * enemyStats.Speed * Time.deltaTime);
 
         if (nextAttack <= Time.time)
         {
-            nextAttack = Time.time + timeBtwShots;
-            Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
+            nextAttack = Time.time + enemyStats.TimeBtwShots;
+            Instantiate(enemyStats.BulletPrefab, transform.position, enemyStats.BulletPrefab.transform.rotation);
         }
 
         if (currentHealth == 0)
@@ -45,10 +39,9 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            gameManager.UpDateScore(player.bulletDm);
             Destroy(collision.gameObject);
             currentHealth -= player.bulletDm;
-            Instantiate(hitParticles, transform.position, Quaternion.identity); 
+            Instantiate(enemyStats.HitParticles, transform.position, Quaternion.identity); 
         }
     }
 
@@ -60,10 +53,11 @@ public class EnemyController : MonoBehaviour
         {
             var powerUpSelector = Random.Range(0f, 1f);
             if(powerUpSelector <= 0.5f)
-                Instantiate(powerUps[0], transform.position, powerUps[0].transform.rotation);
-            else Instantiate(powerUps[1], transform.position, powerUps[0].transform.rotation);
+                Instantiate(enemyStats.PowerUpsPrefabs[0], transform.position, enemyStats.PowerUpsPrefabs[0].transform.rotation);
+            else Instantiate(enemyStats.PowerUpsPrefabs[1], transform.position, enemyStats.PowerUpsPrefabs[0].transform.rotation);
         }
 
+        gameManager.UpDateScore(enemyStats.ScoreValue);
         Destroy(gameObject);
     }
 }

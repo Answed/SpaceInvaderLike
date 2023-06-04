@@ -125,15 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2edac451927b4349859bc6fda4b22fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 1
-  speed: 0.5
-  maxHealth: 2
-  timeBtwShots: 4
-  powerUps:
-  - {fileID: 5575509722950255660, guid: 0482c781ab9568d4993761732ea886fa, type: 3}
-  - {fileID: 7902584500491856627, guid: b199cd54ce47073489f48347be6e4929, type: 3}
-  bulletPrefab: {fileID: 6559975636858161924, guid: 326eb840e6d84d545bc79d30107f280d, type: 3}
-  hitParticles: {fileID: 119033374282713987, guid: 13d3129ca28da4d4b90eeebd554f9bec, type: 3}
+  enemyStats: {fileID: 11400000, guid: 2a5273c232f3dcf4fbdfd0ff13a2969d, type: 2}
 --- !u!50 &-2611521367726065913
 Rigidbody2D:
   serializedVersion: 4

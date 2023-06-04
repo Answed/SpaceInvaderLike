@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
 
     private WaveSpawner waveSpawner;
     private MenuController menuController;
-    private ShopController shopController;
 
     private float nextWave;
     private int score;
@@ -45,7 +44,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         waveSpawner = GetComponent<WaveSpawner>();
-        shopController = GetComponent<ShopController>();    
         scoreText.text = "Score: 0";
         gameIsActive = false;
         startGameText.SetActive(true);
@@ -141,7 +139,6 @@ public class GameManager : MonoBehaviour
     // Gives the player a moment to breath before the next wave starts
     IEnumerator SpawnWaveAfterTime()
     {
-        if(wave > 0) { shopController.OpenShop(); }
         yield return new WaitForSeconds(timeBtwWave);
         wave++;
         waveSpawner.SpawnWave(wave);

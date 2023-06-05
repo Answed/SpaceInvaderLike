@@ -23,18 +23,22 @@ public class PerkSelectionControler : MonoBehaviour
     private MenuController menuController;
     private List<PerkScriptableObject> perkzList;
     private List<PerkScriptableObject> selectedPerkz;
+    private PerkScriptableObject selectedPerk;
+
+    private PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
     {
         perkzList = new List<PerkScriptableObject>();
         selectedPerkz = new List<PerkScriptableObject>();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     public void OpenPerkSelector()
     {
         perkSelectorObjects.SetActive(true);
-        if(perkzList.Count == 0 ) //List ónly gets created ones
+        if(perkzList.Count == 0 ) //List only gets created ones
             CreatePerkList();
     }
 
@@ -78,16 +82,25 @@ public class PerkSelectionControler : MonoBehaviour
     public void PerkShopLeft()
     {
         //Applies the stats from the perk on the left or 0 in the list
+        selectedPerk = selectedPerkz[0];
     }
 
     public void PerkShopMiddle()
     {
         //Applies the stats from the perk in the middle or 1 in the list
+        selectedPerk = selectedPerkz[1];
     }
 
     public void PerkShopRight()
     {
         //Applies the stats from the perk on the right or 2 in the list
+        selectedPerk = selectedPerkz[2];
+    }
+
+    public void SelectPerk()
+    {
+        playerController.ApplyPerk(selectedPerk);
+        ClosePerkSelector();
     }
     #endregion
 }

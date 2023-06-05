@@ -72,9 +72,10 @@ public class PerkSelectionControler : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             // Select one random Perk and add it to a list
-            var randomPerk = Random.Range(0, perkzList.Count);
+            var randomPerk = Random.Range(0, perkzList.Count-1);
             LoadPerkIntoButton(perkButtons[i], perkzList[randomPerk]);
             selectedPerkz.Add(perkzList[randomPerk]);
+            perkzList.RemoveAt(randomPerk);
         }
     }
 

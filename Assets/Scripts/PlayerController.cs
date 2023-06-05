@@ -183,10 +183,10 @@ public class PlayerController : MonoBehaviour
         switch (perk.Name)
         {
             case "Energy Cell":
-                bulletDm++;
+                bulletDm += (int)perk.UpgradeValue;
                 break;
             case "Fuel Cell":
-                speed += 0.25f;
+                speed += perk.UpgradeValue;
                 break;
         }
         UpdatePlayerStatsText();

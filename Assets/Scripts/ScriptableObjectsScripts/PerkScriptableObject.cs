@@ -6,9 +6,10 @@ using UnityEngine;
 public class PerkScriptableObject : ScriptableObject
 {
     public string Name;
-    [InspectorTextArea]
+    [TextArea]
     public string Description;
-    public Image PerkImage;
+    public Sprite PerkImage;
+    public Color BackgroundColor;
     public string StatToUpgrade;
     public float UpgradeValue;
 }

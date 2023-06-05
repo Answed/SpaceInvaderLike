@@ -6,9 +6,11 @@ using UnityEngine.UI;
 
 public class PerkSelectionControler : MonoBehaviour
 {
+    [System.Serializable]
     private struct PerkButton
     {
         public Button PerkSelectionButton;
+        public TextMeshProUGUI PerkName;
         public TextMeshProUGUI PerkDiscription;
         public Image PerkImage;
     }
@@ -16,8 +18,11 @@ public class PerkSelectionControler : MonoBehaviour
     [SerializeField] private GameObject perkSelectorObjects;
     [SerializeField] private PerkButton[] perkButtons;
 
-    private MenuController menuController;
 
+
+    private MenuController menuController;
+    private List<PerkScriptableObject> perkzList;
+    private List<PerkScriptableObject> selectedPerkz;
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +46,12 @@ public class PerkSelectionControler : MonoBehaviour
         perkSelectorObjects.SetActive(false);
     }
 
-    private void LoadPerkIntoButton(PerkButton button) 
+    private void LoadPerkIntoButton(PerkButton button, PerkScriptableObject selectedPerk) 
     {
-        // Code for changing the look of a Button based on the selected Perk;
+        button.PerkSelectionButton.GetComponent<Image>().color = selectedPerk.BackgroundColor;
+        button.PerkName.text = selectedPerk.Name;
+        button.PerkDiscription.text = selectedPerk.Description;
+        button.PerkImage.sprite = selectedPerk.PerkImage;
     }
 
     private void SelectPerkz()
@@ -51,7 +59,7 @@ public class PerkSelectionControler : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             // Select one random Perk and add it to a list
-            LoadPerkIntoButton(perkButtons[i]);
+            LoadPerkIntoButton(perkButtons[i], perkz["Health"]);
         }
     }
 

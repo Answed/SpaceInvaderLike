@@ -61,8 +61,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerAttack.ReadValue<float>());
-
         switch (gameManager.gameIsActive)
         {
             case true:

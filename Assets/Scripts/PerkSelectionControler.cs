@@ -27,7 +27,9 @@ public class PerkSelectionControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        perkzList = new List<PerkScriptableObject>();
+        selectedPerkz = new List<PerkScriptableObject>();
+        CreatePerkList();
     }
 
     // Update is called once per frame
@@ -35,7 +37,17 @@ public class PerkSelectionControler : MonoBehaviour
     {
         
     }
-
+    private void CreatePerkList()
+    {
+        foreach (PerkScriptableObject perk in perkzList)
+        {
+            for (int counter = 0; counter < perk.TimesInList; counter++)
+            {
+                Debug.Log(perkzList);
+                perkzList.Add(perk);
+            }
+        }
+    }
 
     public void OpenPerkSelector()
     {

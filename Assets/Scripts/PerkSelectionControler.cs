@@ -17,7 +17,7 @@ public class PerkSelectionControler : MonoBehaviour
 
     [SerializeField] private GameObject perkSelectorObjects;
     [SerializeField] private PerkButton[] perkButtons;
-
+    [SerializeField] private PerkScriptableObject[] perkz;
 
 
     private MenuController menuController;
@@ -35,6 +35,7 @@ public class PerkSelectionControler : MonoBehaviour
     {
         
     }
+
 
     public void OpenPerkSelector()
     {
@@ -59,7 +60,9 @@ public class PerkSelectionControler : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             // Select one random Perk and add it to a list
-            LoadPerkIntoButton(perkButtons[i], perkz["Health"]);
+            var randomPerk = Random.Range(0, perkzList.Count);
+            LoadPerkIntoButton(perkButtons[i], perkzList[randomPerk]);
+            selectedPerkz.Add(perkzList[randomPerk]);
         }
     }
 

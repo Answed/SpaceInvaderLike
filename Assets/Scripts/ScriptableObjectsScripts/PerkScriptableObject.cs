@@ -12,4 +12,5 @@ public class PerkScriptableObject : ScriptableObject
     public Color BackgroundColor;
     public string StatToUpgrade;
     public float UpgradeValue;
+    public int TimesInList;
 }

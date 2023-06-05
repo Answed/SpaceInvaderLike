@@ -29,34 +29,29 @@ public class PerkSelectionControler : MonoBehaviour
     {
         perkzList = new List<PerkScriptableObject>();
         selectedPerkz = new List<PerkScriptableObject>();
-        CreatePerkList();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OpenPerkSelector()
     {
-        
+        perkSelectorObjects.SetActive(true);
+        if(perkzList.Count == 0 ) //List ónly gets created ones
+            CreatePerkList();
     }
+
+    public void ClosePerkSelector()
+    {
+        perkSelectorObjects.SetActive(false);
+    }
+
     private void CreatePerkList()
     {
         foreach (PerkScriptableObject perk in perkzList)
         {
             for (int counter = 0; counter < perk.TimesInList; counter++)
             {
-                Debug.Log(perkzList);
                 perkzList.Add(perk);
             }
         }
-    }
-
-    public void OpenPerkSelector()
-    {
-        perkSelectorObjects.SetActive(true);
-    }
-
-    public void ClosePerkSelector()
-    {
-        perkSelectorObjects.SetActive(false);
     }
 
     private void LoadPerkIntoButton(PerkButton button, PerkScriptableObject selectedPerk) 

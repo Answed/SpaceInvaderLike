@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 2
   ScoreValue: 2
-  Speed: 0.8
+  Speed: 0.2
   TimeBtwShots: 2
   PowerUpsPrefabs:
   - {fileID: 5575509722950255660, guid: 0482c781ab9568d4993761732ea886fa, type: 3}

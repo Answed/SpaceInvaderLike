@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputAction pauseGame;
 
     private WaveSpawner waveSpawner;
-    private MenuController menuController;
 
     private float nextWave;
     private int score;
@@ -47,7 +46,6 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: 0";
         gameIsActive = false;
         startGameText.SetActive(true);
-        menuController = new MenuController();
     }
 
     // Update is called once per frame
@@ -86,7 +84,7 @@ public class GameManager : MonoBehaviour
         endGame.Enable();
         endGame.performed += ReloadScene;
         gameIsActive = false;
-        menuController.EnableGameObjects(gameOverScreenObjects);
+        MenuController.EnableGameObjects(gameOverScreenObjects);
         SaveLoadSystem.SaveSystemManager.SaveScore(score + SaveLoadSystem.SaveSystemManager.LoadScore());
     }
 
@@ -101,7 +99,7 @@ public class GameManager : MonoBehaviour
         if(gameIsActive)
         {
             gameIsActive = false;
-            menuController.EnableGameObjects(pauseMenuObjects);
+            MenuController.EnableGameObjects(pauseMenuObjects);
             blackScreen.SetActive(true);
             pauseMenuTitle.gameObject.SetActive(true);
             Time.timeScale = 0;
@@ -112,7 +110,7 @@ public class GameManager : MonoBehaviour
     public void Resume()
     {
         gameIsActive = true;
-        menuController.DisableGameObjects(pauseMenuObjects);
+        MenuController.DisableGameObjects(pauseMenuObjects);
         blackScreen.SetActive(false);
         pauseMenuTitle.gameObject.SetActive(false);
         Time.timeScale = 1.0f;
@@ -120,13 +118,13 @@ public class GameManager : MonoBehaviour
 
     public void Settings()
     {
-        menuController.SwitchWindow(pauseMenuObjects, settingsMenuObjects);
+        MenuController.SwitchWindow(pauseMenuObjects, settingsMenuObjects);
         pauseMenuTitle.text = "Settings";
     }
     // Goes back to the MainPauseMenu
     public void Back()
     {
-        menuController.SwitchWindow(settingsMenuObjects, pauseMenuObjects);
+        MenuController.SwitchWindow(settingsMenuObjects, pauseMenuObjects);
         pauseMenuTitle.text = "Paused";
     }
 

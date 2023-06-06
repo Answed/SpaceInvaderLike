@@ -464,7 +464,7 @@ MonoBehaviour:
   obstacles: {fileID: 3010185066025315523, guid: fc7e47b8093fcba47ae31925489aa4b6, type: 3}
   spawnHeight: 13
   timeBtwSpawns: 1
-  spawnWidth: {x: -13, y: 13}
+  spawnWidth: {x: -12, y: 12}
 --- !u!114 &394153707
 MonoBehaviour:
   m_ObjectHideFlags: 0

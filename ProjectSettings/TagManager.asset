@@ -10,6 +10,7 @@ TagManager:
   - EBullet
   - FireRateUpgrade
   - BulletUpgrade
+  - Health
   layers:
   - Default
   - TransparentFX

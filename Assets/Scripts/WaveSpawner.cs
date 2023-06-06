@@ -41,13 +41,13 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnDelay(int enemiesToSpawn)
     {
-        for (int i = enemiesToSpawn; i > 0; i--)
+        for (int i = enemiesToSpawn; i > 0;)
         {
-            var spawnEnemie = Random.Range(0, 1);
+            var spawnEnemie = Random.Range(0f, 1f);
 
             yield return new WaitForSeconds(timeBtwSpawns);
 
-            if (spawnEnemie <= 0.5f && enemiesToSpawn > 0)
+            if (spawnEnemie < 0.4f && enemiesToSpawn > 0)
             {
                 enemiesToSpawn--;
                 SpawnObject(0);

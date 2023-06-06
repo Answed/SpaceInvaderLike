@@ -22,8 +22,7 @@ public class WaveSpawner : MonoBehaviour
     public void SpawnWave(int wave)
     {
         int enemiesToSpawn = wave * 2;
-        int obstaclesToSpawn = wave * 3;
-        StartCoroutine(SpawnDelay(enemiesToSpawn, obstaclesToSpawn));
+        StartCoroutine(SpawnDelay(enemiesToSpawn));
     }
 
     private void SpawnObject(int kindOfObject)
@@ -40,9 +39,9 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnDelay(int enemiesToSpawn, int obstaclesToSpawn)
+    IEnumerator SpawnDelay(int enemiesToSpawn)
     {
-        for (int i = enemiesToSpawn + obstaclesToSpawn; i > 0; i--)
+        for (int i = enemiesToSpawn; i > 0; i--)
         {
             var spawnEnemie = Random.Range(0, 1);
 
@@ -53,16 +52,7 @@ public class WaveSpawner : MonoBehaviour
                 enemiesToSpawn--;
                 SpawnObject(0);
             }
-            else if (obstaclesToSpawn > 0)
-            {
-                obstaclesToSpawn--;
-                SpawnObject(1);
-            }
-            else if (obstaclesToSpawn == 0 && enemiesToSpawn > 0)
-            {
-                enemiesToSpawn--;
-                SpawnObject(0);
-            }
+            else { SpawnObject(1); }
         }
         gameManager.nextWaveSpawned = false;
     }

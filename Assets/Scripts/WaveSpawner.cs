@@ -56,5 +56,4 @@ public class WaveSpawner : MonoBehaviour
         }
         gameManager.nextWaveSpawned = false;
     }
-
 }

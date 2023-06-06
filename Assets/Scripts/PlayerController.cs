@@ -105,6 +105,12 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(BulletUpgrade());
             Destroy(collision.gameObject);
         }
+
+        if (collision.CompareTag("Obstacle"))
+        {
+            UpdateHealth(2);
+            Destroy(collision.gameObject);
+        }
     }
 
     private void Shoot()

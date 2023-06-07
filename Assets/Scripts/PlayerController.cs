@@ -171,7 +171,10 @@ public class PlayerController : MonoBehaviour
         speed += playerUpgrades.SpeedUpgrade;
         bulletDm += playerUpgrades.DamageUpgrade;
         UpdatePlayerStatsText();
-        UpdateHealthBar();
+        for (int i = 5; i < maxHealth; i++)
+        {
+            UpdateHealthBar();
+        }
     }
 
     public void UpdatePlayerStatsText()

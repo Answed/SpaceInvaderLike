@@ -124,7 +124,7 @@ public class UpgradeShopManager : MonoBehaviour
         switch(currentUpgrade)
         {
             case Upgrades.Health:
-                playerUpgrades.HealthUpgrade += 1;
+                playerUpgrades.HealthUpgrade += 2;
                 break;
             case Upgrades.Speed:
                 playerUpgrades.SpeedUpgrade += 0.5f;

@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b225c9465cbe09f46bdee9c6108dc7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 4
   armor: 0
   speed: 10
   bulletDm: 1

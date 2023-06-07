@@ -41,7 +41,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnDelay(int enemiesToSpawn)
     {
-        for (int i = enemiesToSpawn; i > 0;)
+        while(enemiesToSpawn > 0 )
         {
             var spawnEnemie = Random.Range(0f, 1f);
 
@@ -53,6 +53,7 @@ public class WaveSpawner : MonoBehaviour
                 SpawnObject(0);
             }
             else { SpawnObject(1); }
+            Debug.Log(enemiesToSpawn);
         }
         gameManager.nextWaveSpawned = false;
     }

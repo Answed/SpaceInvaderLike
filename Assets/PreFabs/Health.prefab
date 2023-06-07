@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7689654696500003446}
   m_Layer: 0
   m_Name: Health
-  m_TagString: BulletUpgrade
+  m_TagString: Health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

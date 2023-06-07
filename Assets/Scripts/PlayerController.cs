@@ -106,6 +106,12 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        if (collision.CompareTag("Health"))
+        {
+            UpdateHealth(-2);
+            Destroy(collision.gameObject);
+        }
+
         if (collision.CompareTag("Obstacle"))
         {
             UpdateHealth(2);

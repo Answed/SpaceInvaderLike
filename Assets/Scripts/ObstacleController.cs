@@ -15,17 +15,15 @@ public class ObstacleController : MoveObjects
         }
     }
 
-    ~ObstacleController()
+    private void OnDestroy()
     {
         var dropchance = Random.Range(0f, 1f);
 
         Debug.Log("HEllo");
 
-        if(dropchance < 0.7f)
+        if (dropchance < 0.3f)
         {
             Instantiate(health, transform.position, Quaternion.identity);
         }
-    } 
- 
-
+    }
 }

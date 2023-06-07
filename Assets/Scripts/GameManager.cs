@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
         }
         if (spawnObstacles)
             waveSpawner.SpawnObstacles();
-        Debug.Log(spawnObstacles);
     }
     
     private void StartGame(InputAction.CallbackContext context)

@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         
-        if(currentHealth == 0)
+        if(currentHealth <= 0)
         {
             gameManager.GameOver();
             Destroy(gameObject);
@@ -108,11 +108,11 @@ public class PlayerController : MonoBehaviour
 
         if (collision.CompareTag("Health"))
         {
-            if(currentHealth < maxHealth-1)
-            {
+            if(currentHealth == maxHealth -1)
+                UpdateHealth(-1);
+            else
                 UpdateHealth(-2);
-                Destroy(collision.gameObject);
-            }
+            Destroy(collision.gameObject);
         }
 
         if (collision.CompareTag("Obstacle"))
@@ -162,7 +162,9 @@ public class PlayerController : MonoBehaviour
     private void UpdateHealth(int damage)
     {
         var actualDamage = damage - (damage * DamageReduction.Evaluate(armor));
+        Debug.Log(actualDamage);
         currentHealth -= actualDamage;
+        Debug.Log(currentHealth);   
         healthBar.value = currentHealth;
     }
 
@@ -174,7 +176,7 @@ public class PlayerController : MonoBehaviour
         speed += playerUpgrades.SpeedUpgrade;
         bulletDm += playerUpgrades.DamageUpgrade;
         UpdatePlayerStatsText();
-        for (int i = 5; i < maxHealth; i++)
+        for (int i = 4; i < maxHealth; i++)
         {
             UpdateHealthBar();
         }

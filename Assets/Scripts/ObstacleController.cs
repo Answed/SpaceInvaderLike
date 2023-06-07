@@ -12,17 +12,15 @@ public class ObstacleController : MoveObjects
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            DropHealth();
         }
     }
 
-    private void OnDestroy()
+    private void DropHealth()
     {
         var dropchance = Random.Range(0f, 1f);
 
-
         if (dropchance < 0.3f)
-        {
             Instantiate(health, transform.position, Quaternion.identity);
-        }
     }
 }

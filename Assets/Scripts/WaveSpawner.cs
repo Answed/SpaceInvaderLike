@@ -22,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
     public void SpawnWave(int wave)
     {
         int enemiesToSpawn = wave * 2;
-        StartCoroutine(SpawnDelay(enemiesToSpawn));
+        StartCoroutine(SpawnEnemies(enemiesToSpawn));
     }
 
     private void SpawnObject(int kindOfObject)
@@ -39,7 +39,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnDelay(int enemiesToSpawn)
+    IEnumerator SpawnEnemies(int enemiesToSpawn)
     {
         while(enemiesToSpawn > 0 )
         {
@@ -52,9 +52,16 @@ public class WaveSpawner : MonoBehaviour
                 enemiesToSpawn--;
                 SpawnObject(0);
             }
-            else { SpawnObject(1); }
-            Debug.Log(enemiesToSpawn);
         }
         gameManager.nextWaveSpawned = false;
+    }
+
+    public void SpawnObstacles()
+    {
+        if(nextSpawn < Time.time)
+        {
+            nextSpawn = Time.time + timeBtwSpawns;
+            SpawnObject(1);
+        }
     }
 }

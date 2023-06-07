@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     private int score;
     public bool nextWaveSpawned;
     public bool gameIsActive;
+    public bool spawnObstacles;
+    
 
     private void OnEnable()
     {
@@ -68,8 +70,12 @@ public class GameManager : MonoBehaviour
         if (enemiesLeft.Length == 0 && !nextWaveSpawned)
         {
             nextWaveSpawned = true;
+            spawnObstacles = false;
             StartCoroutine(SpawnWaveAfterTime());
         }
+        if (spawnObstacles)
+            waveSpawner.SpawnObstacles();
+        Debug.Log(spawnObstacles);
     }
     
     private void StartGame(InputAction.CallbackContext context)
@@ -140,5 +146,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(timeBtwWave);
         wave++;
         waveSpawner.SpawnWave(wave);
+        spawnObstacles = true;
     }
 }

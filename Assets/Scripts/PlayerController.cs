@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.CompareTag("Obstacle"))
         {
-            UpdateHealth(2);
+            UpdateHealth(4);
             Destroy(collision.gameObject);
         }
     }

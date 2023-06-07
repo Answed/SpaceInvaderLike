@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         ApplyPlayerUpgrades();
         currentHealth = maxHealth;
+        healthBar.maxValue = currentHealth;
         healthBar.value = currentHealth;
         amountOfBullets = 0;
     }
@@ -162,9 +163,7 @@ public class PlayerController : MonoBehaviour
     private void UpdateHealth(int damage)
     {
         var actualDamage = damage - (damage * DamageReduction.Evaluate(armor));
-        Debug.Log(actualDamage);
         currentHealth -= actualDamage;
-        Debug.Log(currentHealth);   
         healthBar.value = currentHealth;
     }
 

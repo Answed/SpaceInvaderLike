@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7689654696500003444}
   - component: {fileID: 7689654696500003445}
   - component: {fileID: 7689654696500003446}
+  - component: {fileID: -6814929484423584168}
   m_Layer: 0
   m_Name: Health
   m_TagString: Health
@@ -114,4 +115,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2b8a483a13b544586200e5ea04ebc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.5
+--- !u!114 &-6814929484423584168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689654696500003447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d637b1fcafea147a5c94c66cc8fb01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeDestroyed: 5

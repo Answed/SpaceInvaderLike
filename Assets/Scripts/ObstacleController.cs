@@ -19,7 +19,6 @@ public class ObstacleController : MoveObjects
     {
         var dropchance = Random.Range(0f, 1f);
 
-        Debug.Log("HEllo");
 
         if (dropchance < 0.3f)
         {

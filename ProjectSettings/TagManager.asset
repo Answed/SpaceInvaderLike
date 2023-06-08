@@ -12,6 +12,7 @@ TagManager:
   - BulletUpgrade
   - Health
   - HeavyBullet
+  - LightBullet
   layers:
   - Default
   - TransparentFX

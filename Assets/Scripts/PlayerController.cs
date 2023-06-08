@@ -95,17 +95,17 @@ public class PlayerController : MonoBehaviour
             Instantiate(hitParticles, transform.position, Quaternion.identity);
         }
 
-        if (collision.CompareTag("FireRateUpgrade"))
+        if (collision.CompareTag("HeavyBullet"))
         {
-            StartCoroutine(FireRateUpgrade());
-            Destroy(collision.gameObject);
+            UpdateHealth(2);
+            Instantiate(hitParticles, transform.position, Quaternion.identity);
         }
 
+        if (collision.CompareTag("FireRateUpgrade"))
+            StartCoroutine(FireRateUpgrade());
+
         if (collision.CompareTag("BulletUpgrade"))
-        {
             StartCoroutine(BulletUpgrade());
-            Destroy(collision.gameObject);
-        }
 
         if (collision.CompareTag("Health"))
         {
@@ -113,14 +113,12 @@ public class PlayerController : MonoBehaviour
                 UpdateHealth(-1);
             else
                 UpdateHealth(-2);
-            Destroy(collision.gameObject);
         }
 
         if (collision.CompareTag("Obstacle"))
-        {
             UpdateHealth(4);
-            Destroy(collision.gameObject);
-        }
+
+        Destroy(collision.gameObject);
     }
 
     private void Shoot()

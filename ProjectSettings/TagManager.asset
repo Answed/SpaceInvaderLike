@@ -11,6 +11,7 @@ TagManager:
   - FireRateUpgrade
   - BulletUpgrade
   - Health
+  - HeavyBullet
   layers:
   - Default
   - TransparentFX

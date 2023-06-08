@@ -571,6 +571,7 @@ MonoBehaviour:
     m_Flags: 0
   nextWaveSpawned: 0
   gameIsActive: 0
+  spawnObstacles: 0
 --- !u!4 &394153708
 Transform:
   m_ObjectHideFlags: 0

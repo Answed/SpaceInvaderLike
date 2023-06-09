@@ -18,5 +18,5 @@ MonoBehaviour:
   TimeBtwShots: 1.5
   PowerUpsPrefabs:
   - {fileID: 5575509722950255660, guid: 0482c781ab9568d4993761732ea886fa, type: 3}
-  BulletPrefab: {fileID: 0}
+  BulletPrefab: {fileID: 4792039838222121840, guid: 133f437afa618654aa2b9da220cc86cd, type: 3}
   HitParticles: {fileID: 119033374282713987, guid: 13d3129ca28da4d4b90eeebd554f9bec, type: 3}

@@ -90,16 +90,10 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("EBullet"))
-        {
-            UpdateHealth(1);
-            Instantiate(hitParticles, transform.position, Quaternion.identity);
-        }
+            PlayerHit(1);
 
         if (collision.CompareTag("HeavyBullet"))
-        {
-            UpdateHealth(2);
-            Instantiate(hitParticles, transform.position, Quaternion.identity);
-        }
+            PlayerHit(2);
 
         if (collision.CompareTag("FireRateUpgrade"))
             StartCoroutine(FireRateUpgrade());
@@ -120,7 +114,6 @@ public class PlayerController : MonoBehaviour
 
         Destroy(collision.gameObject);
     }
-
     private void Shoot()
     {
         switch(amountOfBullets)
@@ -157,7 +150,11 @@ public class PlayerController : MonoBehaviour
     }
 
     #region Stats&Visuals
-
+    private void PlayerHit(int Damage)
+    {
+        UpdateHealth(Damage);
+        Instantiate(hitParticles, transform.position, Quaternion.identity);
+    }
     private void UpdateHealth(int damage)
     {
         var actualDamage = damage - (damage * DamageReduction.Evaluate(armor));
@@ -178,7 +175,6 @@ public class PlayerController : MonoBehaviour
             UpdateHealthBar();
         }
     }
-
     public void UpdatePlayerStatsText()
     {
         healthStatsText.text = "Health: " + maxHealth;
@@ -187,14 +183,12 @@ public class PlayerController : MonoBehaviour
         fireRateStatsText.text = "Fire Rate: " + 0.6f / (timeBtwAttack * 0.6f);
         upgradeTimeText.text = "Duration: " + upgradeTime;
     }
-
     public void UpdateHealthBar()
     {
         healthBar.maxValue = maxHealth;
         healthBar.transform.position = healthBar.transform.position + new Vector3(40, 0 , 0);
         healthBar.transform.localScale = healthBar.transform.localScale + new Vector3(0.5f, 0, 0);
     }
-
     public void ApplyPerk(PerkScriptableObject perk)
     {
         switch (perk.Name)

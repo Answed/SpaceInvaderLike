@@ -22,10 +22,13 @@ public class PerkSelectionControler : MonoBehaviour
     private MenuController menuController;
     private PlayerController playerController;
 
+    private Dictionary<string, IApplyAttribute> attributes;
+
     // Start is called before the first frame update
     void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+
     }
 
     public void OpenPerkSelector()
@@ -37,6 +40,15 @@ public class PerkSelectionControler : MonoBehaviour
     public void ClosePerkSelector()
     {
         perkSelectorObjects.SetActive(false);
+    }
+
+    private void CreateAttributeList()
+    {
+        attributes.Add("Health", new MaxHealth());
+        attributes.Add("Armor", new Armor());
+        attributes.Add("Damage", new DamageIncrease());
+        attributes.Add("Speed", new SpeedIncrease()); 
+        attributes.Add("FireRate", new FireRateIncrease());
     }
 
     private void CreatePerkList()

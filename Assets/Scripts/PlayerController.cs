@@ -189,18 +189,5 @@ public class PlayerController : MonoBehaviour
         healthBar.transform.position = healthBar.transform.position + new Vector3(40, 0 , 0);
         healthBar.transform.localScale = healthBar.transform.localScale + new Vector3(0.5f, 0, 0);
     }
-    public void ApplyPerk(PerkScriptableObject perk)
-    {
-        switch (perk.Name)
-        {
-            case "Energy Cell":
-                bulletDm += (int)perk.UpgradeValue;
-                break;
-            case "Fuel Cell":
-                speed += perk.UpgradeValue;
-                break;
-        }
-        UpdatePlayerStatsText();
-    }
     #endregion
 }

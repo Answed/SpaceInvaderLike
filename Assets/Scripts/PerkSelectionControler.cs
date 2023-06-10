@@ -17,29 +17,21 @@ public class PerkSelectionControler : MonoBehaviour
 
     [SerializeField] private GameObject perkSelectorObjects;
     [SerializeField] private PerkButton[] perkButtons;
-    [SerializeField] private PerkScriptableObject[] perkz;
 
 
     private MenuController menuController;
-    private List<PerkScriptableObject> perkzList;
-    private List<PerkScriptableObject> selectedPerkz;
-    private PerkScriptableObject selectedPerk;
-
     private PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
     {
-        perkzList = new List<PerkScriptableObject>();
-        selectedPerkz = new List<PerkScriptableObject>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     public void OpenPerkSelector()
     {
         perkSelectorObjects.SetActive(true);
-        if(perkzList.Count == 0 ) //List only gets created ones
-            CreatePerkList();
+
     }
 
     public void ClosePerkSelector()
@@ -49,21 +41,12 @@ public class PerkSelectionControler : MonoBehaviour
 
     private void CreatePerkList()
     {
-        foreach (PerkScriptableObject perk in perkzList)
-        {
-            for (int counter = 0; counter < perk.TimesInList; counter++)
-            {
-                perkzList.Add(perk);
-            }
-        }
+
     }
 
-    private void LoadPerkIntoButton(PerkButton button, PerkScriptableObject selectedPerk) 
+    private void LoadPerkIntoButton(PerkButton button) 
     {
-        button.PerkSelectionButton.GetComponent<Image>().color = selectedPerk.BackgroundColor;
-        button.PerkName.text = selectedPerk.Name;
-        button.PerkDiscription.text = selectedPerk.Description;
-        button.PerkImage.sprite = selectedPerk.PerkImage;
+        //Applies all stats to a button based on the selected Perk
     }
 
     private void SelectPerkz()
@@ -71,10 +54,6 @@ public class PerkSelectionControler : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             // Select one random Perk and add it to a list
-            var randomPerk = Random.Range(0, perkzList.Count-1);
-            LoadPerkIntoButton(perkButtons[i], perkzList[randomPerk]);
-            selectedPerkz.Add(perkzList[randomPerk]);
-            perkzList.RemoveAt(randomPerk);
         }
     }
 
@@ -82,24 +61,20 @@ public class PerkSelectionControler : MonoBehaviour
     public void PerkShopLeft()
     {
         //Applies the stats from the perk on the left or 0 in the list
-        selectedPerk = selectedPerkz[0];
     }
 
     public void PerkShopMiddle()
     {
         //Applies the stats from the perk in the middle or 1 in the list
-        selectedPerk = selectedPerkz[1];
     }
 
     public void PerkShopRight()
     {
         //Applies the stats from the perk on the right or 2 in the list
-        selectedPerk = selectedPerkz[2];
     }
 
     public void SelectPerk()
     {
-        playerController.ApplyPerk(selectedPerk);
         ClosePerkSelector();
     }
     #endregion

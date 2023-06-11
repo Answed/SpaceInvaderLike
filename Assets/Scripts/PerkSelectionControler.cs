@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
+using System.Linq;
 
 public class PerkSelectionControler : MonoBehaviour
 {
@@ -25,7 +27,8 @@ public class PerkSelectionControler : MonoBehaviour
 
     private Dictionary<string, IApplyAttribute> attributes;
     private List<PerkScriptableObject> perksList; // Saves all the Perks which are currently in the Selection Pool
-    private List<PerkScriptableObject> selectedPerkz;
+    private List<PerkScriptableObject> selectedPerks; // Saves all the list which are currently in rotation
+    private PerkScriptableObject selectedPerk;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +73,7 @@ public class PerkSelectionControler : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             var randomPerk = Random.Range(0, perksList.Count);
-            selectedPerkz.Add(perksList[i]);
+            selectedPerks.Add(perksList[i]);
             LoadPerkIntoButton(perkButtons[i], perksList[i]);
         }
     }
@@ -83,24 +86,34 @@ public class PerkSelectionControler : MonoBehaviour
         button.PerkSelectionButton.gameObject.GetComponent<Image>().color = perk.BackgroundColor;
     }
 
+    private void ApplyPerkToPlayerStats()
+    {
+        for(int i = 0; i < selectedPerk.TypeOfAttributes.Length; i++)
+        {
+            attributes[selectedPerk.TypeOfAttributes[i]].Apply(selectedPerk.values[i], playerController);
+        }
+    }
+
     #region Perk Buttons
     public void PerkShopLeft()
     {
-        //Applies the stats from the perk on the left or 0 in the list
+        selectedPerk = selectedPerks[0];
+        //Change of overall button color
     }
 
     public void PerkShopMiddle()
     {
-        //Applies the stats from the perk in the middle or 1 in the list
+        selectedPerk = selectedPerks[1];
     }
 
     public void PerkShopRight()
     {
-        //Applies the stats from the perk on the right or 2 in the list
+        selectedPerk = selectedPerks[2];
     }
 
     public void SelectPerk()
     {
+        ApplyPerkToPlayerStats();
         ClosePerkSelector();
     }
     #endregion

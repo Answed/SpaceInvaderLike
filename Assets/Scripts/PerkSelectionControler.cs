@@ -17,12 +17,14 @@ public class PerkSelectionControler : MonoBehaviour
 
     [SerializeField] private GameObject perkSelectorObjects;
     [SerializeField] private PerkButton[] perkButtons;
+    [SerializeField] private PerkScriptableObject[] perks;
 
 
     private MenuController menuController;
     private PlayerController playerController;
 
     private Dictionary<string, IApplyAttribute> attributes;
+    private List<PerkScriptableObject> perksList; // Saves all the Perks which are currently in the Selection Pool
 
     // Start is called before the first frame update
     void Start()
@@ -53,12 +55,13 @@ public class PerkSelectionControler : MonoBehaviour
 
     private void CreatePerkList()
     {
-
-    }
-
-    private void LoadPerkIntoButton(PerkButton button) 
-    {
-        //Applies all stats to a button based on the selected Perk
+        foreach(var perk in perks)
+        {
+            for (int i = 0;i < perk.rarity; i++)
+            {
+                perksList.Add(perk);
+            }
+        }
     }
 
     private void SelectPerkz()
@@ -67,6 +70,11 @@ public class PerkSelectionControler : MonoBehaviour
         {
             // Select one random Perk and add it to a list
         }
+    }
+
+    private void LoadPerkIntoButton(PerkButton button)
+    {
+        //Applies all stats to a button based on the selected Perk
     }
 
     #region Perk Buttons

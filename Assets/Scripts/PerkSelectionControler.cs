@@ -25,6 +25,7 @@ public class PerkSelectionControler : MonoBehaviour
 
     private Dictionary<string, IApplyAttribute> attributes;
     private List<PerkScriptableObject> perksList; // Saves all the Perks which are currently in the Selection Pool
+    private List<PerkScriptableObject> selectedPerkz;
 
     // Start is called before the first frame update
     void Start()
@@ -68,13 +69,18 @@ public class PerkSelectionControler : MonoBehaviour
     {
         for(int i = 0; i < 3; i++)
         {
-            // Select one random Perk and add it to a list
+            var randomPerk = Random.Range(0, perksList.Count);
+            selectedPerkz.Add(perksList[i]);
+            LoadPerkIntoButton(perkButtons[i], perksList[i]);
         }
     }
 
-    private void LoadPerkIntoButton(PerkButton button)
+    private void LoadPerkIntoButton(PerkButton button, PerkScriptableObject perk)
     {
-        //Applies all stats to a button based on the selected Perk
+        button.PerkName.text = perk.Name;
+        button.PerkDiscription.text = perk.Description;
+        button.PerkImage.sprite = perk.Image;
+        button.PerkSelectionButton.gameObject.GetComponent<Image>().color = perk.BackgroundColor;
     }
 
     #region Perk Buttons

@@ -27,8 +27,8 @@ public class PerkSelectionControler : MonoBehaviour
 
     private Dictionary<string, IApplyAttribute> attributes;
     private List<PerkScriptableObject> perksList; // Saves all the Perks which are currently in the Selection Pool
-    private List<PerkScriptableObject> selectedPerks; // Saves all the list which are currently in rotation
-    private PerkScriptableObject selectedPerk;
+    private List<int> selectedPerks; // Saves all indexes of the perks which are currently in selection
+    private int selectedPerk;
 
     // Start is called before the first frame update
     void Start()
@@ -74,7 +74,7 @@ public class PerkSelectionControler : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             var randomPerk = Random.Range(0, perksList.Count);
-            selectedPerks.Add(perksList[i]);
+            selectedPerks.Add(i);
             LoadPerkIntoButton(perkButtons[i], perksList[i]);
         }
     }
@@ -89,10 +89,16 @@ public class PerkSelectionControler : MonoBehaviour
 
     private void ApplyPerkToPlayerStats()
     {
-        for(int i = 0; i < selectedPerk.TypeOfAttributes.Length; i++)
+        for(int i = 0; i < perksList[selectedPerk].TypeOfAttributes.Length; i++)
         {
-            attributes[selectedPerk.TypeOfAttributes[i]].Apply(selectedPerk.values[i], playerController);
+            attributes[perksList[selectedPerk].TypeOfAttributes[i]].Apply(perksList[selectedPerk].values[i], playerController);
         }
+        RemovePerkFromPerkList(selectedPerk);
+    }
+
+    private void RemovePerkFromPerkList(int perkIndex)
+    {
+        perksList.RemoveAt(perkIndex);
     }
 
     #region Perk Buttons

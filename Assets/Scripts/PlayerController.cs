@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public int bulletDm;
     public float timeBtwAttack;
     public float upgradeTime;
+    public int amountOfBullets;
     [SerializeField] private Transform[] bulletPositions;
     [SerializeField] private AnimationCurve DamageReduction; // Based on the current armor value
     [SerializeField] private GameObject bulletPrefab;
@@ -32,7 +33,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDirection;
     private float nextAttack;
     private float currentHealth;
-    private int amountOfBullets;
 
     private GameManager gameManager;
 
@@ -95,6 +95,17 @@ public class PlayerController : MonoBehaviour
         if(collision.TryGetComponent(out IInteractable objectColided))
             objectColided.OnPlayerCollision(this);
 
+        if (collision.CompareTag("BulletUpgrade"))
+            StartCoroutine(BulletUpgrade());
+
+        if (collision.CompareTag("Health"))
+        {
+            if(currentHealth == maxHealth -1)
+                UpdateHealth(-1);
+            else
+                UpdateHealth(-2);
+        }
+
         if (collision.CompareTag("Obstacle"))
             UpdateHealth(4);
     }
@@ -116,6 +127,16 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+
+    public IEnumerator FireRateUpgrade()
+    {
+        timeBtwAttack /= 2;
+        UpdatePlayerStatsText();
+        yield return new WaitForSeconds(upgradeTime);
+        timeBtwAttack *= 2;
+        UpdatePlayerStatsText();
+    }
+
     public IEnumerator BulletUpgrade()
     {
         amountOfBullets++;

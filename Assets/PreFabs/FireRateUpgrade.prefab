@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5575509722950255662}
   - component: {fileID: 5575509722950255661}
   - component: {fileID: -3650011997566023814}
+  - component: {fileID: 1691598003}
   m_Layer: 0
   m_Name: FireRateUpgrade
   m_TagString: FireRateUpgrade
@@ -128,4 +129,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d637b1fcafea147a5c94c66cc8fb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeDestroyed: 5
+  timeBeforeDestroyed: 10
+--- !u!114 &1691598003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575509722950255660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b2e4cb828a3cf4990c75319c0cf22b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireRateMultiplikator: 2

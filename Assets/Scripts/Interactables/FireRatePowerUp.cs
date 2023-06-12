@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireRateUprade : MonoBehaviour, IInteractable
+public class FireRatePowerUp : MonoBehaviour, IInteractable
 {
-    [SerializeField]private float FireRateMultiplikator;
+    [SerializeField] private float FireRateMultiplikator;
     public void OnPlayerCollision(PlayerController player)
     {
         StartCoroutine(FireRateUpgrade(player));
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;    
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     IEnumerator FireRateUpgrade(PlayerController player)

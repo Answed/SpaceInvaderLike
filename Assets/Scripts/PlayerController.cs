@@ -89,11 +89,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("EBullet"))
-            PlayerHit(1);
-
-        if (collision.CompareTag("HeavyBullet"))
-            PlayerHit(2);
+        if(collision.CompareTag("EBullet"))
+            collision.GetComponent<Bullet>().OnPlayerHit(this);
 
         if (collision.CompareTag("FireRateUpgrade"))
             StartCoroutine(FireRateUpgrade());
@@ -111,8 +108,6 @@ public class PlayerController : MonoBehaviour
 
         if (collision.CompareTag("Obstacle"))
             UpdateHealth(4);
-
-        Destroy(collision.gameObject);
     }
     private void Shoot()
     {
@@ -150,7 +145,7 @@ public class PlayerController : MonoBehaviour
     }
 
     #region Stats&Visuals
-    private void PlayerHit(int Damage)
+    public void PlayerHit(int Damage)
     {
         UpdateHealth(Damage);
         Instantiate(hitParticles, transform.position, Quaternion.identity);

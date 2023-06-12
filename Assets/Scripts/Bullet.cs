@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField]
     private float bulletSpeed;
+    [SerializeField]
+    private int bulletDm;
 
     // Start is called before the first frame update
     void Start()
@@ -19,18 +21,15 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector2.up * bulletSpeed * Time.deltaTime);
     }
 
+    public void OnPlayerHit(PlayerController playerController)
+    {
+        playerController.PlayerHit(bulletDm);
+        Destroy(gameObject);
+    }
+
     IEnumerator DestroyAfterTime()
     {
         yield return new WaitForSeconds(10);
         Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
     }
 }

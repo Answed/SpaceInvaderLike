@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4792039838222121841}
   m_Layer: 0
   m_Name: LightBullet
-  m_TagString: LightBullet
+  m_TagString: EBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 7.5
+  bulletDm: 0
 --- !u!50 &4792039838222121842
 Rigidbody2D:
   serializedVersion: 4

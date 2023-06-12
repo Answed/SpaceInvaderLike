@@ -460,11 +460,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf8962365bd39948811f75cc4f31931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: {fileID: 4323080205752519716, guid: 87a54dde64302dc4397d02766d061686, type: 3}
+  enemies:
+  - {fileID: 4323080205752519716, guid: 87a54dde64302dc4397d02766d061686, type: 3}
+  - {fileID: 738014015117471175, guid: fa331feb6dc03b44399369487e25d282, type: 3}
+  - {fileID: 8299662367633579586, guid: 373f75f32dd4ba84c9fc6c9dc33cad4f, type: 3}
   obstacles: {fileID: 3010185066025315523, guid: fc7e47b8093fcba47ae31925489aa4b6, type: 3}
   spawnHeight: 13
   timeBtwSpawns: 1
   spawnWidth: {x: -12, y: 12}
+  spawnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 3
+      value: 0.15
+      inSlope: 0.1
+      outSlope: 0.1
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 4
+      value: 0.2
+      inSlope: 0.049999997
+      outSlope: 0.049999997
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 0.25
+      inSlope: 0.050000004
+      outSlope: 0.050000004
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 6
+      value: 0.3
+      inSlope: 0.050459486
+      outSlope: 0.050459486
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 6.987792
+      value: 0.35030296
+      inSlope: 0.0016160773
+      outSlope: 0.0016160773
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 30.001448
+      value: 0.36
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &394153707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,8 +682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perkSelectorObjects: {fileID: 0}
   perkButtons: []
-  perkz:
-  - {fileID: 11400000, guid: 358040aaca4a7e04cb82725435382f7d, type: 2}
+  perks: []
 --- !u!1 &405898160
 GameObject:
   m_ObjectHideFlags: 0

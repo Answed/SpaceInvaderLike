@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemies;
+    [SerializeField] private GameObject[] enemies;
     [SerializeField] private GameObject obstacles;
     [SerializeField] private int spawnHeight;
     [SerializeField] private float timeBtwSpawns;
     [SerializeField] private Vector2 spawnWidth; //I use vector 2 here 
+    [SerializeField] private AnimationCurve spawnCurve;
 
     private float nextSpawn;
 
@@ -42,10 +43,21 @@ public class WaveSpawner : MonoBehaviour
             if (spawnEnemie < 0.4f && enemiesToSpawn > 0)
             {
                 enemiesToSpawn--;
-                SpawnObject(enemies);
+                KindOfEnemieGetsSpawned();
             }
         }
         gameManager.nextWaveSpawned = false;
+    }
+
+    private void KindOfEnemieGetsSpawned()
+    {
+        var randomEnemie = Random.Range(0f, 1f);
+        var enemieVariation = spawnCurve.Evaluate(gameManager.wave);
+        if (randomEnemie < 1 - enemieVariation && randomEnemie > enemieVariation*2)
+            SpawnObject(enemies[0]);
+        else if (randomEnemie < enemieVariation * 2 && randomEnemie > enemieVariation)
+            SpawnObject(enemies[1]);
+        else SpawnObject(enemies[2]);
     }
 
     public void SpawnObstacles()

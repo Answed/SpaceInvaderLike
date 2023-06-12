@@ -25,18 +25,10 @@ public class WaveSpawner : MonoBehaviour
         StartCoroutine(SpawnEnemies(enemiesToSpawn));
     }
 
-    private void SpawnObject(int kindOfObject)
+    private void SpawnObject(GameObject kindOfObject)
     {
         float xSpawnValue = Random.Range(spawnWidth.x, spawnWidth.y);
-        switch (kindOfObject)
-        {
-            case 0:
-                Instantiate(enemies, new Vector2(xSpawnValue, spawnHeight), enemies.transform.rotation);
-                break;
-            case 1:
-                Instantiate(obstacles, new Vector2(xSpawnValue, spawnHeight), obstacles.transform.rotation); 
-                break; 
-        }
+        Instantiate(kindOfObject, new Vector2(xSpawnValue, spawnHeight), kindOfObject.transform.rotation);
     }
 
     IEnumerator SpawnEnemies(int enemiesToSpawn)
@@ -50,7 +42,7 @@ public class WaveSpawner : MonoBehaviour
             if (spawnEnemie < 0.4f && enemiesToSpawn > 0)
             {
                 enemiesToSpawn--;
-                SpawnObject(0);
+                SpawnObject(enemies);
             }
         }
         gameManager.nextWaveSpawned = false;
@@ -61,7 +53,7 @@ public class WaveSpawner : MonoBehaviour
         if(nextSpawn < Time.time)
         {
             nextSpawn = Time.time + timeBtwSpawns;
-            SpawnObject(1);
+            SpawnObject(obstacles);
         }
     }
 }

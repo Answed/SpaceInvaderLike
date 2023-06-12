@@ -40,7 +40,8 @@ public class PerkSelectionControler : MonoBehaviour
     public void OpenPerkSelector()
     {
         perkSelectorObjects.SetActive(true);
-
+        if (!(perksList.Count > 0) )
+            CreatePerkList();
     }
 
     public void ClosePerkSelector()

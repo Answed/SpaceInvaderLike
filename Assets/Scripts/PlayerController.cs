@@ -150,6 +150,14 @@ public class PlayerController : MonoBehaviour
         UpdateHealth(Damage);
         Instantiate(hitParticles, transform.position, Quaternion.identity);
     }
+
+    public void PlayerHeal(int amount)
+    {
+        if (currentHealth == maxHealth - 1)
+            UpdateHealth(-1);
+        else
+            UpdateHealth(-amount);
+    }
     private void UpdateHealth(int damage)
     {
         var actualDamage = damage - (damage * DamageReduction.Evaluate(armor));

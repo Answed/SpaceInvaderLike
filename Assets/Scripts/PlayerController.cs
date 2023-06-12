@@ -92,19 +92,8 @@ public class PlayerController : MonoBehaviour
         if(collision.CompareTag("EBullet"))
             collision.GetComponent<Bullet>().OnPlayerHit(this);
 
-        if (collision.CompareTag("FireRateUpgrade"))
-            StartCoroutine(FireRateUpgrade());
-
-        if (collision.CompareTag("BulletUpgrade"))
-            StartCoroutine(BulletUpgrade());
-
-        if (collision.CompareTag("Health"))
-        {
-            if(currentHealth == maxHealth -1)
-                UpdateHealth(-1);
-            else
-                UpdateHealth(-2);
-        }
+        if(collision.TryGetComponent(out IInteractable objectColided))
+            objectColided.OnPlayerCollision(this);
 
         if (collision.CompareTag("Obstacle"))
             UpdateHealth(4);
@@ -127,17 +116,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-
-    IEnumerator FireRateUpgrade()
-    {
-        timeBtwAttack /= 2;
-        UpdatePlayerStatsText();
-        yield return new WaitForSeconds(upgradeTime);
-        timeBtwAttack *= 2;
-        UpdatePlayerStatsText();
-    }
-
-    IEnumerator BulletUpgrade()
+    public IEnumerator BulletUpgrade()
     {
         amountOfBullets++;
         yield return new WaitForSeconds(upgradeTime);

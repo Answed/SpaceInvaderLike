@@ -9,15 +9,14 @@ public class FireRatePowerUp : MonoBehaviour, IInteractable
     {
         StartCoroutine(FireRateUpgrade(player));
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<Collider2D>().enabled = false;
     }
 
     IEnumerator FireRateUpgrade(PlayerController player)
     {
-        Debug.Log("Hello");
         player.timeBtwAttack /= FireRateMultiplikator;
         player.UpdatePlayerStatsText();
         yield return new WaitForSeconds(player.upgradeTime);
-        Debug.Log("Hello");
         player.timeBtwAttack *= FireRateMultiplikator;
         player.UpdatePlayerStatsText();
         Destroy(gameObject);

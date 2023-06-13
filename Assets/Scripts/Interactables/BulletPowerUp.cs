@@ -8,6 +8,7 @@ public class BulletPowerUp : MonoBehaviour, IInteractable
     {
         StartCoroutine(BulletUpgrade(player));
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<Collider2D>().enabled = false;
     }
 
     public IEnumerator BulletUpgrade(PlayerController player)

@@ -49,12 +49,9 @@ public class EnemyController : MonoBehaviour
     {
         var random = Random.Range(0f, 1f);
 
-        if(random <= 0.3f)
+        if(random <= 0.3f  && enemyStats.PowerUpPrefab != null)
         {
-            var powerUpSelector = Random.Range(0f, 1f);
-            if(powerUpSelector <= 0.5f)
-                Instantiate(enemyStats.PowerUpsPrefabs[0], transform.position, enemyStats.PowerUpsPrefabs[0].transform.rotation);
-            else Instantiate(enemyStats.PowerUpsPrefabs[1], transform.position, enemyStats.PowerUpsPrefabs[0].transform.rotation);
+                Instantiate(enemyStats.PowerUpPrefab, transform.position, enemyStats.PowerUpPrefab.transform.rotation);
         }
 
         gameManager.UpDateScore(enemyStats.ScoreValue);

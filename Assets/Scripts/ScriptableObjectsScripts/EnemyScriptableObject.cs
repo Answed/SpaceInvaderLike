@@ -8,7 +8,7 @@ public class EnemyScriptableObject : ScriptableObject
     public int ScoreValue;
     public float Speed;
     public float TimeBtwShots;
-    public GameObject[] PowerUpsPrefabs;
+    public GameObject PowerUpPrefab;
     public GameObject BulletPrefab;
     public GameObject HitParticles;
 }

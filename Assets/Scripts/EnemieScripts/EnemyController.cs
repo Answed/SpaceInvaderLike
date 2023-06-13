@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private EnemyScriptableObject enemyStats;
+    [SerializeField] public EnemyScriptableObject enemyStats;
 
-    private int currentHealth;
-    private float nextAttack;
+    protected int currentHealth;
+    protected float nextAttack;
 
-    private GameManager gameManager;
-    private PlayerController player;
+    protected GameManager gameManager;
+    protected PlayerController player;
 
     // Start is called before the first frame update
     void Start()
@@ -19,22 +19,6 @@ public class EnemyController : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         currentHealth = enemyStats.MaxHealth;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Translate(Vector2.down * enemyStats.Speed * Time.deltaTime);
-
-        if (nextAttack <= Time.time)
-        {
-            nextAttack = Time.time + enemyStats.TimeBtwShots;
-            Instantiate(enemyStats.BulletPrefab, transform.position, enemyStats.BulletPrefab.transform.rotation);
-        }
-
-        if (currentHealth == 0)
-            Death();
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
@@ -45,7 +29,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void Death()
+    protected void Death()
     {
         var random = Random.Range(0f, 1f);
 

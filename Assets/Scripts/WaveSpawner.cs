@@ -8,7 +8,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private GameObject obstacles;
     [SerializeField] private int spawnHeight;
     [SerializeField] private float timeBtwSpawns;
-    [SerializeField] private Vector2 spawnWidth; //I use vector 2 here 
+    [SerializeField] private Vector2 spawnWidth; //I use vector 2 here to give a span where they can spawn in between
     [SerializeField] private AnimationCurve spawnCurve;
 
     private float nextSpawn;
@@ -28,7 +28,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void SpawnObject(GameObject kindOfObject)
     {
-        float xSpawnValue = Random.Range(spawnWidth.x, spawnWidth.y);
+        float xSpawnValue = Random.Range((int)spawnWidth.x, (int)spawnWidth.y);
         Instantiate(kindOfObject, new Vector2(xSpawnValue, spawnHeight), kindOfObject.transform.rotation);
     }
 

@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     private float bulletSpeed;
     [SerializeField]
     private int bulletDm;
+    [SerializeField]
+    private bool destructable;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,15 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.up * bulletSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Bullet") && destructable)
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 
     public void OnPlayerHit(PlayerController playerController)

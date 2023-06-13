@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 738014015117471174}
   - component: {fileID: 738014015117471171}
   - component: {fileID: 7638485931559261924}
-  - component: {fileID: 4152549471691006774}
+  - component: {fileID: 3260048623077662739}
   m_Layer: 0
   m_Name: LightEnemy
   m_TagString: Enemy
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4152549471691006774
+--- !u!114 &3260048623077662739
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 738014015117471175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2edac451927b4349859bc6fda4b22fa, type: 3}
+  m_Script: {fileID: 11500000, guid: a1324868170c9f64dbebfc243c679487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 624837b76001a8e4db6e7cde30a1b9b2, type: 2}

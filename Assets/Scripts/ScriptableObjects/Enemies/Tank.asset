@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 5
   ScoreValue: 5
-  Speed: 0.1
-  TimeBtwShots: 2.5
+  Speed: 0.5
+  TimeBtwShots: 0.5
   PowerUpPrefab: {fileID: 7902584500491856627, guid: b199cd54ce47073489f48347be6e4929, type: 3}
   BulletPrefab: {fileID: 2992073872407490199, guid: 89dc005a7541ed6498a75ac0d357c5aa, type: 3}
   HitParticles: {fileID: 119033374282713987, guid: 13d3129ca28da4d4b90eeebd554f9bec, type: 3}

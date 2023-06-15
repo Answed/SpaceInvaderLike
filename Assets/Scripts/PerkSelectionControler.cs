@@ -48,6 +48,8 @@ public class PerkSelectionControler : MonoBehaviour
             CreatePerkList();
             CreateAttributeList();
         }
+        
+        SelectPerks();
     }
 
     public void ClosePerkSelector()

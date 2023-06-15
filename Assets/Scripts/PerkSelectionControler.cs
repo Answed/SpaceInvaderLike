@@ -88,8 +88,8 @@ public class PerkSelectionControler : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             var randomPerk = Random.Range(0, perksList.Count);
-            selectedPerks.Add(i);
-            LoadPerkIntoButton(perkButtons[i], perksList[i]);
+            selectedPerks.Add(randomPerk);
+            LoadPerkIntoButton(perkButtons[i], perksList[randomPerk]);
         }
     }
 

@@ -105,7 +105,6 @@ public class PerkSelectionControler : MonoBehaviour
     {
         for(int i = 0; i < perksList[selectedPerk].TypeOfAttributes.Length; i++)
         {
-            Debug.Log(attributes[perksList[selectedPerk].TypeOfAttributes[i]]);
             attributes[perksList[selectedPerk].TypeOfAttributes[i]].Apply(perksList[selectedPerk].values[i], playerController);
         }
         RemovePerkFromPerkList(selectedPerk);

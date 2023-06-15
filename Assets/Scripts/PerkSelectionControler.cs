@@ -33,15 +33,22 @@ public class PerkSelectionControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        perksList = new List<PerkScriptableObject>();
+        selectedPerks = new List<int>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        OpenPerkSelector();
+        CreateAttributeList();
 
     }
 
     public void OpenPerkSelector()
     {
         perkSelectorObjects.SetActive(true);
-        if (!(perksList.Count > 0) )
+        if (!(perksList.Count > 0))
+        {
             CreatePerkList();
+            CreateAttributeList();
+        }
     }
 
     public void ClosePerkSelector()
@@ -51,11 +58,17 @@ public class PerkSelectionControler : MonoBehaviour
 
     private void CreateAttributeList()
     {
-        attributes.Add("Health", new MaxHealth());
-        attributes.Add("Armor", new Armor());
-        attributes.Add("Damage", new DamageIncrease());
-        attributes.Add("Speed", new SpeedIncrease()); 
-        attributes.Add("FireRate", new FireRateIncrease());
+        MaxHealth maxHealth = new MaxHealth();
+        Armor armor = new Armor();
+        DamageIncrease damage = new DamageIncrease();
+        SpeedIncrease speed = new SpeedIncrease();
+        FireRateIncrease fireRate = new FireRateIncrease();
+
+        attributes.Add("Health", maxHealth);
+        attributes.Add("Armor", armor);
+        attributes.Add("Damage", damage);
+        attributes.Add("Speed", speed); 
+        attributes.Add("FireRate", fireRate);
     }
 
     private void CreatePerkList()
@@ -69,7 +82,7 @@ public class PerkSelectionControler : MonoBehaviour
         }
     }
 
-    private void SelectPerkz()
+    private void SelectPerks()
     {
         for(int i = 0; i < 3; i++)
         {
@@ -91,6 +104,7 @@ public class PerkSelectionControler : MonoBehaviour
     {
         for(int i = 0; i < perksList[selectedPerk].TypeOfAttributes.Length; i++)
         {
+            Debug.Log(attributes[perksList[selectedPerk].TypeOfAttributes[i]]);
             attributes[perksList[selectedPerk].TypeOfAttributes[i]].Apply(perksList[selectedPerk].values[i], playerController);
         }
         RemovePerkFromPerkList(selectedPerk);

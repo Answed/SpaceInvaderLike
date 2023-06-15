@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputAction pauseGame;
 
     private WaveSpawner waveSpawner;
+    private PerkSelectionControler perkSelectionControler;
 
     private float nextWave;
     private int score;
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         waveSpawner = GetComponent<WaveSpawner>();
+        perkSelectionControler = GetComponent<PerkSelectionControler>();
         scoreText.text = "Score: 0";
         gameIsActive = false;
         startGameText.SetActive(true);

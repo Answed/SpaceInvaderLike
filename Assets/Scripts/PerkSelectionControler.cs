@@ -37,7 +37,6 @@ public class PerkSelectionControler : MonoBehaviour
         selectedPerks = new List<int>();
         attributes = new Dictionary<string, IApplyAttribute>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        OpenPerkSelector();
     }
 
     public void OpenPerkSelector()

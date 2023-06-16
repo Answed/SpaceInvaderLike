@@ -21,9 +21,8 @@ public class PerkSelectionControler : MonoBehaviour
     [SerializeField] private PerkButton[] perkButtons;
     [SerializeField] private PerkScriptableObject[] perks;
 
-
-    private MenuController menuController;
     private PlayerController playerController;
+    private GameManager gameManager;
 
     private Dictionary<string, IApplyAttribute> attributes;
     private List<PerkScriptableObject> perksList; // Saves all the Perks which are currently in the Selection Pool
@@ -37,6 +36,7 @@ public class PerkSelectionControler : MonoBehaviour
         selectedPerks = new List<int>();
         attributes = new Dictionary<string, IApplyAttribute>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        gameManager = GetComponent<GameManager>();
     }
 
     public void OpenPerkSelector()
@@ -54,6 +54,7 @@ public class PerkSelectionControler : MonoBehaviour
     public void ClosePerkSelector()
     {
         perkSelectorObjects.SetActive(false);
+        gameManager.gameIsActive = true;
     }
 
     private void CreateAttributeList()

@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private WaveSpawner waveSpawner;
     private PerkSelectionControler perkSelectionControler;
 
-    private float nextWave;
+    private bool nextWave;
     private int score;
     public bool nextWaveSpawned;
     public bool gameIsActive;
@@ -55,8 +55,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameIsActive)
+        if (gameIsActive)
+        {
             WaveManager();
+        }
     }
     
     public void UpDateScore(int scorePoints)
@@ -69,6 +71,10 @@ public class GameManager : MonoBehaviour
     private void WaveManager()
     {
         GameObject[] enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if(!nextWaveSpawned)
+            OpenPerkSelector(enemiesLeft.Length);
+
         if (enemiesLeft.Length == 0 && !nextWaveSpawned)
         {
             nextWaveSpawned = true;
@@ -84,6 +90,15 @@ public class GameManager : MonoBehaviour
         startGameText.SetActive (false);
         gameIsActive = true;
         startGame.Disable();
+    }
+
+    private void OpenPerkSelector(int enemiesLeft)
+    {
+        if (enemiesLeft == 0 && wave >= 1) // Opens Up the Shop after the first Wave 
+        {
+            perkSelectionControler.OpenPerkSelector();
+            gameIsActive = false;
+        }
     }
 
     public void GameOver()

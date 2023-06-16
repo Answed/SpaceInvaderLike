@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 7.5
   bulletDm: 1
-  destructable: 1
+  destructable: 0
 --- !u!50 &4792039838222121842
 Rigidbody2D:
   serializedVersion: 4

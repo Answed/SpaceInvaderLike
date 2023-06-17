@@ -64,12 +64,14 @@ public class PerkSelectionControler : MonoBehaviour
         DamageIncrease damage = new DamageIncrease();
         SpeedIncrease speed = new SpeedIncrease();
         FireRateIncrease fireRate = new FireRateIncrease();
+        UpgradeDuration upgradeDuration = new UpgradeDuration();
 
         attributes.Add("Health", maxHealth);
         attributes.Add("Armor", armor);
         attributes.Add("Damage", damage);
         attributes.Add("Speed", speed); 
         attributes.Add("FireRate", fireRate);
+        attributes.Add("Duration", upgradeDuration);
     }
 
     private void CreatePerkList()

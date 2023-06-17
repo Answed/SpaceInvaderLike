@@ -53,3 +53,12 @@ public class FireRateIncrease : IApplyAttribute
     }
 }
 
+public class UpgradeDuration : IApplyAttribute
+{
+    public void Apply(float value, PlayerController player)
+    {
+        player.upgradeTime += value;
+        player.UpdatePlayerStatsText();
+    }
+}
+

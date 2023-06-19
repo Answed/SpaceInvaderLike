@@ -14,7 +14,7 @@ public class LaserEnemy : EnemyController
 
     private void Awake()
     {
-        nextAttack = enemyStats.TimeBtwShots * 5 + Time.time;
+        nextAttack = enemyStats.TimeBtwShots + Time.time;
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class LaserEnemy : EnemyController
     {
         if (nextAttack <= Time.time && !isFiring)
         {
-            nextAttack = enemyStats.TimeBtwShots * 5 + Time.time;
+            nextAttack = enemyStats.TimeBtwShots + Time.time;
             StartCoroutine(Attack());
         }
 
@@ -37,9 +37,9 @@ public class LaserEnemy : EnemyController
 
     private void LaserBeam()
     {
-        Collider2D player = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y), new Vector2(1, 26 - Mathf.Abs(transform.position.y)), 0f);
+        Collider2D player = Physics2D.OverlapBox(new Vector2(transform.position.x, (26 - Mathf.Abs(transform.position.y))/2 - 2), new Vector2(1, 26 - Mathf.Abs(transform.position.y)), 0f);
         if (player != null)
-            player.gameObject.GetComponent<PlayerController>().PlayerHit(laserDamage);
+            Debug.Log(26 - Mathf.Abs(transform.position.y));
     }
 
     IEnumerator Attack()
@@ -48,8 +48,14 @@ public class LaserEnemy : EnemyController
         //start animation
         yield return new WaitForSeconds(timeForBuildUp); //Laser animation needs some time to build up
         laserIsActive = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         laserIsActive = false;
         isFiring = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = new Color(1, 0, 0, 0.5f);
+        Gizmos.DrawCube(new Vector3(transform.position.x, (26 - Mathf.Abs(transform.position.y)) / 2 - 2, 0), new Vector3(1, 26 - Mathf.Abs(transform.position.y), 1));
     }
 }

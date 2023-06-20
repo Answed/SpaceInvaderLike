@@ -37,7 +37,8 @@ public class LaserEnemy : EnemyController
 
     private void LaserBeam()
     {
-        Collider2D player = Physics2D.OverlapBox(new Vector2(transform.position.x, (26 - Mathf.Abs(transform.position.y))/2 - 2), new Vector2(1, 26 - Mathf.Abs(transform.position.y)), 0f);
+        float distanceToMapBorder = Vector2.Distance(transform.position, new Vector2(transform.position.x, -12f));
+        Collider2D player = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - (distanceToMapBorder / 2)), new Vector2(1, 26-distanceToMapBorder), 0f);
         if (player != null)
             Debug.Log(26 - Mathf.Abs(transform.position.y));
     }

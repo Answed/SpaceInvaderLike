@@ -38,7 +38,7 @@ public class LaserEnemy : EnemyController
     private void LaserBeam()
     {
         float distanceToMapBorder = Vector2.Distance(transform.position, new Vector2(transform.position.x, -12f));
-        Collider2D player = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - (distanceToMapBorder / 2)), new Vector2(1, 26-distanceToMapBorder), 0f);
+        Collider2D player = Physics2D.OverlapBox(new Vector2(transform.position.x, (13-distanceToMapBorder / 2)), new Vector2(1, distanceToMapBorder), 0f);
         if (player != null)
             Debug.Log(26 - Mathf.Abs(transform.position.y));
     }
@@ -57,6 +57,8 @@ public class LaserEnemy : EnemyController
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(1, 0, 0, 0.5f);
-        Gizmos.DrawCube(new Vector3(transform.position.x, (26 - Mathf.Abs(transform.position.y)) / 2 - 2, 0), new Vector3(1, 26 - Mathf.Abs(transform.position.y), 1));
+        
+        float distanceToMapBorder = Vector2.Distance(transform.position, new Vector2(transform.position.x, -12f));
+        Gizmos.DrawCube(new Vector3(transform.position.x, -(13-distanceToMapBorder/2), 0), new Vector3(1, distanceToMapBorder, 1));
     }
 }

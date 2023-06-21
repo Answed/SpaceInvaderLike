@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class MainMenuController : MenuController
@@ -11,6 +10,8 @@ public class MainMenuController : MenuController
     [SerializeField] private GameObject[] creditsObjects; // Saves all Credits related objects
     [SerializeField] private GameObject[] settingsObjects;
     [SerializeField] private GameObject[] upgradeObjects;
+    [SerializeField] private Slider musicVolume;
+    [SerializeField] private Slider effectVolume;
 
     enum Window
     {
@@ -21,11 +22,13 @@ public class MainMenuController : MenuController
 
     private Window currentWindow;
     private UpgradeShopManager upgradeShopManager;
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
         upgradeShopManager = GetComponent<UpgradeShopManager>();
+        audioManager = GameObject.Find("AudiManager").GetComponent<AudioManager>();
     }
 
     public void StartGame()
@@ -65,6 +68,7 @@ public class MainMenuController : MenuController
                 break;
             case Window.Settings:
                 SwitchWindow(settingsObjects, mainMenuButtons);
+                audioManager.UpdateSoundVolume(musicVolume.value, effectVolume.value);
                 break;
             case Window.Credits:
                 SwitchWindow(creditsObjects, mainMenuButtons);

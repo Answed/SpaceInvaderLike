@@ -5144,6 +5144,8 @@ MonoBehaviour:
   - {fileID: 702732194}
   settingsObjects:
   - {fileID: 702732194}
+  - {fileID: 568793385}
+  - {fileID: 249284718}
   upgradeObjects:
   - {fileID: 702732194}
   - {fileID: 762979272}

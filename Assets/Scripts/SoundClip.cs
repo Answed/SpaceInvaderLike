@@ -6,6 +6,8 @@ public class SoundClip
 {
     public string name;
 
+    public string tag;
+
     public AudioClip soundClip;
 
     [Range(0f, 1f)]

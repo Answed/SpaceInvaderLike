@@ -32,4 +32,14 @@ public class AudioManager : MonoBehaviour
             return;
         clip.audioSource.Play();
     }
+
+    public void UpdateSoundVolume(float musicVolume, float effectVolume)
+    {
+        foreach(SoundClip clip in soundClips)
+        {
+            if(clip.tag == "music")
+                clip.volume = musicVolume;
+            else clip.volume = effectVolume;
+        }
+    }
 }

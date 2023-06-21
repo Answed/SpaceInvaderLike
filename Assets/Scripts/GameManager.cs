@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
+
 public class GameManager : MonoBehaviour
 {
     public int wave;
@@ -20,8 +22,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputAction endGame;
     [SerializeField] private InputAction pauseGame;
 
+    [SerializeField] private Slider musicVolume;
+    [SerializeField] private Slider effectVolume;
+
     private WaveSpawner waveSpawner;
     private PerkSelectionControler perkSelectionControler;
+    private AudioManager audioManager;
 
     private bool nextWave;
     private int score;
@@ -47,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         waveSpawner = GetComponent<WaveSpawner>();
         perkSelectionControler = GetComponent<PerkSelectionControler>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         scoreText.text = "Score: 0";
         gameIsActive = false;
         startGameText.SetActive(true);
@@ -147,6 +154,8 @@ public class GameManager : MonoBehaviour
     public void Back()
     {
         MenuController.SwitchWindow(settingsMenuObjects, pauseMenuObjects);
+        if (pauseMenuTitle.text == "Settings")
+            audioManager.UpdateSoundVolume(musicVolume.value, effectVolume.value);
         pauseMenuTitle.text = "Paused";
     }
 

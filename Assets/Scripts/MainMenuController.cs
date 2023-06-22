@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using SaveLoadSystem;
 
 public class MainMenuController : MenuController
 {
@@ -12,6 +13,8 @@ public class MainMenuController : MenuController
     [SerializeField] private GameObject[] upgradeObjects;
     [SerializeField] private Slider musicVolume;
     [SerializeField] private Slider effectVolume;
+
+    private SettingsData settings;
 
     enum Window
     {
@@ -29,6 +32,7 @@ public class MainMenuController : MenuController
     {
         upgradeShopManager = GetComponent<UpgradeShopManager>();
         audioManager = GameObject.Find("AudiManager").GetComponent<AudioManager>();
+        settings = SaveLoadSystem.SaveSystemManager.LoadSettings();
     }
 
     public void StartGame()
@@ -48,6 +52,8 @@ public class MainMenuController : MenuController
         SwitchWindow(mainMenuButtons, settingsObjects);
         titleText.text = "Settings";
         currentWindow = Window.Settings;
+        musicVolume.value = settings.musicVolume;
+        effectVolume.value = settings.effectsVolume;
     }
 
     public void Credits()
@@ -69,6 +75,7 @@ public class MainMenuController : MenuController
             case Window.Settings:
                 SwitchWindow(settingsObjects, mainMenuButtons);
                 audioManager.UpdateSoundVolume(musicVolume.value, effectVolume.value);
+                SaveLoadSystem.SaveSystemManager.SaveSettings(settings);
                 break;
             case Window.Credits:
                 SwitchWindow(creditsObjects, mainMenuButtons);

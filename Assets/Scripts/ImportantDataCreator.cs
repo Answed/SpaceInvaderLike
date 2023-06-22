@@ -8,12 +8,14 @@ public class ImportantDataCreator : MonoBehaviour
 {
     [SerializeField] private PlayerUpgrades playerUpgrades;
     [SerializeField] private UpgradeShop[] upgradeShopData; // Based on the settings made heere gets the data created for the actual shops.
+    [SerializeField] private SettingsData settingsData;
 
     // Start is called before the first frame update
     void Start()
     {
         CreateUpgradeShopFiles();
         CreatePlayerUpgradeFile();
+        CreateSettingsFile();
     }
 
     private void CreateUpgradeShopFiles()
@@ -28,4 +30,10 @@ public class ImportantDataCreator : MonoBehaviour
     {
         SaveLoadSystem.SaveSystemManager.CreatePlayerUpgrades(playerUpgrades);
     }
+
+    private void CreateSettingsFile()
+    {
+        SaveLoadSystem.SaveSystemManager.CreateSettings(settingsData);
+    }
+
 }

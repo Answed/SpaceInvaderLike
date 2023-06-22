@@ -126,7 +126,7 @@ namespace SaveLoadSystem
                 SettingsData settingsData = JsonUtility.FromJson<SettingsData>(json);
                 return settingsData;
             }
-            else { return null;  }
+            else { return null; }
         }
 
         #endregion

@@ -28,7 +28,7 @@ namespace SaveLoadSystem
         public int maxLevel;
         public int[] Prices;
     }
-
+    [System.Serializable]
     public class SettingsData
     {
         public float musicVolume;

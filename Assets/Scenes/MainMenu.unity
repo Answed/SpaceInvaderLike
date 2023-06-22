@@ -2190,7 +2190,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &834860000
@@ -3377,6 +3377,9 @@ MonoBehaviour:
     currentLevel: 0
     maxLevel: 3
     Prices: 0f0000001e0000002d0000003c000000
+  settingsData:
+    musicVolume: 0.5
+    effectsVolume: 0.5
 --- !u!4 &1431494058
 Transform:
   m_ObjectHideFlags: 0
@@ -5149,6 +5152,8 @@ MonoBehaviour:
   upgradeObjects:
   - {fileID: 702732194}
   - {fileID: 762979272}
+  musicVolume: {fileID: 0}
+  effectVolume: {fileID: 0}
 --- !u!4 &2094086279
 Transform:
   m_ObjectHideFlags: 0

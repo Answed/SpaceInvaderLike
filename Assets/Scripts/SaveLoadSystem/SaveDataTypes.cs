@@ -28,4 +28,10 @@ namespace SaveLoadSystem
         public int maxLevel;
         public int[] Prices;
     }
+
+    public class SettingsData
+    {
+        public float musicVolume;
+        public float effectsVolume;
+    }
 }

@@ -47,7 +47,7 @@ namespace SaveLoadSystem
             var dir = Application.persistentDataPath + SaveDirectory;
             CheckIfDirectoryExist(dir);
 
-            if (!File.Exists(dir + "PlayerUpgrades.txt"))
+            if (!File.Exists(dir + "PlayerUpgrades.txt")) // This is needed to prevent overwriting everytime the game is started
                 CreateJsonFile(dir + "PlayerUpgrades.txt", playerUpgrades);
         }
         public static void SavePlayerUpgrades(PlayerUpgrades upgrades)
@@ -101,6 +101,34 @@ namespace SaveLoadSystem
             }
             else { return null; }
         }
+        #endregion
+        #region Settings
+        public static void CreateSettings(SettingsData settingsData)
+        {
+            var dir = Application.persistentDataPath + SaveDirectory;
+            CheckIfDirectoryExist(dir);
+
+            if(!File.Exists(dir + "Settings"))// This is needed to prevent overwriting everytime the game is started
+                CreateJsonFile(dir + "Settings", settingsData);
+        }
+        public static void SaveSettings(SettingsData settingsData)
+        {
+            var dir = Application.persistentDataPath + SaveDirectory;
+
+            CreateJsonFile(dir + "Settings", settingsData);
+        }
+        public static SettingsData LoadSettings()
+        {
+            var fullPath = Application.persistentDataPath + SaveDirectory + "Settings";
+            if (File.Exists(fullPath))
+            {
+                string json = File.ReadAllText(fullPath);
+                SettingsData settingsData = JsonUtility.FromJson<SettingsData>(json);
+                return settingsData;
+            }
+            else { return null;  }
+        }
+
         #endregion
         public static void CheckIfDirectoryExist(string DirectoryPath)
         {

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using SaveLoadSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     private WaveSpawner waveSpawner;
     private PerkSelectionControler perkSelectionControler;
     private AudioManager audioManager;
+    private SettingsData settings;
 
     private bool nextWave;
     private int score;
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
         waveSpawner = GetComponent<WaveSpawner>();
         perkSelectionControler = GetComponent<PerkSelectionControler>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        settings = SaveLoadSystem.SaveSystemManager.LoadSettings();
         scoreText.text = "Score: 0";
         gameIsActive = false;
         startGameText.SetActive(true);
@@ -149,13 +152,18 @@ public class GameManager : MonoBehaviour
     {
         MenuController.SwitchWindow(pauseMenuObjects, settingsMenuObjects);
         pauseMenuTitle.text = "Settings";
+        musicVolume.value = settings.musicVolume;
+        effectVolume.value = settings.effectsVolume;
     }
     // Goes back to the MainPauseMenu
     public void Back()
     {
         MenuController.SwitchWindow(settingsMenuObjects, pauseMenuObjects);
         if (pauseMenuTitle.text == "Settings")
+        {
             audioManager.UpdateSoundVolume(musicVolume.value, effectVolume.value);
+            SaveLoadSystem.SaveSystemManager.SaveSettings(settings);
+        }
         pauseMenuTitle.text = "Paused";
     }
 

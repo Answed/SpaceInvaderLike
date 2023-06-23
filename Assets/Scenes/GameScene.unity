@@ -1006,6 +1006,7 @@ MonoBehaviour:
   - {fileID: 4323080205752519716, guid: 87a54dde64302dc4397d02766d061686, type: 3}
   - {fileID: 738014015117471175, guid: fa331feb6dc03b44399369487e25d282, type: 3}
   - {fileID: 8299662367633579586, guid: 373f75f32dd4ba84c9fc6c9dc33cad4f, type: 3}
+  - {fileID: 5184037247252869317, guid: 6886a8d326ffe00478c0968fc10630ef, type: 3}
   obstacles: {fileID: 3010185066025315523, guid: fc7e47b8093fcba47ae31925489aa4b6, type: 3}
   spawnHeight: 13
   timeBtwSpawns: 1

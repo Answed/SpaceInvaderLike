@@ -51,13 +51,15 @@ public class WaveSpawner : MonoBehaviour
 
     private void KindOfEnemieGetsSpawned()
     {
-        var randomEnemie = Random.Range(0f, 1f);
+        var randomEnemie = Random.Range(0f, 1.5f);
         var enemieVariation = spawnCurve.Evaluate(gameManager.wave);
-        if (randomEnemie > enemieVariation*2)
+        if (randomEnemie > enemieVariation*3)
             SpawnObject(enemies[0]);
-        else if (randomEnemie < enemieVariation * 2 && randomEnemie > enemieVariation)
+        else if (randomEnemie < enemieVariation * 3 && randomEnemie > enemieVariation*2)
             SpawnObject(enemies[1]);
-        else SpawnObject(enemies[2]);
+        else if(randomEnemie < enemieVariation * 2 && randomEnemie > enemieVariation)
+            SpawnObject(enemies[2]);
+        else SpawnObject(enemies[3]);
     }
 
     public void SpawnObstacles()

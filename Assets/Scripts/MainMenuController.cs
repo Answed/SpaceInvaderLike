@@ -11,8 +11,8 @@ public class MainMenuController : MenuController
     [SerializeField] private GameObject[] creditsObjects; // Saves all Credits related objects
     [SerializeField] private GameObject[] settingsObjects;
     [SerializeField] private GameObject[] upgradeObjects;
-    [SerializeField] private Slider musicVolume;
-    [SerializeField] private Slider effectVolume;
+    [SerializeField] private Slider musicVolumeSlider;
+    [SerializeField] private Slider effectVolumeSlider;
 
     private SettingsData settings;
 
@@ -31,7 +31,7 @@ public class MainMenuController : MenuController
     void Start()
     {
         upgradeShopManager = GetComponent<UpgradeShopManager>();
-        audioManager = GameObject.Find("AudiManager").GetComponent<AudioManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         settings = SaveLoadSystem.SaveSystemManager.LoadSettings();
     }
 
@@ -52,8 +52,8 @@ public class MainMenuController : MenuController
         SwitchWindow(mainMenuButtons, settingsObjects);
         titleText.text = "Settings";
         currentWindow = Window.Settings;
-        musicVolume.value = settings.musicVolume;
-        effectVolume.value = settings.effectsVolume;
+        musicVolumeSlider.value = settings.musicVolume;
+        effectVolumeSlider.value = settings.effectsVolume;
     }
 
     public void Credits()
@@ -74,7 +74,7 @@ public class MainMenuController : MenuController
                 break;
             case Window.Settings:
                 SwitchWindow(settingsObjects, mainMenuButtons);
-                audioManager.UpdateSoundVolume(musicVolume.value, effectVolume.value);
+                audioManager.UpdateSoundVolume(musicVolumeSlider.value, effectVolumeSlider.value);
                 SaveLoadSystem.SaveSystemManager.SaveSettings(settings);
                 break;
             case Window.Credits:

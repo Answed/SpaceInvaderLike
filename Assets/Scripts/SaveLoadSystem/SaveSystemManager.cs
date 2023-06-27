@@ -108,18 +108,18 @@ namespace SaveLoadSystem
             var dir = Application.persistentDataPath + SaveDirectory;
             CheckIfDirectoryExist(dir);
 
-            if(!File.Exists(dir + "Settings"))// This is needed to prevent overwriting everytime the game is started
-                CreateJsonFile(dir + "Settings", settingsData);
+            if(!File.Exists(dir + "Settings.txt"))// This is needed to prevent overwriting everytime the game is started
+                CreateJsonFile(dir + "Settings.txt", settingsData);
         }
         public static void SaveSettings(SettingsData settingsData)
         {
             var dir = Application.persistentDataPath + SaveDirectory;
 
-            CreateJsonFile(dir + "Settings", settingsData);
+            CreateJsonFile(dir + "Settings.txt", settingsData);
         }
         public static SettingsData LoadSettings()
         {
-            var fullPath = Application.persistentDataPath + SaveDirectory + "Settings";
+            var fullPath = Application.persistentDataPath + SaveDirectory + "Settings.txt";
             if (File.Exists(fullPath))
             {
                 string json = File.ReadAllText(fullPath);

@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         if(!nextWaveSpawned)
             OpenPerkSelector(enemiesLeft.Length);
 
-        if (enemiesLeft.Length == 0 && !nextWaveSpawned)
+        if (enemiesLeft.Length == 0 && !nextWaveSpawned && gameIsActive)
         {
             nextWaveSpawned = true;
             spawnObstacles = false;

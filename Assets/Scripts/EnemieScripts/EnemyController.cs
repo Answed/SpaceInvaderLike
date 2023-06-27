@@ -16,7 +16,8 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        if(gameManager.gameIsActive)
+            player = GameObject.Find("Player").GetComponent<PlayerController>();
         currentHealth = enemyStats.MaxHealth;
     }
     private void OnTriggerEnter2D(Collider2D collision)

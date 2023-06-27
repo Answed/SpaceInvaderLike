@@ -75,6 +75,8 @@ public class MainMenuController : MenuController
             case Window.Settings:
                 SwitchWindow(settingsObjects, mainMenuButtons);
                 audioManager.UpdateSoundVolume(musicVolumeSlider.value, effectVolumeSlider.value);
+                settings.musicVolume = musicVolumeSlider.value;
+                settings.effectsVolume = effectVolumeSlider.value;
                 SaveLoadSystem.SaveSystemManager.SaveSettings(settings);
                 break;
             case Window.Credits:
@@ -83,7 +85,6 @@ public class MainMenuController : MenuController
         }
         titleText.text = "Space Invader Like";
     }
-
     public void CloseGame()
     {
         Application.Quit();

@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputAction endGame;
     [SerializeField] private InputAction pauseGame;
 
-    [SerializeField] private Slider musicVolume;
-    [SerializeField] private Slider effectVolume;
+    [SerializeField] private Slider musicVolumeSlider;
+    [SerializeField] private Slider effectVolumeSlider;
 
     private WaveSpawner waveSpawner;
     private PerkSelectionControler perkSelectionControler;
@@ -152,8 +152,8 @@ public class GameManager : MonoBehaviour
     {
         MenuController.SwitchWindow(pauseMenuObjects, settingsMenuObjects);
         pauseMenuTitle.text = "Settings";
-        musicVolume.value = settings.musicVolume;
-        effectVolume.value = settings.effectsVolume;
+        musicVolumeSlider.value = settings.musicVolume;
+        effectVolumeSlider.value = settings.effectsVolume;
     }
     // Goes back to the MainPauseMenu
     public void Back()
@@ -161,7 +161,9 @@ public class GameManager : MonoBehaviour
         MenuController.SwitchWindow(settingsMenuObjects, pauseMenuObjects);
         if (pauseMenuTitle.text == "Settings")
         {
-            audioManager.UpdateSoundVolume(musicVolume.value, effectVolume.value);
+            audioManager.UpdateSoundVolume(musicVolumeSlider.value, effectVolumeSlider.value);
+            settings.musicVolume = musicVolumeSlider.value;
+            settings.effectsVolume = effectVolumeSlider.value;
             SaveLoadSystem.SaveSystemManager.SaveSettings(settings);
         }
         pauseMenuTitle.text = "Paused";

@@ -87,12 +87,24 @@ public class PerkSelectionControler : MonoBehaviour
 
     private void SelectPerks()
     {
-        for(int i = 0; i < 3; i++)
+        int perksForButtonAvailable = CheckAmountOfPerks();
+        for(int i = 0; i < perksForButtonAvailable; i++)
         {
             var randomPerk = Random.Range(0, perksList.Count);
             selectedPerks.Add(randomPerk);
             LoadPerkIntoButton(perkButtons[i], perksList[randomPerk]);
         }
+    }
+
+    private int CheckAmountOfPerks()
+    {
+        if (perksList.Count >= 3)
+            return 3;
+        else if (perksList.Count == 2)
+            return 2;
+        else if (perksList.Count == 1) 
+            return 1;
+        else return 0;
     }
 
     private void LoadPerkIntoButton(PerkButton button, PerkScriptableObject perk)
@@ -109,12 +121,14 @@ public class PerkSelectionControler : MonoBehaviour
         {
             attributes[perksList[selectedPerk].TypeOfAttributes[i]].Apply(perksList[selectedPerk].values[i], playerController);
         }
-        RemovePerkFromPerkList(selectedPerk);
+        perksList.RemoveAt(selectedPerk);
+        selectedPerks.Remove(selectedPerk);
+        
     }
 
-    private void RemovePerkFromPerkList(int perkIndex)
+    private void ReaddPerks()
     {
-        perksList.RemoveAt(perkIndex);
+
     }
 
     #region Perk Buttons

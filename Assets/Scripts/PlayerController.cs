@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
         switch (gameManager.gameIsActive)
         {
             case true:
+                GetComponent<Collider2D>().enabled = true;
                 moveDirection = playerMovement.ReadValue<Vector2>();
 
                 if(nextAttack < Time.time && playerAttack.ReadValue<float>() == 1)
@@ -72,6 +73,10 @@ public class PlayerController : MonoBehaviour
                     nextAttack = Time.time + timeBtwAttack;
                     Shoot();
                 }
+                break;
+            case false:
+                moveDirection = new Vector2(0, 0);
+                GetComponent<Collider2D>().enabled = false;
                 break;
         }
         

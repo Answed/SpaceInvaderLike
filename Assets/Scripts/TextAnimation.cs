@@ -21,7 +21,6 @@ public class TextAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(fadeOut);
         interpolate += interpolateSpeed * Time.deltaTime;
         if (fadeOut)
             text.color = new Color(text.color.r, text.color.g, text.color.b, Mathf.Lerp(1, 0, interpolate));

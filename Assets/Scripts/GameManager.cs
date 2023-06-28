@@ -36,7 +36,9 @@ public class GameManager : MonoBehaviour
     public bool nextWaveSpawned;
     public bool gameIsActive;
     public bool spawnObstacles;
-    
+
+    private bool shopOpend;
+
 
     private void OnEnable()
     {
@@ -65,6 +67,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(gameIsActive);
+
         if (gameIsActive)
         {
             WaveManager();
@@ -104,10 +108,11 @@ public class GameManager : MonoBehaviour
 
     private void OpenPerkSelector(int enemiesLeft)
     {
-        if (enemiesLeft == 0 && wave >= 1) // Opens Up the Shop after the first Wave 
+        if (enemiesLeft == 0 && wave >= 1 && !shopOpend) // Opens Up the Shop after the first Wave 
         {
-            perkSelectionControler.OpenPerkSelector();
             gameIsActive = false;
+            shopOpend = true;
+            perkSelectionControler.OpenPerkSelector();
         }
     }
 
@@ -182,5 +187,7 @@ public class GameManager : MonoBehaviour
         wave++;
         waveSpawner.SpawnWave(wave);
         spawnObstacles = true;
+        yield return new WaitForSeconds(timeBtwWave);
+        shopOpend = false;
     }
 }

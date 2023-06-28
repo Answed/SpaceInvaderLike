@@ -35,9 +35,7 @@ public class EnemyController : MonoBehaviour
         var random = Random.Range(0f, 1f);
 
         if(random <= 0.3f  && enemyStats.PowerUpPrefab != null)
-        {
-                Instantiate(enemyStats.PowerUpPrefab, transform.position, enemyStats.PowerUpPrefab.transform.rotation);
-        }
+            Instantiate(enemyStats.PowerUpPrefab, transform.position, enemyStats.PowerUpPrefab.transform.rotation);
 
         gameManager.UpDateScore(enemyStats.ScoreValue);
         Destroy(gameObject);

@@ -67,12 +67,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(gameIsActive);
-
         if (gameIsActive)
-        {
             WaveManager();
-        }
     }
     
     public void UpDateScore(int scorePoints)

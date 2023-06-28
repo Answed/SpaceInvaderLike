@@ -126,11 +126,6 @@ public class PerkSelectionControler : MonoBehaviour
         
     }
 
-    private void ReaddPerks()
-    {
-
-    }
-
     #region Perk Buttons
     public void PerkShopLeft()
     {

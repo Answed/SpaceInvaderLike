@@ -23,6 +23,7 @@ public class PerkSelectionControler : MonoBehaviour
 
     private PlayerController playerController;
     private GameManager gameManager;
+    private PerkBackgroundColors backgroundColors;
 
     private Dictionary<string, IApplyAttribute> attributes;
     private List<PerkScriptableObject> perksList; // Saves all the Perks which are currently in the Selection Pool
@@ -37,6 +38,7 @@ public class PerkSelectionControler : MonoBehaviour
         attributes = new Dictionary<string, IApplyAttribute>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         gameManager = GetComponent<GameManager>();
+        backgroundColors = GetComponent<PerkBackgroundColors>();
     }
 
     public void OpenPerkSelector()
@@ -112,7 +114,8 @@ public class PerkSelectionControler : MonoBehaviour
         button.PerkName.text = perk.Name;
         button.PerkDiscription.text = perk.Description;
         button.PerkImage.sprite = perk.Image;
-        button.PerkSelectionButton.gameObject.GetComponent<Image>().color = perk.BackgroundColor;
+        button.PerkSelectionButton.gameObject.GetComponent<Image>().color = backgroundColors.PerkBackgroundColor(perk.rarity);
+        Debug.Log(backgroundColors.PerkBackgroundColor(perk.rarity));
     }
 
     private void ApplyPerkToPlayerStats()
@@ -126,20 +129,50 @@ public class PerkSelectionControler : MonoBehaviour
         
     }
 
+    private void ChangeSelectionState(int buttonIndex)
+    {
+        selectedPerk = selectedPerks[buttonIndex];
+        perkButtons[buttonIndex].PerkSelectionButton.gameObject.GetComponent<Image>().color = backgroundColors.PerkBackgroundHighlightedColor(perksList[selectedPerks[buttonIndex]].rarity);
+
+        if(buttonIndex == 0)
+        {
+            try
+            {
+                perkButtons[buttonIndex + 1].PerkSelectionButton.gameObject.GetComponent<Image>().color = backgroundColors.PerkBackgroundColor(perksList[selectedPerks[buttonIndex + 1]].rarity);
+                perkButtons[buttonIndex + 2].PerkSelectionButton.gameObject.GetComponent<Image>().color = backgroundColors.PerkBackgroundColor(perksList[selectedPerks[buttonIndex + 2]].rarity);
+            }
+            catch { Debug.Log("List not long enough"); }
+        }
+        else if(buttonIndex == 1)
+        {
+            try
+            {
+                perkButtons[buttonIndex - 1].PerkSelectionButton.gameObject.GetComponent<Image>().color = backgroundColors.PerkBackgroundColor(perksList[selectedPerks[buttonIndex - 1]].rarity);
+                perkButtons[buttonIndex + 1].PerkSelectionButton.gameObject.GetComponent<Image>().color = backgroundColors.PerkBackgroundColor(perksList[selectedPerks[buttonIndex + 1]].rarity);
+            }
+            catch { Debug.Log("List not long enough"); }
+        }
+        else if(buttonIndex == 2)
+        {
+            perkButtons[buttonIndex - 2].PerkSelectionButton.gameObject.GetComponent<Image>().color = backgroundColors.PerkBackgroundColor(perksList[selectedPerks[buttonIndex - 2]].rarity);
+            perkButtons[buttonIndex - 1].PerkSelectionButton.gameObject.GetComponent<Image>().color = backgroundColors.PerkBackgroundColor(perksList[selectedPerks[buttonIndex - 1]].rarity);
+        }
+    }
+
     #region Perk Buttons
     public void PerkShopLeft()
     {
-        selectedPerk = selectedPerks[0];
+        ChangeSelectionState(0);
     }
 
     public void PerkShopMiddle()
     {
-        selectedPerk = selectedPerks[1];
+        ChangeSelectionState(1);
     }
 
     public void PerkShopRight()
     {
-        selectedPerk = selectedPerks[2];
+        ChangeSelectionState(2);
     }
 
     public void SelectPerk()

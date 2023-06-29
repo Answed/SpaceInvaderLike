@@ -6,7 +6,7 @@ public class PerkBackgroundColors : MonoBehaviour
 {
     [SerializeField] private Color[] colors;
 
-    public Color perkBackgroundColor(int rarity)
+    public Color PerkBackgroundColor(int rarity)
     {
         switch (rarity)
         {
@@ -17,7 +17,7 @@ public class PerkBackgroundColors : MonoBehaviour
         }
     }
 
-    public Color perkBackgroundHighlightedColor(int rarity)
+    public Color PerkBackgroundHighlightedColor(int rarity)
     {
         switch (rarity)
         {

@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class PerkBackgroundColors : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Color[] colors;
+
+    public Color perkBackgroundColor(int rarity)
     {
-        
+        switch (rarity)
+        {
+            case 5: return colors[0];
+            case 3: return colors[2];
+            case 1: return colors[4];
+            default: return colors[0];
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public Color perkBackgroundHighlightedColor(int rarity)
     {
-        
+        switch (rarity)
+        {
+            case 5: return colors[1];
+            case 3: return colors[3];
+            case 1: return colors[5];
+            default: return colors[1];
+        }
     }
 }

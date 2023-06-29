@@ -1241,10 +1241,7 @@ MonoBehaviour:
     PerkName: {fileID: 876497766}
     PerkDiscription: {fileID: 1268321785}
     PerkImage: {fileID: 1758979658}
-  perks:
-  - {fileID: 11400000, guid: 227db7c5f4b0055419ecb755863c48cc, type: 2}
-  - {fileID: 11400000, guid: a7fff0b2e59749f4ab36a94c1e154c89, type: 2}
-  - {fileID: 11400000, guid: a4a0e71e87b99364c9b6bae1f5829d5b, type: 2}
+  perks: []
 --- !u!1 &405898160
 GameObject:
   m_ObjectHideFlags: 0

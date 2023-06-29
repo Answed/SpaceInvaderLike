@@ -130,7 +130,6 @@ public class PerkSelectionControler : MonoBehaviour
     public void PerkShopLeft()
     {
         selectedPerk = selectedPerks[0];
-        //Change of overall button color
     }
 
     public void PerkShopMiddle()

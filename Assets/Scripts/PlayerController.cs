@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private float currentHealth;
 
     private GameManager gameManager;
+    private AudioManager audioManager;
 
     private void OnEnable()
     {
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         ApplyPlayerUpgrades();
         currentHealth = maxHealth;
         healthBar.maxValue = currentHealth;
@@ -105,6 +107,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Shoot()
     {
+        audioManager.Play("LaserShot");
         switch(amountOfBullets)
         {
             case 0:

@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
         if (clip == null)
             return;
         clip.audioSource.Play();
+        Debug.Log(clip.name);
     }
 
     public void UpdateSoundVolume(float musicVolume, float effectVolume)

@@ -11,11 +11,13 @@ public class EnemyController : MonoBehaviour
 
     protected GameManager gameManager;
     protected PlayerController player;
+    protected AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         if(gameManager.gameIsActive)
             player = GameObject.Find("Player").GetComponent<PlayerController>();
         currentHealth = enemyStats.MaxHealth;

@@ -11,6 +11,7 @@ public class NormalEnemy : EnemyController
 
         if (nextAttack <= Time.time)
         {
+            audioManager.Play("EnemyLaserShot");
             nextAttack = Time.time + enemyStats.TimeBtwShots;
             Instantiate(enemyStats.BulletPrefab, transform.position, enemyStats.BulletPrefab.transform.rotation);
         }

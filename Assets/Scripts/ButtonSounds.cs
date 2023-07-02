@@ -11,7 +11,7 @@ public class ButtonSounds : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
-    private void OnMouseOver()
+    public void OnButtonEnter()
     {
         audioManager.Play("HoverOverButton");
     }

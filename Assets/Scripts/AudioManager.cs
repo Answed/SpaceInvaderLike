@@ -1,11 +1,14 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using SaveLoadSystem;
+using Unity.VisualScripting;
 
 public class AudioManager : MonoBehaviour
 {
 
     [SerializeField] private SoundClip[] soundClips;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -13,6 +16,13 @@ public class AudioManager : MonoBehaviour
         {
            ApplayValuesToClip(clip);
         }
+        ApplySettings();
+    }
+
+    private void ApplySettings()
+    {
+        var settingsData = SaveLoadSystem.SaveSystemManager.LoadSettings();
+        UpdateSoundVolume(settingsData.musicVolume, settingsData.effectsVolume);
     }
 
     private void ApplayValuesToClip(SoundClip clip)

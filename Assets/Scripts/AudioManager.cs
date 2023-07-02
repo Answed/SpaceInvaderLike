@@ -37,9 +37,16 @@ public class AudioManager : MonoBehaviour
     {
         foreach(SoundClip clip in soundClips)
         {
-            if(clip.tag == "music")
+            if (clip.tag == "music")
+            {
                 clip.volume = musicVolume;
-            else clip.volume = effectVolume;
+                clip.audioSource.volume = musicVolume;
+            }
+            else
+            {
+                clip.volume = effectVolume;
+                clip.audioSource.volume = effectVolume;
+            }
         }
     }
 }

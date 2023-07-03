@@ -3158,6 +3158,27 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
+  - name: HeavyLaser
+    tag: effect
+    soundClip: {fileID: 8300000, guid: df527c69aa59c824e8ea35215e08f33b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: LightLaser
+    tag: effect
+    soundClip: {fileID: 8300000, guid: 1b07ff18dc6b1d343a42d657c4cdb7af, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Explosion
+    tag: effect
+    soundClip: {fileID: 8300000, guid: 3151c46ae7bde554983c30f7be49d238, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
 --- !u!1 &821054863
 GameObject:
   m_ObjectHideFlags: 0

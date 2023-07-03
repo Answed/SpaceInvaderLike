@@ -24,6 +24,7 @@ public class LightEnemy : EnemyController
 
         if (nextAttack <= Time.time)
         {
+            audioManager.Play("LightLaser");
             nextAttack = Time.time + enemyStats.TimeBtwShots;
             StartCoroutine(BurstAttack());
         }

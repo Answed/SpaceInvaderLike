@@ -40,6 +40,7 @@ public class EnemyController : MonoBehaviour
             Instantiate(enemyStats.PowerUpPrefab, transform.position, enemyStats.PowerUpPrefab.transform.rotation);
 
         gameManager.UpDateScore(enemyStats.ScoreValue);
+        audioManager.Play("Explosion");
         Destroy(gameObject);
     }
 }

@@ -16,6 +16,7 @@ public class TankEnemy : EnemyController
     {
         if(nextAttack <= Time.time && !isFiring)
         {
+            audioManager.Play("HeavyLaser");
             nextAttack += enemyStats.TimeBtwShots * 5 + Time.time;
             StartCoroutine(Attack());
         }

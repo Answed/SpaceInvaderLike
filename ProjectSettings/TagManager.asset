@@ -13,6 +13,7 @@ TagManager:
   - Health
   - HeavyBullet
   - LightBullet
+  - BG
   layers:
   - Default
   - TransparentFX

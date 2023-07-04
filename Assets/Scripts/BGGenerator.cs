@@ -15,7 +15,12 @@ public class BGGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        var bgCounter = GameObject.FindGameObjectsWithTag("BG");
+
+        if(bgCounter.Length < 4)
+        {
+            Instantiate(RandomeBG(), new Vector3(0, 19, 0), transform.rotation);
+        }
     }
 
     private void FirstGeneration()

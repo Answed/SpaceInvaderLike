@@ -18,7 +18,7 @@ public class LightEnemy : EnemyController
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.down * enemyStats.Speed * Time.deltaTime);
+        transform.Translate(Vector2.up * enemyStats.Speed * Time.deltaTime);
 
         MoveFromSideToSide();
 

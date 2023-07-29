@@ -22,7 +22,7 @@ public class TankEnemy : EnemyController
         }
 
         if (!isFiring)
-            transform.Translate(Vector2.down * Time.deltaTime * enemyStats.Speed);
+            transform.Translate(Vector2.up * Time.deltaTime * enemyStats.Speed);
 
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6559975636858161976}
   - component: {fileID: 6559975636858161927}
   - component: {fileID: 6559975636858161926}
-  - component: {fileID: 6559975636858161925}
+  - component: {fileID: 6928584331399815281}
   m_Layer: 0
   m_Name: EBullet
   m_TagString: EBullet
@@ -123,8 +123,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &6559975636858161925
-CircleCollider2D:
+--- !u!70 &6928584331399815281
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -133,9 +133,9 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Offset: {x: -0.0022465885, y: 0}
+  m_Size: {x: 0.4180842, y: 0.8}
+  m_Direction: 0

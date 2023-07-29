@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemies;
-    [SerializeField] private GameObject obstacles;
+    [SerializeField] private GameObject[] obstacles;
     [SerializeField] private int spawnHeight;
     [SerializeField] private float timeBtwSpawns;
     [SerializeField] private Vector2 spawnWidth; //I use vector 2 here to give a span where they can spawn in between
@@ -67,7 +67,8 @@ public class WaveSpawner : MonoBehaviour
         if(nextSpawn < Time.time)
         {
             nextSpawn = Time.time + timeBtwSpawns;
-            SpawnObject(obstacles);
+            int randomObstalce = Random.Range(0, obstacles.Length);
+            SpawnObject(obstacles[randomObstalce]);
         }
     }
 }

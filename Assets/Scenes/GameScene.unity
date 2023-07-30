@@ -2332,7 +2332,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   bulletPrefab: {fileID: 7348110148538499626, guid: abcd5cdc2b5755844bd7a064c6856017, type: 3}
   hitParticles: {fileID: 119033374282713987, guid: 13d3129ca28da4d4b90eeebd554f9bec, type: 3}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1370442247}
   healthStatsText: {fileID: 987612939}
   speedStatsText: {fileID: 1718347084}
   damageStatsText: {fileID: 1235803170}
@@ -2925,7 +2925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 5.350006, y: -1.5000019}
+  m_AnchoredPosition: {x: 5.3500366, y: -1.5}
   m_SizeDelta: {x: -2.299988, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &560485371
@@ -4942,10 +4942,10 @@ RectTransform:
   m_Father: {fileID: 999510315}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -641.4, y: 397.8}
-  m_SizeDelta: {x: 391.4, y: 62.3}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 220.1, y: -54.200012}
+  m_SizeDelta: {x: 391.40002, y: 62.299988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1370442247
 MonoBehaviour:

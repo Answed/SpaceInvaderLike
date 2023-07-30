@@ -13,6 +13,7 @@ public class ButtonFunctions : MonoBehaviour
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         background = GetComponent<Image>();
+        background.enabled = false;
     }
 
     public void OnButtonEnter()

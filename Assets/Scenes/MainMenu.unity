@@ -1453,7 +1453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95eb4f05e10bcc468a6d8d19c869a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
 --- !u!114 &435182146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2241,7 +2240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95eb4f05e10bcc468a6d8d19c869a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
 --- !u!114 &789448804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3039,7 +3037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95eb4f05e10bcc468a6d8d19c869a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
 --- !u!114 &1080344291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4791,7 +4788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95eb4f05e10bcc468a6d8d19c869a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
 --- !u!114 &1683080173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5708,6 +5704,7 @@ GameObject:
   - component: {fileID: 2094086279}
   - component: {fileID: 2094086278}
   - component: {fileID: 2094086280}
+  - component: {fileID: 2094086281}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -5797,6 +5794,19 @@ MonoBehaviour:
   - {fileID: 1045054327}
   - {fileID: 1548631498}
   upgradeShops: []
+--- !u!114 &2094086281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094086277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413f6a023df8dc2408bdfb8f841eb906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 6e82f360213623f438217f785835a664, type: 3}
 --- !u!1 &2123038171
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using SaveLoadSystem;
+using UnityEngine.InputSystem;
 
 public class MainMenuController : MenuController
 {
@@ -13,6 +14,8 @@ public class MainMenuController : MenuController
     [SerializeField] private GameObject[] upgradeObjects;
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider effectVolumeSlider;
+
+    [SerializeField] private InputAction clickSound;
 
     private SettingsData settings;
 
@@ -28,6 +31,17 @@ public class MainMenuController : MenuController
     private AudioManager audioManager;
 
     // Start is called before the first frame update
+    private void OnEnable()
+    {
+        clickSound.performed += PlaySound;
+        clickSound.Enable();
+    }
+
+    private void OnDisable()
+    {
+        clickSound.Disable();
+    }
+
     void Start()
     {
         upgradeShopManager = GetComponent<UpgradeShopManager>();
@@ -88,5 +102,10 @@ public class MainMenuController : MenuController
     public void CloseGame()
     {
         Application.Quit();
+    }
+
+    private void PlaySound(InputAction.CallbackContext context)
+    {
+        audioManager.Play("Click");
     }
 }

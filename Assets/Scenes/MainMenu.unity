@@ -5746,6 +5746,23 @@ MonoBehaviour:
   - {fileID: 762979272}
   musicVolumeSlider: {fileID: 1034050430}
   effectVolumeSlider: {fileID: 1868698431}
+  clickSound:
+    m_Name: Click Sound
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: d0461d8c-32e7-4587-a4fa-024805bb7735
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 59a76122-9e74-4ea8-bce4-a8fa530321c7
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Click Sound
+      m_Flags: 0
+    m_Flags: 0
 --- !u!4 &2094086279
 Transform:
   m_ObjectHideFlags: 0

@@ -57,6 +57,7 @@ public class PerkSelectionControler : MonoBehaviour
     {
         perkSelectorObjects.SetActive(false);
         gameManager.gameIsActive = true;
+        gameManager.DisableClickSound();
     }
 
     private void CreateAttributeList()

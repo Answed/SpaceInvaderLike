@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: 0";
         gameIsActive = false;
         startGameText.SetActive(true);
+        DisableClickSound();
     }
 
     // Update is called once per frame
@@ -157,7 +158,7 @@ public class GameManager : MonoBehaviour
         blackScreen.SetActive(false);
         pauseMenuTitle.gameObject.SetActive(false);
         Time.timeScale = 1.0f;
-        clickSound.Disable();
+        DisableClickSound();
     }
 
     public void Settings()
@@ -190,6 +191,13 @@ public class GameManager : MonoBehaviour
     {
         clickSound.Enable();
         clickSound.performed += PlayClickSound;
+        Cursor.visible = true;
+    }
+
+    public void DisableClickSound()
+    {
+        clickSound.Disable();
+        Cursor.visible = false;
     }
 
 

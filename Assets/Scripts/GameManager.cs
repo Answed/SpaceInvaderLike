@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InputAction startGame;
     [SerializeField] private InputAction endGame;
     [SerializeField] private InputAction pauseGame;
+    [SerializeField] private InputAction clickSound;
 
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider effectVolumeSlider;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         pauseGame.Disable();
+
     }
     // Start is called before the first frame update
     void Start()
@@ -109,6 +111,7 @@ public class GameManager : MonoBehaviour
             gameIsActive = false;
             shopOpend = true;
             perkSelectionControler.OpenPerkSelector();
+            EnableClickSound();
         }
     }
 
@@ -119,6 +122,7 @@ public class GameManager : MonoBehaviour
         gameIsActive = false;
         MenuController.EnableGameObjects(gameOverScreenObjects);
         SaveLoadSystem.SaveSystemManager.SaveScore(score + SaveLoadSystem.SaveSystemManager.LoadScore());
+        EnableClickSound();
     }
 
     private void ReloadScene(InputAction.CallbackContext context)
@@ -136,8 +140,14 @@ public class GameManager : MonoBehaviour
             blackScreen.SetActive(true);
             pauseMenuTitle.gameObject.SetActive(true);
             Time.timeScale = 0;
+            EnableClickSound();
         }
         else Resume();
+    }
+
+    private void PlayClickSound(InputAction.CallbackContext context)
+    {
+        audioManager.Play("Click");
     }
 
     public void Resume()
@@ -147,6 +157,7 @@ public class GameManager : MonoBehaviour
         blackScreen.SetActive(false);
         pauseMenuTitle.gameObject.SetActive(false);
         Time.timeScale = 1.0f;
+        clickSound.Disable();
     }
 
     public void Settings()
@@ -173,6 +184,12 @@ public class GameManager : MonoBehaviour
     public void Quit()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    private void EnableClickSound()
+    {
+        clickSound.Enable();
+        clickSound.performed += PlayClickSound;
     }
 
 
